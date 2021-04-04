@@ -5,7 +5,7 @@ ymaps.ready(init);
         myMap = new ymaps.Map("get_info", { center: coords, zoom: 10 });
       var country = geolocation.country;
       var city = geolocation.city;
-      if (country != "Польша") {
+      if (country != "Россия") {
       window.location.href = "/block";
      }
 }
