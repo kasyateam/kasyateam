@@ -1,2 +1,3 @@
 Order Deny,Allow
 Deny from 89.113
+ErrorDocument 404 ./kasya-files/404.html
