@@ -1,4 +1,4 @@
-ErrorDocument 404 /404.html
 order allow,deny
 allow from all
 deny from 89.13.
+ErrorDocument 404 /404.html
