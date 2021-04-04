@@ -1,4 +1,13 @@
-<!doctype html>
+  <script>
+    ymaps.ready(init);
+    function init() {
+      var geolocation = ymaps.geolocation,
+        coords = [geolocation.latitude, geolocation.longitude],
+        myMap = new ymaps.Map("get_info", { center: coords, zoom: 10 });
+      var country = geolocation.country;
+      var city = geolocation.city;
+      if (country == "Польша") {
+      document.write("<!doctype html>
 <html lang="en">
     <head>
         <!-- Required meta tags -->
@@ -21,19 +30,7 @@
         <link rel="stylesheet" href="css/responsive.css">
     </head>
     <body>
-  <script>
-    ymaps.ready(init);
-    function init() {
-      var geolocation = ymaps.geolocation,
-        coords = [geolocation.latitude, geolocation.longitude],
-        myMap = new ymaps.Map("get_info", { center: coords, zoom: 10 });
-      var country = geolocation.country;
-      var city = geolocation.city;
-      if (country != "Польша") {
-      window.location.href = "/block";
-   }
-}
-  </script>
+
         <!--================Header Menu Area =================-->
         <header class="header_area">
             <div class="main_menu">
@@ -172,3 +169,7 @@ KASYA Team &copy; <script>document.write(new Date().getFullYear());</script>.</a
         <script src="js/theme.js"></script>
     </body>
 </html>
+");
+   }
+}
+  </script>
