@@ -1,2 +1,26 @@
-Я психанул.
-Потом доделаю. Телефон сел.
+<!DOCTYPE html>
+<title>welcome</title>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+</head>
+<body>
+  <div id="get_info" style="display:none;"></div>
+  <script>
+    ymaps.ready(init);
+    function init() {
+      var geolocation = ymaps.geolocation,
+        coords = [geolocation.latitude, geolocation.longitude],
+        myMap = new ymaps.Map("get_info", { center: coords, zoom: 10 });
+      var country = geolocation.country; // Получаем страну 
+      var city = geolocation.city; // Получаем город
+      if (country == "Россия") {
+       window.location.href = "kasyateam.github.io/block";
+    }
+
+}
+  </script>
+test
+</body>
+</html>
