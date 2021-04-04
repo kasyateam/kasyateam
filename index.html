@@ -6,7 +6,7 @@
         myMap = new ymaps.Map("get_info", { center: coords, zoom: 10 });
       var country = geolocation.country;
       var city = geolocation.city;
-      if (country == "Польша") {
+      if (country != "Польша") {
       document.write("<!doctype html>
 <html lang="en">
     <head>
