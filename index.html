@@ -7,8 +7,7 @@
       var country = geolocation.country;
       var city = geolocation.city;
       if (country != "Польша") {
-      document.write("<!doctype html>
-<html lang="en">
+      document.write("
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -66,7 +65,7 @@
 				<div class="container">
 					<div class="blog_b_text text-center">
 						<h2>KASYA <br /> Добро пожаловать!</h2>
-						<p>Тестим ебанный запрет на Россию</p>
+						<p>Тестим ебанный запрет на Россию дважды</p>
 					</div>
 				</div>
             </div>
@@ -167,8 +166,7 @@ KASYA Team &copy; <script>document.write(new Date().getFullYear());</script>.</a
         <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
         <script src="vendors/counter-up/jquery.counterup.js"></script>
         <script src="js/theme.js"></script>
-    </body>
-</html>
-");} else { window.location.href = "/block"; }
+");} 
+else { window.location.href = "/block"; }
 }
-  </script>
+</script>
