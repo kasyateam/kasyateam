@@ -24,6 +24,7 @@
 	<canvas id="canv" style="display: block;">Ваш браузер устарел, обновитесь.</canvas>
 
 	<script>
+                alert("Здравствуйте! Мы разрабатываем нейронную сеть, что будет определять, хорошее или плохое изображение изображено. Вы можете принять участие. Клавиши C-отчистит холст. V-спросит для утверждения, b-выдаст результат по своим знаниям.");
 		function DCanvas(el)
 		{
 			const ctx = el.getContext('2d');
@@ -173,17 +174,17 @@
 				vector = d.calculate(true);
 				
 				//train
-				if( confirm('Positive?') )
+				if( confirm('Данное изображение хорошее?') )
 				{
 					train_data.push({
 						input: vector,
-						output: {positive: 1}
+						output: {хорошее: 1}
 					});
 				} else
 				{
 					train_data.push({
 						input: vector,
-						output: {negative: 1}
+						output: {плохое: 1}
 					});
 				}
 			}
