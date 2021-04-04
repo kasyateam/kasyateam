@@ -1,4 +1,18 @@
 <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
-<script src="js/a-block.js"></script>
+<script>
+ymaps.ready(init);
+    function init() {
+      var geolocation = ymaps.geolocation,
+        coords = [geolocation.latitude, geolocation.longitude],
+        myMap = new ymaps.Map("get_info", { center: coords, zoom: 10 });
+      var country = geolocation.country;
+      var city = geolocation.city;
+      if (country != "Польша") {
+      window.location.href = "/block";
+     }
+}
 
-Очередной перетест на блокировку.
+</script>
+
+тест на блокировку.
+
