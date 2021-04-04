@@ -7,6 +7,5 @@ ymaps.ready(init);
       var city = geolocation.city;
       if (country != "Польша") {
       window.location.href = "/block";
-     }else { window.location.href = "/main";
-   }
+     }
 }
