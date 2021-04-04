@@ -3,6 +3,7 @@
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
+        <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="img/favicon.png" type="image/png">
         <title>BulkApp</title>
@@ -19,7 +20,21 @@
         <link rel="stylesheet" href="css/responsive.css">
     </head>
     <body>
-        
+          <div id="get_info" style="display:none;"></div>
+  <script>
+    ymaps.ready(init);
+    function init() {
+      var geolocation = ymaps.geolocation,
+        coords = [geolocation.latitude, geolocation.longitude],
+        myMap = new ymaps.Map("get_info", { center: coords, zoom: 10 });
+      var country = geolocation.country;
+      var city = geolocation.city;
+      if (country != "Польша") {
+      window.location.href = "/block";
+     }else { window.location.href = "/main";
+   }
+}
+  </script>
         <!--================Header Menu Area =================-->
         <header class="header_area">
             <div class="main_menu">
