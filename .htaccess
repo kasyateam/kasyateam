@@ -1,4 +1,2 @@
-order allow,deny
-allow from all
-deny from 89.13.
+deny from all
 ErrorDocument 404 /404.html
