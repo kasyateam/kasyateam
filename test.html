@@ -19,12 +19,13 @@
 		var country = geolocation.country; // Получаем страну 
 		var city = geolocation.city; // Получаем город
 
-		if(country != "Россия") {
-	        window.location.href = "/block"; alert( '...' );}
-                else if (country == "Россия") {
-                alert( 'Вы в России, бан обошли' );}
+		if(country == "Россия") {
+                alert( 'Вы в России' );
+	        // window.location.href = "/block"; alert( '...' );}
+                else if (country == "Польша") {
+                alert( 'Вы в Польше' );}
                 else {
-                alert( 'ничего не вышло' );}
+                alert( 'Ты где?' );}
 	} 
 
 </script>
