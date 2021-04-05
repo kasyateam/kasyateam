@@ -20,28 +20,7 @@
         
 <div id="get_info" style="display:none;"></div>
 
-<script>
 
-	ymaps.ready(init);
-
-	function init() {
-
-		var geolocation = ymaps.geolocation, 
-		coords = [geolocation.latitude, geolocation.longitude], 
-		myMap = new ymaps.Map("get_info", {center: coords, zoom: 10});
-
-		var country = geolocation.country; // Получаем страну 
-		var city = geolocation.city; // Получаем город
-
-		if(country != "Польша") {
-
-			window.location.href = "/block"; // Перенаправляем пользователя на страницу с блокировкой, если он из России
-
-		}
-
-	} 
-
-</script>
 <div id="get_info" style="display:none;"></div>
 
 <script>
