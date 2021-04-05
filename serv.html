@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Отправляем JSON-данные на сервер
+  </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body style="text-align:center;" id="body">
+  <!-- заголовок -->
+  <h1> Простая форма для проверки работы JSON </h1>
+  <!-- делаем форму с полями ввода -->
+  <p>
+    <input type="text" id="name" placeholder="Ваше имя">
+    <input type="text" id="lastname" placeholder="и фамилия">
+    <!-- по нажатию на эту кнопку данные уйдут на сервер -->
+    <button onclick="sendJSON()">Проверить JSON</button>
+    <!-- а вот тут они появятся снова, но уже после обработки сервером -->
+  <p class="result" style="color:blue"></p>
+  </p>
+</body>
+</html>
