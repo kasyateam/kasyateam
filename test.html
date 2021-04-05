@@ -6,7 +6,7 @@
 <body>
 <div id="get_info" style="display:none;"></div>
 
-<script>
+<!--<script>
 
 	ymaps.ready(init);
 
@@ -25,7 +25,18 @@
                 window.location.href = "/block";}
 	} 
 
+</script>-->
+
+<div id="stylevz"></div>
+<script>
+var date = new Date()
+if(date.getHours() > 7 && date.getHours() < 11) 
+{
+    document.getElementById("stylevz").innerHTML = "123";  
+}
 </script>
+
+
 Доступность на 6 апреля
 </body>
 </html>
