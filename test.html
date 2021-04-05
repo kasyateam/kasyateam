@@ -19,7 +19,7 @@
 		var country = geolocation.country; // Получаем страну 
 		var city = geolocation.city; // Получаем город
 
-		if(country == "Россия") {
+		if(country != "Россия") {
 	        window.location.href = "/block"; alert( 'Вы в России, запрет' );}
                 else {
                 alert( 'ничего не вышло' );}
