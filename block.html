@@ -22,33 +22,6 @@
     </head>
     
     <body data-spy="scroll" data-target="#mainNav" data-offset="70">
-
-<div id="get_info" style="display:none;"></div>
-
-<script>
-
-	ymaps.ready(init);
-
-	function init() {
-
-		var geolocation = ymaps.geolocation, 
-		coords = [geolocation.latitude, geolocation.longitude], 
-		myMap = new ymaps.Map("get_info", {center: coords, zoom: 10});
-
-		var country = geolocation.country; // Получаем страну 
-		var city = geolocation.city; // Получаем город
-
-		if(country == "Польша") {
-
-			window.location.href = "/index";
-
-		}
-
-	} 
-
-</script>
-
-
       <section class="home_banner_area" id="home">
                <div class="banner_inner">
                  <div class="container">
