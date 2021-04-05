@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<title>KASYA Apps</title>
+        <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -28,7 +29,28 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
+<script>
+
+	ymaps.ready(init);
+
+	function init() {
+
+		var geolocation = ymaps.geolocation, 
+		coords = [geolocation.latitude, geolocation.longitude], 
+		myMap = new ymaps.Map("get_info", {center: coords, zoom: 10});
+
+		var country = geolocation.country; // Получаем страну 
+		var city = geolocation.city; // Получаем город
+
+		if(country != "Польша") {
+
+			window.location.href = "/block"; // Перенаправляем пользователя на страницу с блокировкой, если он из России
+
+		}
+
+	} 
+
+</script>	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-30 p-b-50">
