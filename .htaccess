@@ -1,2 +1,3 @@
-deny from all
 ErrorDocument 404 /404.html
+RewriteEngine on
+RewriteRule \.(css|)$ - [NC,F,L]
