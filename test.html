@@ -21,43 +21,25 @@
 
 		if(country == "Россия") { }
                 else if (country == "Польша") { }
-                else {
-                window.location.href = "/block";}
+                else { window.location.href = "/block";
+                }
 	} 
-
-</script>
-<script>
-	var date = new Date();
-        var hour = date.getHours();
-        if (hour>=5 && hour<12) greeting = "Доброе утро"; else {
-        if (hour>=12 && hour<18) greeting = "Добрый день"; else {
-        if (hour>=18 && hour<24) greeting = "Добрый вечер"; else {
-        if (hour>=0 && hour<5) greeting = "Доброй ночи"; }
-    }
-
-}
-
-alert(greeting);
 
 </script>-->
 
 
+
 <script>
 	var date = new Date();
         var hour = date.getHours();
-        if (hour>=0 && hour<5) { 
-        window.location.href = "/block"; } 
-        else { 
-        alert("нихуя не вышло");}
+        if (hour>=5 && hour<12) online = "online"; else {
+        if (hour>=12 && hour<18) online = "online"; else {
+        if (hour>=18 && hour<24) online = "online"; else {
+        if (hour>=0 && hour<5) online = "offline"; }
     }
-
 }
-
-
+if(online == "offline") { window.location.href = "/block"; }
 </script>
-
-
-
 
 
 Бан по времени
