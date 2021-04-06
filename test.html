@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <head>
 <meta charset="utf-8">
-<title>Popup window</title>
+<title>Тестирование</title>
 </head>
 <body>
 <style>
-/*Затемнение дисплея*/
 .overlay {
     background-color: rgba(1, 0, 0, 0.77);
     right: 0;
@@ -16,11 +15,9 @@
     z-index: 11;
     display: none;
 }
-/*Слой становится видимым*/
 .overlay:target {
     display: block;
 }
-/*Растягиваю картинку на всю ширину попапа*/
 .window img { 
    width: 100%;
 }
@@ -72,24 +69,11 @@
     background-color: rgba(253, 21, 0, 0.83);
     transform: rotate(360deg);    
 }
-/*Оформление главной кнопки*/
-#button {
-  margin-left: 40%;
-font-size: 33px;
-  border-radius: 11px;
-    background-color: rgba(63, 63, 63, 0.9);
-    box-shadow: 0 3px 10px #010;
-    text-align: center;
-    text-decoration: none;
-   background: #DCDCDC; 
-    padding: 6px 17px; 
-}
 </style>
 <a href="#b" id="button">Нажми на меня</a>
 <a href="#x" class="overlay" id="b"></a>
    <div class="window">
-     <img src="http://www.sunhome.ru/UsersGallery/Cards/prazdnik_den_zemli_kartinka.jpg"/> 
-    <a class="close" title="Закрыть" href="#close"></a>
+     <h2>Проведем небольшой тест на затемнение заднего фона.</h2>
     </div>
 </body>
 </html>
