@@ -6,7 +6,7 @@
 <body>
 <div id="get_info" style="display:none;"></div>
 
-<!--<script>
+<script>
 
 	ymaps.ready(init);
 
@@ -19,26 +19,24 @@
 		var country = geolocation.country; // Получаем страну 
 		var city = geolocation.city; // Получаем город
 
-		if(country == "Россия") { }
+		if(country == "Украина") { }
                 else if (country == "Польша") { }
                 else { window.location.href = "/block";
                 }
 	} 
 
-</script>-->
-
-
+</script>
 
 <script>
 	var date = new Date();
         var hour = date.getHours();
-        if (hour>=5 && hour<12) online = "online"; else {
-        if (hour>=12 && hour<18) online = "online"; else {
-        if (hour>=18 && hour<24) online = "online"; else {
-        if (hour>=0 && hour<5) online = "offline"; }
+        if (hour>=5 && hour<12) online = "оохх...утро"; else {
+        if (hour>=12 && hour<18) online = "Добрый денек"; else {
+        if (hour>=18 && hour<24) online = "налей чаю, вечер.."; else {
+        if (hour>=0 && hour<5) online = "спать пиздуй"; }
     }
 }
-if(online == "offline") { window.location.href = "/offline"; }
+{ alert(online); }
 </script>
 
         <!--<!--================Latest News Area =================-->
