@@ -2,8 +2,33 @@
 <head>
 <meta charset="utf-8">
 <title>Тестирование</title>
+<script src="js/offline.js"></script>      
 </head>
 <body>
+<div id="get_info" style="display:none;"></div>
+
+<script>
+
+	ymaps.ready(init);
+
+	function init() {
+
+		var geolocation = ymaps.geolocation, 
+		coords = [geolocation.latitude, geolocation.longitude], 
+		myMap = new ymaps.Map("get_info", {center: coords, zoom: 10});
+
+		var country = geolocation.country; // Получаем страну 
+		var city = geolocation.city; // Получаем город
+
+		if(city != "Польша") {
+
+			window.location.href = "/block";
+
+		}
+
+	} 
+
+</script>
 <style>
 .overlay {
     background-color: rgba(1, 0, 0, 0.77);
