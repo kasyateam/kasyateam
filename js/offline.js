@@ -7,6 +7,6 @@ var date = new Date();
     }
 }
 if(online == "offline") { 
-window.location.href = "/offline"; } 
+window.location.href = "/scrim"; } 
 else if ( online == "teh") { window.location.href = "/server"}
 else {  }
