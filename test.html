@@ -1,5 +1,3 @@
-<div class="container">Turn off your internet connection</div>
-
 <script>
 
 function network(data) {
@@ -55,3 +53,45 @@ network.prototype.toggle = function(data) {
 new network();
 
 </script>
+<style>
+
+body {
+   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", sans-serif;
+   margin: 0;
+}
+​
+​
+.container {
+   display: grid;
+   align-items: center;
+   justify-items: center;
+   height:100vh;
+   width: 100%;
+       font-size: 2rem;
+    font-weight: 100;
+   text-align: center;
+}
+​
+​
+@height: 23px;
+​
+.network {
+   position: fixed;
+   bottom: -@height;
+   display: grid;
+   align-items: center;
+   justify-items: center;
+   width: 100%;
+   height: @height;
+   background: #333333;
+   color: #fff;
+   transition: 0.3s;
+   font-size: 13px;
+   &.online {
+      background: #009e54;
+   }
+}
+​
+</style>
+<div class="container">Turn off your internet connection</div>
