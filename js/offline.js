@@ -8,5 +8,5 @@ var date = new Date();
 }
 if(online == "offline") { 
 window.location.href = "/offline"; } 
-else if ( online == "teh") { window.location.href = "/server"}
+else if ( online == "teh") { window.location.href = "/server"; alert('В 12:00 по МСК всё будет налажено');}
 else {  }
