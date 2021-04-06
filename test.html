@@ -1,97 +1,95 @@
-<script>
-
-function network(data) {
-	this.opened = false;
-	this.online = true;
-
-	this.container = document.createElement("div");
-	this.container.classList.add("network");
-	document.querySelector("body").appendChild(this.container);
-
-	this.init();
-}
-
-network.prototype.init = function() {
-	setInterval(() => {
-		if (!this.online && navigator.onLine) {
-			console.log("Back online");
-			this.online = true;
-			
-			this.container.classList.add('online')
-	      this.container.innerHTML = "Back online"
-			
-			this.toggle()
-		} else if (this.online && !navigator.onLine) {
-			console.log("No connection");
-			this.online = false;
-			
-			this.container.classList.remove('online')
-	      this.container.innerHTML = "No connection"
-			
-			this.toggle();
-		}
-	}, 5000);
-};
-
-network.prototype.open = function(data) {
-	this.opened = true;
-	return (this.container.style["transform"] =
-		"translateY(-" + this.container.offsetHeight + "px)");
-};
-
-network.prototype.close = function() {
-	this.opened = false;
-	this.container.style["transform"] = "translateY(0)";
-};
-
-network.prototype.toggle = function(data) {
-	return this.opened ? this.close(data) : this.open(data);
-};
-
-
-// init
-new network();
-
-</script>
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>Popup window</title>
+</head>
+<body>
 <style>
-
-body {
-   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
-      "Helvetica Neue", sans-serif;
-   margin: 0;
+/*Затемнение дисплея*/
+.overlay {
+    background-color: rgba(1, 0, 0, 0.77);
+    right: 0;
+    left: 0;
+    position: fixed; 
+    top: 0;
+    bottom: 0;
+    z-index: 11;
+    display: none;
 }
-​
-​
-.container {
-   display: grid;
-   align-items: center;
-   justify-items: center;
-   height:100vh;
+/*Слой становится видимым*/
+.overlay:target {
+    display: block;
+}
+/*Растягиваю картинку на всю ширину попапа*/
+.window img { 
    width: 100%;
-       font-size: 2rem;
-    font-weight: 100;
-   text-align: center;
 }
-​
-​
-@height: 23px;
-​
-.network {
-   position: fixed;
-   bottom: -@height;
-   display: grid;
-   align-items: center;
-   justify-items: center;
-   width: 100%;
-   height: @height;
-   background: #333333;
-   color: #fff;
-   transition: 0.3s;
-   font-size: 13px;
-   &.online {
-      background: #009e54;
-   }
+/*Характеристики самого окна, которое появляется после клика на кнопке*/
+.window {
+    left: 50%;
+    z-index: 12;
+    margin: 0;
+    position: fixed;
+    padding: 15px;
+    border: 1px solid #383738;
+    background: #fefeff;
+    border-radius: 15px;
+    box-shadow: 0 13px 21px rgba(0,1,0,.19),0 21px 63px rgba(0,1,0,.31);
+    transform: translate(-50%, -450%);
+    transition: transform 0.6s ease-out;
 }
-​
+/*Появление модального окошка с верхнего края экрана*/
+.overlay:target+.window {
+    transform: translate(-50%, 0);
+    top: 17%;
+}
+/*Внешний вид кнопки «Закрыть»*/
+.close {
+    top: -11px;
+    right: -11px;
+    width: 23px;
+    height: 23px;
+    position: absolute;
+    padding: 0;
+    border: 2px solid #ccd;
+    border-radius: 15px;
+    background-color: rgba(61, 61, 61, 0.81);
+    box-shadow: 0 0 12px #010;
+    text-align: center;
+    text-decoration: none;
+    font: 18px sans-serif;
+    font-weight: bold;
+    transition: all ease .9s;
+}
+.close:before {
+    color: rgba(254, 254, 254, 0.89);
+    content: "X";
+    text-shadow: 0 1px 3px #010;
+    font-size: 14px;
+}
+/*Изменение характеристик при наведении на область */
+.close:hover {
+    background-color: rgba(253, 21, 0, 0.83);
+    transform: rotate(360deg);    
+}
+/*Оформление главной кнопки*/
+#button {
+  margin-left: 40%;
+font-size: 33px;
+  border-radius: 11px;
+    background-color: rgba(63, 63, 63, 0.9);
+    box-shadow: 0 3px 10px #010;
+    text-align: center;
+    text-decoration: none;
+   background: #DCDCDC; 
+    padding: 6px 17px; 
+}
 </style>
-<div class="container">Turn off your internet connection</div>
+<a href="#b" id="button">Нажми на меня</a>
+<a href="#x" class="overlay" id="b"></a>
+   <div class="window">
+     <img src="http://www.sunhome.ru/UsersGallery/Cards/prazdnik_den_zemli_kartinka.jpg"/> 
+    <a class="close" title="Закрыть" href="#close"></a>
+    </div>
+</body>
+</html>
