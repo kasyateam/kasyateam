@@ -10,4 +10,6 @@ if (online == "offline") {
 window.location.href = "/offline";
 } else if (online == "teh") {
 window.location.href = "/server";
-} else { }
+} else { 
+window.location.href = "/error";
+}
