@@ -7,5 +7,5 @@ var date = new Date();
     }
 }
 if(online == "0") { 
-window.location.href = "/offline"; } else { alert("Ошибка");}
+window.location.href = "/offline"; alert("В серверной комнате произошёл сбой. Работа сервера не доступна.")  } else { }
 
