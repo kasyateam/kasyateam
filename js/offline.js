@@ -7,5 +7,5 @@ var date = new Date();
     }
 }
 if(online == "online") { 
-window.location.href = "/serv"; } 
+window.location.href = "/serv"; } else { alert("Ошибка") }
 
