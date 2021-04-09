@@ -7,6 +7,8 @@ var date = new Date();
     }
 }
 if(online == "0") { 
+window.location.href = "/offline";}
+else {
 window.location.href = "/error";}
 
 
