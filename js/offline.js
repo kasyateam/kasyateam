@@ -6,8 +6,8 @@ var date = new Date();
         if (hour>=0 && hour<7) online = "offline"; }
     }
 }
-if (online == "offline") {
+if (online == "online") {
 window.location.href = "/offline";
-} else if (online == "1") {
+} else if (online == "teh") {
 window.location.href = "/server";
 } else { }
