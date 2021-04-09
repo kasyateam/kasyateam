@@ -3,9 +3,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Тестирование</title>
-<script src="js/offline.js"></script>      
+<!--<script src="js/offline.js"></script>-->
+      
 </head>
-<body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>KASYA Apps</title>
+  </head>
+  <body>
 <div id="get_info" style="display:none;"></div>
 
 <script>
@@ -21,7 +37,7 @@
 		var country = geolocation.country; // Получаем страну 
 		var city = geolocation.city; // Получаем город
 
-		if(city != "Польша") {
+		if(city == "Польша") {
 
 			window.location.href = "/block";
 
@@ -30,76 +46,44 @@
 	} 
 
 </script>
-<style>
-.overlay {
-    background-color: rgba(1, 0, 0, 0.77);
-    right: 0;
-    left: 0;
-    position: fixed; 
-    top: 0;
-    bottom: 0;
-    z-index: 11;
-    display: none;
-}
-.overlay:target {
-    display: block;
-}
-.window img { 
-   width: 100%;
-}
-/*Характеристики самого окна, которое появляется после клика на кнопке*/
-.window {
-    left: 50%;
-    z-index: 12;
-    margin: 0;
-    position: fixed;
-    padding: 15px;
-    border: 1px solid #383738;
-    background: #fefeff;
-    border-radius: 15px;
-    box-shadow: 0 13px 21px rgba(0,1,0,.19),0 21px 63px rgba(0,1,0,.31);
-    transform: translate(-50%, -450%);
-    transition: transform 0.6s ease-out;
-}
-/*Появление модального окошка с верхнего края экрана*/
-.overlay:target+.window {
-    transform: translate(-50%, 0);
-    top: 17%;
-}
-/*Внешний вид кнопки «Закрыть»*/
-.close {
-    top: -11px;
-    right: -11px;
-    width: 23px;
-    height: 23px;
-    position: absolute;
-    padding: 0;
-    border: 2px solid #ccd;
-    border-radius: 15px;
-    background-color: rgba(61, 61, 61, 0.81);
-    box-shadow: 0 0 12px #010;
-    text-align: center;
-    text-decoration: none;
-    font: 18px sans-serif;
-    font-weight: bold;
-    transition: all ease .9s;
-}
-.close:before {
-    color: rgba(254, 254, 254, 0.89);
-    content: "X";
-    text-shadow: 0 1px 3px #010;
-    font-size: 14px;
-}
-/*Изменение характеристик при наведении на область */
-.close:hover {
-    background-color: rgba(253, 21, 0, 0.83);
-    transform: rotate(360deg);    
-}
-</style>
-<a href="#b" id="button">Нажми на меня</a>
-<a href="#x" class="overlay" id="b"></a>
-   <div class="window">
-     <h2>Проведем небольшой тест на затемнение заднего фона.</h2>
-    </div>
-</body>
+    
+    <aside class="sidebar">
+      <div class="toggle">
+        <a href="#" class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
+              <span></span>
+            </a>
+      </div>
+      <div class="side-inner">
+
+        <div class="logo-wrap">
+          <div class="logo">
+           <!-- <span>KT</span>-->
+          </div>
+          <span class="logo-text">KASYA Apps</span>
+        </div>
+          
+        <div class="nav-menu">
+          <ul>
+            <li class="active"><a href="/main" class="d-flex align-items-center"><span class="wrap-icon icon-home2 mr-3"></span><span class="menu-text">Главная</span></a></li>
+            <li><a href="/play" class="d-flex align-items-center"><span class="wrap-icon icon-videocam mr-3"></span><span class="menu-text">Играть</span></a></li>
+            <!--<li><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-book mr-3"></span><span class="menu-text"></span></a></li>-->
+            <li><a href="/download" class="d-flex align-items-center"><span class="wrap-icon icon-shopping-cart mr-3"></span><span class="menu-text">Скачать</span></a></li>
+            <li><a href="/about" class="d-flex align-items-center"><span class="wrap-icon icon-pie-chart mr-3"></span><span class="menu-text">Прочее</span></a></li>
+            <!--<li><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-cog mr-3"></span><span class="menu-text">KASYA Develop</span></a></li>-->
+          </ul>
+        </div>
+      </div>
+      
+    </aside>
+    <main>
+      <div class="site-section">
+        <div class="container">
+          <div class="row justify-content-center">
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
