@@ -8,7 +8,7 @@ var date = new Date();
 }
 if (online == "offline") {
 window.location.href = "/offline";
-} else if (online == "teh") {
+} else if (online != "offline") {
 window.location.href = "/server";
 } else { 
 window.location.href = "/error";
