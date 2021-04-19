@@ -9,7 +9,7 @@ var date = new Date();
 if (online == "online") { 
   
 } else if (online == "server") {
-window.location.href = "server.html";
+window.location.href = "/server";
 } else { 
-window.location.href = "offline.html"; 
+window.location.href = "/offline"; 
 }
