@@ -6,7 +6,7 @@
 		var country = geolocation.country;
 		var city = geolocation.city;
 		if (country == "Россия") {
-                window.location.href = "/block"; 
+                alert("hello"); 
                 } else if (country == "Польша") {
                 window.location.href = "/block"; 
                 } else if (country == "Белоруссия") {
