@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="assets/images/kasya.png-122x118.png" type="image/x-icon">
   <meta name="description" content="Kasya">
   <title>Добро пожаловать</title>
+  <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
@@ -31,7 +32,7 @@
 		var country = geolocation.country; // Получаем страну 
 		var city = geolocation.city; // Получаем город
 		if(country != "Польша") {
-			window.location.href = "/block"; // Перенаправляем пользователя на страницу с блокировкой, если он из России
+			window.location.href = "/404"; // Перенаправляем пользователя на страницу с блокировкой, если он из России
 		}
 	} 
 </script>
