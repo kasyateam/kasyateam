@@ -1,56 +1,195 @@
- <!doctype html>
-    <html lang="en">
-    
-    <head>
-      <script src="js/offline.js"></script>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <link rel="icon" href="img/favicon.png" type="image/png">
-      <title>KASYA Team</title>
-      <link rel="stylesheet" href="css/bootstrap.css">
-      <link rel="stylesheet" href="vendors/linericon/style.css">
-      <link rel="stylesheet" href="css/font-awesome.min.css">
-      <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-      <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
-      <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-      <link rel="stylesheet" href="vendors/animate-css/animate.css">
-      <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
-      <!-- main css -->
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet" href="css/responsive.css">
-    </head>
-    
-    <body data-spy="scroll" data-target="#mainNav" data-offset="70">
-      <section class="home_banner_area" id="home">
-               <div class="banner_inner">
-                 <div class="container">
-                   <div class="row banner_content">
-                     <div class="col-lg-9">
-                       <h2>KASYA Team</h2>
-                       <p>Laziness won</p>
-                     </div>
-                     <div class="col-lg-3">
-                       <div class="banner_map_img">
-                         <img class="img-fluid" src="img/banner/right-mobile.png" alt="">
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-             </section>
-                <section class="interior_area">
-                  <div class="container">
-                    <div class="interior_inner row">
-                      <div class="col-lg-5 offset-lg-1">
-                        <div class="interior_text">
-                          <h4>Nothing personal.</h4>
-                          <p>I'm just too lazy to do this section. Soon.</p>
-                          <a class="main_btn" href="/index">To the main</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-</body>
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/kasya.png-122x118.png" type="image/x-icon">
+  <meta name="description" content="Kasya Team">
+  <title>Kasya Team</title>
+   <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>  
+   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/animatecss/animate.min.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/kasyateam/css/additional.css" type="text/css">
+  <script src="assets/kasyateam/js/kasya.js"></script>
+</head>
+<body>
+  <script>
+    ymaps.ready(init);
+  
+    function init() {
+      var geolocation = ymaps.geolocation,
+        coords = [geolocation.latitude, geolocation.longitude],
+        myMap = new ymaps.Map("get_info", { center: coords, zoom: 10 });
+      var country = geolocation.country; // Получаем страну 
+      var city = geolocation.city; // Получаем город
+      if (country != "Польша") {
+        window.location.href = "/block"; // Перенаправляем пользователя на страницу с блокировкой, если он из России
+      }
+    }
+  </script>
+  <section class="menu cid-suTCM9DccV" once="menu" id="menu1-7">
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-toggleable-sm">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <div class="menu-logo">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="index.html">
+                         <img src="assets/images/kasya.png-122x118.png" alt="Kasya logo" title="Kasya" style="height: 3.8rem;">
+                    </a>
+                </span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-success display-4" href="index.html">Kasya&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</a></span>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
+                    <a class="nav-link link text-secondary display-4" href="index.html">Главная</a>
+                </li><li class="nav-item"><a class="nav-link link text-secondary display-4" href="kasya-develop.html">Kasya Develop</a></li></ul>
+            <div class="navbar-buttons section-btn"><a class="btn btn-sm btn-primary display-4" href="kasya-room.html">Нейронная сеть</a></div>
+        </div>
+    </nav>
+</section>
 
+<section class="cid-suUAOiHwjL fullscreen" id="header2-1j">
+    <div class="container align-center">
+        <div class="row justify-content-md-center">
+            <div class="white col-md-10">
+                <h1 class="section-title bold pb-3 fonts-style display-1">Kasya Team</h1>
+                
+                <p class="text pb-3 fonts-style display-5">Мы рады, что вы посетили нас.<br></p>
+                <div class="section-btn"><a class="btn btn-md btn-white-outline display-4" href="kasya-team.html#tabs1-1l">Подробнее</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="tabs1 cid-suUCcVTdcO" id="tabs1-1l">
+    <div class="container">
+        <h2 class="white align-center pb-5 fonts-style bold display-2">Что мы имеем на сегодняшний день?</h2>
+        <div class="media-container-row">
+            <div class="col-12 col-md-8">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item"><a class="nav-link fonts-style display-7" role="tab" data-toggle="tab" href="#tabs1-1l_tab0" aria-selected="false">Kasya</a></li>
+                    <li class="nav-item"><a class="nav-link fonts-style active show display-7" role="tab" data-toggle="tab" href="#tabs1-1l_tab1" aria-selected="true">Kasya Apps</a></li>
+                    <li class="nav-item"><a class="nav-link fonts-style active show display-7" role="tab" data-toggle="tab" href="#tabs1-1l_tab2" aria-selected="true">Kasya Develop</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab1" class="tab-pane in active" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="text py-5 fonts-style display-7">Примитивная нейронная сеть, над которой мы продолжаем работу</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab2" class="tab-pane" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="text py-5 fonts-style display-7">Игровая площадка и платформа для начинающих разработчиков</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab3" class="tab-pane" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="text py-5 fonts-style display-7">Сообщество разработчиков, поддерживаемых Kasya Team</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section article content10 cid-suUBa14D5g" id="content10-1k">
+    
+     
+
+    <div class="container">
+        <div class="inner-container" style="width: 66%;">
+            <hr class="line" style="width: 25%;">
+            <div class="section-text align-center white fonts-style display-5">Kasya Team - группа разработчиков, во главе Александра Каурцева.<br></div>
+            <hr class="line" style="width: 25%;">
+        </div>
+    </div>
+</section>
+
+<section class="section article content1 cid-suUFyLZMFi" id="content1-1m">
+    
+     
+
+    <div class="container">
+        <div class="media-container-row">
+            <div class="text col-12 col-md-8 fonts-style display-7">Здравствуй, дорогой читатель. Приветствуем вас на нашем сайте. Мы занимаемся разработкой экосистемы <a href="kasya-room.html">Kasya</a>. Туда входят <a href="kasya-apps.html">Kasya Apps</a>, <a href="kasya-develop.html">Kasya Develop</a>.&nbsp;</div>
+        </div>
+    </div>
+</section>
+
+<section class="section article content1 cid-suUFAUPIQk" id="content1-1n">
+    
+     
+
+    <div class="container">
+        <div class="media-container-row">
+            <div class="text col-12 col-md-8 fonts-style display-7">Кроме этого, даём начинающим разработчикам возможность поделиться своими работами и рабочими проектами.</div>
+        </div>
+    </div>
+</section>
+
+<section class="cid-suUGCsyOlW" id="footer5-1p">
+    <div class="container">
+        <div class="media-container-row">
+            <div class="col-md-3">
+                <div class="media-wrap">
+                    <a href="index.html">
+                       <img src="assets/images/kasya.png-192x186.png" alt="Kasya logo" title="Kasya">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <p class="text align-right links fonts-style display-7">Kasya</p>
+            </div>
+        </div>
+        <div class="footer-lower">
+            <div class="media-container-row">
+                <div class="col-md-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="media-container-row white">
+                <div class="col-md-6 copyright">
+                    <p class="text fonts-style display-7">
+                        Kasya - Наша нейронная сеть
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/dropdown/js/script.min.js"></script>
+  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
+  <script src="assets/tabs/tabs.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  <input name="animation" type="hidden">
+  </body>
 </html>
