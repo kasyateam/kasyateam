@@ -19,12 +19,11 @@
 </head>
 <body>
 <script>
-   function redirect() {
-   if (screen.width <= 950) {
-      window.location = "/device";
-   }
-
+  if(screen.width <= 900){
+     location.href='/device';
+  }
 </script>
+
 <script>
     ymaps.ready(init);
   
