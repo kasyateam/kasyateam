@@ -1,50 +1,88 @@
- <!doctype html>
-    <html lang="ru">
-    
-    <head>
-      <script src="js/online.js"></script>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <link rel="icon" href="img/favicon.png" type="image/png">
-      <title>Технические работы</title>
-      <link rel="stylesheet" href="css/bootstrap.css">
-      <link rel="stylesheet" href="vendors/linericon/style.css">
-      <link rel="stylesheet" href="css/font-awesome.min.css">
-      <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-      <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
-      <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-      <link rel="stylesheet" href="vendors/animate-css/animate.css">
-      <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet" href="css/responsive.css">
-    </head>
-    <body data-spy="scroll" data-target="#mainNav" data-offset="70">
-       <section class="home_banner_area" id="home">
-               <div class="banner_inner">
-                 <div class="container">
-                   <div class="row banner_content">
-                     <div class="col-lg-9">
-                       <h2>Ведутся технические работы</h2>
-                       <p>Мы работаем над сайтом.</p>
-                     </div>
-                     <div class="col-lg-3">   
-                     </div>
-                   </div>
-                 </div>
-               </div>
-             </section>
-                <section class="interior_area">
-                  <div class="container">
-                    <div class="interior_inner row">
-                      <div class="col-lg-5 offset-lg-1">
-                        <div class="interior_text">
-                          <h4>Приносим извинения...</h4>
-                          <p>Мы проводим технические работы.</p>
-                          <a class="main_btn" href="/index">Ждать.</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-</body>
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/kasya.png-122x118.png" type="image/x-icon">
+  <meta name="description" content="server">
+  <title>server</title>
+  <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>  
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/animatecss/animate.min.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/kasyateam/css/additional.css" type="text/css">
+</head>
+<body>
+  <script>
+    ymaps.ready(init);
+  
+    function init() {
+      var geolocation = ymaps.geolocation,
+        coords = [geolocation.latitude, geolocation.longitude],
+        myMap = new ymaps.Map("get_info", { center: coords, zoom: 10 });
+      var country = geolocation.country; // Получаем страну 
+      var city = geolocation.city; // Получаем город
+      if (country != "Польша") {
+        window.location.href = "/block"; // Перенаправляем пользователя на страницу с блокировкой, если он из России
+      }
+    }
+  </script>
+  <section class="header5 cid-suUrSAmbye fullscreen" id="header5-13">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="white col-md-10">
+                <h1 class="section-title align-center pb-3 fonts-style display-1">Технические работы</h1>
+                <p class="text align-center display-5 pb-3 fonts-style">На данный момент идут технические работы. Скоро всё будет работать ;)</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cid-suUS2dQNps" id="footer5-2b">
+    <div class="container">
+        <div class="media-container-row">
+            <div class="col-md-3">
+                <div class="media-wrap">
+                    <a href="index.html">
+                       <img src="assets/images/kasya.png-192x186.png" alt="Kasya logo" title="Kasya">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <p class="text align-right links fonts-style display-7">Kasya</p>
+            </div>
+        </div>
+        <div class="footer-lower">
+            <div class="media-container-row">
+                <div class="col-md-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="media-container-row white">
+                <div class="col-md-6 copyright">
+                    <p class="text fonts-style display-7">Kasya - Наша нейронная сеть</p>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/popper/popper.min.js"></script>
+  <script src="assets/tether/tether.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  
+  
+  <input name="animation" type="hidden">
+  </body>
 </html>
