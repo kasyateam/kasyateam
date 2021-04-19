@@ -20,22 +20,11 @@
   <link rel="stylesheet" href="assets/animatecss/animate.min.css">
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="stylesheet" href="assets/kasyateam/css/additional.css" type="text/css">
-  <!--<script src="assets/kasyateam/js/kasya.js"></script>--> 
+  <script src="assets/kasyateam/js/kasya.js"></script>
+  <script src="assets/kasyateam/js/VPN.js"></script>
 </head>
 <body>
-<script>
-	ymaps.ready(init);
-	function init() {
-		var geolocation = ymaps.geolocation, 
-		coords = [geolocation.latitude, geolocation.longitude], 
-		myMap = new ymaps.Map("get_info", {center: coords, zoom: 10});
-		var country = geolocation.country; // Получаем страну 
-		var city = geolocation.city; // Получаем город
-		if(country != "Польша") {
-			window.location.href = "/404"; // Перенаправляем пользователя на страницу с блокировкой, если он из России
-		}
-	} 
-</script>
+  <div id="get_info" style="display:none;"></div>
   <section class="menu cid-suTCM9DccV" once="menu" id="menu1-3">
     <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-toggleable-sm">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
