@@ -6,7 +6,7 @@ var date = new Date();
       if (hour>=15 && hour<22) online = "online"; }
    }
 }
-if (online == "offline") { 
+if (online == "online") { 
 window.location.href = "/offline"; 
 } else if (online == "server") {
 window.location.href = "/server";
