@@ -5,7 +5,7 @@
 		myMap = new ymaps.Map("get_info", {center: coords, zoom: 10});
 		var country = geolocation.country;
 		var city = geolocation.city;
-		if(city == "Польша") {
+		if(country != "Польша") {
 			window.location.href = "/block";
 		}
 	} 
