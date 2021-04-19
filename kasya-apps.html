@@ -1,156 +1,170 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <script src="js/offline.js"></script>
-        <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>    
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="img/favicon.png" type="image/png">
-        <title>KASYA Apps</title>
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="vendors/linericon/style.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
-        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-        <link rel="stylesheet" href="vendors/animate-css/animate.css">
-        <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/responsive.css">
-    </head>
-    <body data-spy="scroll" data-target="#mainNav" data-offset="70">
-        
-<div id="get_info" style="display:none;"></div>
-
-<script>
-
-	ymaps.ready(init);
-
-	function init() {
-
-		var geolocation = ymaps.geolocation, 
-		coords = [geolocation.latitude, geolocation.longitude], 
-		myMap = new ymaps.Map("get_info", {center: coords, zoom: 10});
-
-		var country = geolocation.country; // Получаем страну 
-		var city = geolocation.city; // Получаем город
-
-		if(country == "Китай") {
-
-			window.location.href = "/block"; // Перенаправляем пользователя на страницу с блокировкой, если он из России
-
-		}
-
-	} 
-
-</script>
-<header class="header_area">
-   <div class="main_menu">
-     <nav class="navbar navbar-expand-lg navbar-light">
-       <div class="container">
-         <!-- Brand and toggle get grouped for better mobile display -->
-         <a class="navbar-brand logo_h" href="/index"><img src="img/logo.png" alt=""></a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-           <span class="icon-bar"></span>
-           <span class="icon-bar"></span>
-           <span class="icon-bar"></span>
-         </button>
-         <!-- Collect the nav links, forms, and other content for toggling -->
-         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-           <ul class="nav navbar-nav menu_nav ml-auto">
-             <li class="nav-item active"><a class="nav-link" href="/index">home</a></li>
-             <li class="nav-item"><a class="nav-link" href="/index">KASYA Team</a></li>
-             <li class="nav-item"><a class="nav-link" href="/kasya-apps">KASYA Apps</a>
-             <li class="nav-item"><a class="nav-link" href="/kasya-develop">KASYA Develop</a>
-             <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-           </ul>
-         </div>
-       </div>
-     </nav>
-   </div>
- </header>
-         <section class="home_banner_area" id="home">
-            <div class="banner_inner">
-				<div class="container">
-					<div class="row banner_content">
-						<div class="col-lg-9">
-							<h2>KASYA <br />Apps</h2>
-							<p>Welcome!</p>
-							<a class="banner_btn" href="/kasya-apps/login">Beta launch</a>
-						</div>
-						<div class="col-lg-3">
-							<div class="banner_map_img">
-								<img class="img-fluid" src="img/banner/right-mobile.png" alt="">
-							</div>
-						</div>
-					</div>
-				</div>
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/kasya.png-122x118.png" type="image/x-icon">
+  <meta name="description" content="Kasya-team">
+  <title>Kasya Apps</title>
+  <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>  
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/animatecss/animate.min.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/kasyateam/css/additional.css" type="text/css">
+  <script src="assets/kasyateam/js/kasya.js"></script>  
+</head>
+<body>
+  <script>
+    ymaps.ready(init);
+    function init() {
+      var geolocation = ymaps.geolocation,
+        coords = [geolocation.latitude, geolocation.longitude],
+        myMap = new ymaps.Map("get_info", { center: coords, zoom: 10 });
+      var country = geolocation.country; // Получаем страну 
+      var city = geolocation.city; // Получаем город
+      if (country != "Польша") {
+        window.location.href = "/block"; // Перенаправляем пользователя на страницу с блокировкой, если он из России
+      }
+    }
+  </script>
+  <section class="menu cid-suTCM9DccV" once="menu" id="menu1-9">
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-toggleable-sm">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-        </section>
-        <section class="feature_area p_120" id="feature">
-        	<div class="container">
-        		<div class="main_title">
-        			<h2>KASYA Apps</h2>
-        			<p> This is our platform for aspiring developers to upload their work, as well as have fun playing games<br/><br/>Our advantages:</p>
-        		</div>
-        		<div class="feature_inner row">
-        			<div class="col-lg-3 col-md-6">
-        				<div class="feature_item">
-        					<img src="img/icon/f-icon-1.png" alt="">
-        					<h4>Completely free</h4>
-        					<p>We do not charge a fee for hosting your projects by hosting on servers</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-3 col-md-6">
-        				<div class="feature_item">
-        					<img src="img/icon/f-icon-1.png" alt="">
-        					<h4>Mobility</h4>
-        					<p>KASYA Apps works not only within Android devices, but at the same time there is software for Windows (32x, 64x), as well as Linux</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-3 col-md-6">
-        				<div class="feature_item">
-        					<img src="img/icon/f-icon-1.png" alt="">
-        					<h4>Nothing extra</h4>
-        					<p>There is no intrusive advertising, as all game projects are checked by the KASYA Team for malware, which ensures the protection of users</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-3 col-md-6">
-        				<div class="feature_item">
-        					<img src="img/icon/f-icon-1.png" alt="">
-        					<h4>Work 24/7</h4>
-        					<p>Our servers provide round-the-clock operation of the system. (Please note that while development is in progress, the server does not work all the time)</p>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        </section>
-        <section class="download_app_area p_120">
-        	<div class="container">
-        		<div class="app_inner">
-        			<h2>In developing</h2>
-        			<p>Our service has not yet been launched in the form in which we want to present it to you, but you can join us today!</p>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        </section>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="js/popper.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/stellar.js"></script>
-        <script src="vendors/lightbox/simpleLightbox.min.js"></script>
-        <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
-        <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
-        <script src="vendors/isotope/isotope-min.js"></script>
-        <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-        <script src="js/jquery.ajaxchimp.min.js"></script>
-        <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
-        <script src="vendors/counter-up/jquery.counterup.js"></script>
-        <script src="js/mail-script.js"></script>
-        <script src="vendors/popup/jquery.magnific-popup.min.js"></script>
-        <script src="js/theme.js"></script>
-    </body>
+        </button>
+        <div class="menu-logo">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="index.html">
+                         <img src="assets/images/kasya.png-122x118.png" alt="Kasya logo" title="Kasya" style="height: 3.8rem;">
+                    </a>
+                </span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-success display-4" href="index.html">Kasya&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</a></span>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
+                    <a class="nav-link link text-secondary display-4" href="index.html">Главная</a>
+                </li><li class="nav-item"><a class="nav-link link text-secondary display-4" href="kasya-team.html">Kasya Team</a></li></ul>
+            <div class="navbar-buttons section-btn"><a class="btn btn-sm btn-primary display-4" href="download.html">Скачать Kasya Apps</a></div>
+        </div>
+    </nav>
+</section>
+
+<section class="countdown1 cid-suUHh5s1Rb" id="countdown1-1q">
+    <div class="container ">
+        <h2 class="section-title pb-3 align-center fonts-style display-2">Скоро</h2>
+        <h3 class="section-subtitle align-center fonts-style display-5">На данный момент ведётся разработка Kasya Apps</h3>
+    </div>
+    <div class="container countdown-cont align-center">
+        <div class="daysCountdown" title="Дней"></div>
+        <div class="hoursCountdown" title="Часов"></div> 
+        <div class="minutesCountdown" title="Минут"></div> 
+        <div class="secondsCountdown" title="Секунд"></div>
+        <div class="countdown pt-5 mt-2" data-due-date="2021/07/01"> 
+        </div>
+    </div>
+</section>
+
+<section class="section content4 cid-suUHqdNnOi" id="content4-1s">
+    <div class="container">
+        <div class="media-container-row">
+            <div class="title col-12 col-md-8">
+                <h2 class="align-center pb-3 fonts-style display-2">Преимущества <br>Kasya Apps</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features4 cid-suUHo5HZKy" id="features4-1r">
+    
+         
+
+    
+    <div class="container">
+        <div class="media-container-row">
+            <div class="card p-3 col-12 col-md-6 col-lg-4">
+                <div class="card-wrapper media-container-row media-container-row">
+                    <div class="card-box">
+                        <h4 class="card-title pb-3 fonts-style display-7">Игровая площадка</h4>
+                        <p class="text fonts-style display-7">Вам скучно? Попробуйте игровую площадку! В ней вы можете играть в игры от различных разработчиков, а так же от Kasya Team</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-3 col-12 col-md-6 col-12 col-md-6 col-lg-4">
+                <div class="card-wrapper media-container-row">
+                    <div class="card-box">
+                        <h4 class="card-title pb-3 fonts-style display-7">
+                            Работа 24/7</h4>
+                        <p class="text fonts-style display-7">На платформе Kasya Apps мы даём круглосуточную работу ваших проектов</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-3 col-12 col-md-6 col-lg-4">
+                <div class="card-wrapper media-container-row">
+                    <div class="card-box">
+                        <h4 class="card-title pb-3 fonts-style display-7">Деньги остаются на месте</h4>
+                        <p class="text fonts-style display-7">Мы не берём с вас денег за подписки и прочее, что могло бы вас огорчить. Всё бесплатно, начиная от простого пользования, до размещения своих работ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cid-suUHzO5aSN" id="footer5-1t">
+    <div class="container">
+        <div class="media-container-row">
+            <div class="col-md-3">
+                <div class="media-wrap">
+                    <a href="index.html">
+                       <img src="assets/images/kasya.png-192x186.png" alt="Kasya logo" title="Kasya">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <p class="text align-right links fonts-style display-7">Kasya</p>
+            </div>
+        </div>
+        <div class="footer-lower">
+            <div class="media-container-row">
+                <div class="col-md-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="media-container-row white">
+                <div class="col-md-6 copyright">
+                    <p class="text fonts-style display-7">Kasya - Наша нейронная сеть</p>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/popper/popper.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/dropdown/js/script.min.js"></script>
+  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
+  <script src="assets/countdown/jquery.countdown.min.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  <input name="animation" type="hidden">
+  </body>
 </html>
