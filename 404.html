@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>  
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
@@ -14,22 +15,9 @@
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="stylesheet" href="assets/kasyateam/css/additional.css" type="text/css">
   <script src="assets/kasyateam/js/kasya.js"></script>  
+  <script src="assets/kasyateam/js/VPN.js"></script>  
 </head>
 <body>
-    <script>
-      ymaps.ready(init);
-  
-      function init() {
-        var geolocation = ymaps.geolocation,
-          coords = [geolocation.latitude, geolocation.longitude],
-          myMap = new ymaps.Map("get_info", { center: coords, zoom: 10 });
-        var country = geolocation.country; // Получаем страну 
-        var city = geolocation.city; // Получаем город
-        if (country != "Польша") {
-          window.location.href = "/block"; // Перенаправляем пользователя на страницу с блокировкой, если он из России
-        }
-      }
-    </script>
   <section class="header5 cid-suTJsbxx7d fullscreen" id="header5-s">
     <div class="container">
         <div class="row justify-content-center">
