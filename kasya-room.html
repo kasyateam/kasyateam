@@ -1,57 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-        <script src="js/offline.js"></script>
-        <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>      
-	<meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>KASYA Brain</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/kasya.png-122x118.png" type="image/x-icon">
+  <meta name="description" content="kasya room">
+  <title>Kasya Room</title>
+  <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>  
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/animatecss/animate.min.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/kasyateam/css/additional.css" type="text/css">
+  <script src="assets/kasyateam/js/kasya.js"></script>  
+</head>
+<body>
+  <script>
+    ymaps.ready(init);
+  
+    function init() {
+      var geolocation = ymaps.geolocation,
+        coords = [geolocation.latitude, geolocation.longitude],
+        myMap = new ymaps.Map("get_info", { center: coords, zoom: 10 });
+      var country = geolocation.country; // Получаем страну 
+      var city = geolocation.city; // Получаем город
+      if (country != "Польша") {
+        window.location.href = "/block"; // Перенаправляем пользователя на страницу с блокировкой, если он из России
+      }
+    }
+  </script>
+  <section class="menu cid-suTCM9DccV" once="menu" id="menu1-f">
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-toggleable-sm">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <div class="menu-logo">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="index.html">
+                         <img src="assets/images/kasya.png-122x118.png" alt="Kasya logo" title="Kasya" style="height: 3.8rem;">
+                    </a>
+                </span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-success display-4" href="index.html">Kasya&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</a></span>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
+                    <a class="nav-link link text-secondary display-4" href="index.html">Главная</a>
+                </li><li class="nav-item"><a class="nav-link link text-secondary display-4" href="kasya-team.html">Kasya Team</a></li></ul>
+            <div class="navbar-buttons section-btn"><a class="btn btn-sm btn-primary display-4" onclick="alert('Всё указано в тестерской');">Как работать с нейронной сетью</a></div>
+        </div>
+    </nav>
+</section>
 
-	<script src="brain.js/browser.min.js"></script>
+<section class="section content4 cid-suUPhpkTkp" id="content4-26">
+    <div class="container">
+        <div class="media-container-row">
+            <div class="title col-12 col-md-8">
+                <h3 class="section-subtitle align-center light fonts-style display-5">Тут концепция нашей примитивной нейронной сети</h3>
+            </div>
+        </div>
+    </div>
+</section><br/><br/><br/><br/><br/><br/>
+
+<section><center>
+  <script src="brain.js/browser.min.js"></script>
 
 	<style>
 		body {
-			background-color: #333;
+			background-color: fffffff;
 		}
-
 		#canv {
 			position: absolute;
 			top: 0;right: 0;bottom: 0;left: 0;
 			margin: auto;
-			background-color: white;
+			background-color: #8048F8;
 		}
 	</style>
-</head>
-<body>
-<div id="get_info" style="display:none;"></div>
-
-<script>
-
-	ymaps.ready(init);
-
-	function init() {
-
-		var geolocation = ymaps.geolocation, 
-		coords = [geolocation.latitude, geolocation.longitude], 
-		myMap = new ymaps.Map("get_info", {center: coords, zoom: 10});
-
-		var country = geolocation.country; // Получаем страну 
-		var city = geolocation.city; // Получаем город
-
-		if(country == "Китай") {
-
-			window.location.href = "/block"; // Перенаправляем пользователя на страницу с блокировкой, если он из России
-
-		}
-
-	} 
-
-</script>
-	
 	<canvas id="canv" style="display: block;">Ваш браузер устарел, обновитесь.</canvas>
-
 	<script>
-                alert("Здравствуйте! Мы разрабатываем нейронную сеть, что будет определять, хорошее или плохое изображение изображено. Вы можете принять участие. Клавиши C-отчистит холст. V-спросит для утверждения, b-выдаст результат по своим знаниям.");
 		function DCanvas(el)
 		{
 			const ctx = el.getContext('2d');
@@ -167,8 +202,8 @@
 			el.addEventListener('mousemove', function(e) {
 				if( is_mouse_down )
 				{
-					ctx.fillStyle = 'red';
-					ctx.strokeStyle = 'red';
+					ctx.fillStyle = 'white';
+					ctx.strokeStyle = 'white';
 					ctx.lineWidth = pixel;
 
 					ctx.lineTo(e.offsetX, e.offsetY);
@@ -200,7 +235,6 @@
 			{
 				vector = d.calculate(true);
 				
-				//train
 				if( confirm('Данное изображение хорошее?') )
 				{
 					train_data.push({
@@ -225,7 +259,36 @@
 				alert(result);
 			}
 		});
-	</script>
+	</script></center>
+</section><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-</body>
+
+<section class="cid-suUPjqTNpd reveal" id="footer5-27">
+    <div class="container">
+        <div class="footer-lower">
+            <div class="media-container-row">
+                <div class="col-md-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="media-container-row white">
+                <div class="col-md-6 copyright">
+                    <p class="text fonts-style display-7">Kasya однажды начнет думать</p>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/dropdown/js/script.min.js"></script>
+  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
+  <input name="animation" type="hidden">
+  </body>
 </html>
