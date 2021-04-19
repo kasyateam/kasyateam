@@ -6,11 +6,12 @@
 		var country = geolocation.country;
 		var city = geolocation.city;
 		if (country == "Россия") {
-  alert('Russia');
-} else if (country == "Польша") {
-  alert('Poland');
-} else if (country == "Белоруссия") {
-alert('Belorus');
-} else {
- window.location.href = "/block"; 
+                alert('Russia');
+                } else if (country == "Польша") {
+                alert('Poland');
+                } else if (country == "Белоруссия") {
+                alert('Belorus');
+                } else {
+                window.location.href = "/block"; 
+                }
 }
