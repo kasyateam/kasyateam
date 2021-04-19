@@ -1,236 +1,206 @@
-  <!doctype html>
-    <html lang="en">
-    
-    <head>
-      <script src="js/offline.js"></script>
-      <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>   
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <link rel="icon" href="img/favicon.png" type="image/png">
-      <title>KASYA Develop</title>
-      <link rel="stylesheet" href="css/bootstrap.css">
-      <link rel="stylesheet" href="vendors/linericon/style.css">
-      <link rel="stylesheet" href="css/font-awesome.min.css">
-      <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-      <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
-      <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-      <link rel="stylesheet" href="vendors/animate-css/animate.css">
-      <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet" href="css/responsive.css">
-    </head>
-    
-    <body data-spy="scroll" data-target="#mainNav" data-offset="70">
-
-<div id="get_info" style="display:none;"></div>
-
-<script>
-
-	ymaps.ready(init);
-
-	function init() {
-
-		var geolocation = ymaps.geolocation, 
-		coords = [geolocation.latitude, geolocation.longitude], 
-		myMap = new ymaps.Map("get_info", {center: coords, zoom: 10});
-
-		var country = geolocation.country; // Получаем страну 
-		var city = geolocation.city; // Получаем город
-
-		if(country == "Китай") {
-
-			window.location.href = "/block"; // Перенаправляем пользователя на страницу с блокировкой, если он из России
-
-		}
-
-	} 
-
-</script>
-      <header class="header_area">
-        <div class="main_menu" id="mainNav">
-          <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container">
-              <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
-              </div>
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/kasya.png-122x118.png" type="image/x-icon">
+  <meta name="description" content="kasya develop">
+  <title>Kasya Develop</title>
+  <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>  
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/animatecss/animate.min.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/kasyateam/css/additional.css" type="text/css">
+  <script src="assets/kasyateam/js/kasya.js"></script>
+</head>
+<body>
+  <script>
+    ymaps.ready(init);
+  
+    function init() {
+      var geolocation = ymaps.geolocation,
+        coords = [geolocation.latitude, geolocation.longitude],
+        myMap = new ymaps.Map("get_info", { center: coords, zoom: 10 });
+      var country = geolocation.country; // Получаем страну 
+      var city = geolocation.city; // Получаем город
+      if (country != "Польша") {
+        window.location.href = "/block"; // Перенаправляем пользователя на страницу с блокировкой, если он из России
+      }
+    }
+  </script>
+  <section class="menu cid-suTCM9DccV" once="menu" id="menu1-b">
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-toggleable-sm">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-          </nav>
+        </button>
+        <div class="menu-logo">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="index.html">
+                         <img src="assets/images/kasya.png-122x118.png" alt="Kasya logo" title="Kasya" style="height: 3.8rem;">
+                    </a>
+                </span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-success display-4" href="index.html">Kasya&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</a></span>
+            </div>
         </div>
-      </header>
-             <section class="home_banner_area" id="home">
-               <div class="banner_inner">
-                 <div class="container">
-                   <div class="row banner_content">
-                     <div class="col-lg-9">
-                       <h2>KASYA Apps<br />Develop</h2>
-                       <p>If you are a developer and want to place your work with us, then the requirements are described below.</p><br/><a href="/index" class="genric-btn danger-border circle arrow">To return<span class="lnr lnr-arrow-right"></span></a>
-					</div>
-					</div>
-                     </div>
-                     <div class="col-lg-3">
-                     </div>
-                   </div>
-                 </div>
-               </div>
-             </section>
-             
-             	<div><center>
-					<p>Primary requirements KASYA Develop</p>
-				</div></center>
-             
-             <section class="feature_area p_120" id="feature">
-                   <div class="container">
-                       <div class="feature_inner row">
-                         <div class="col-lg-3 col-md-6">
-                           <div class="feature_item">
-                             <h4>Copyright</h4>
-                             <p>All submitted projects must be provided by the authors. We ask you to provide exactly your projects. If possible, prove the authorship. (If the authorship is proven, then your project immediately goes to check)</p>
-                           </div>
-                         </div>
-                         <div class="col-lg-3 col-md-6">
-                           <div class="feature_item">
-                             <h4>Malicious software</h4>
-                             <p>Each project is checked by KASYA Team employees for malware. If suspicious scripts are found, you will be asked questions. If the presence of malware finally appears, then you will be blacklisted.</p>
-                           </div>
-                         </div>
-                         <div class="col-lg-3 col-md-6">
-                           <div class="feature_item">
-                             <h4>No monetization, ads or spam</h4>
-                             <p>We prohibit the inclusion of elements for monetization, advertising, etc. in our projects. We strictly refer to spam, if detected, there is a possibility of being blacklisted.</p>
-                           </div>
-                         </div>
-                         <div class="col-lg-3 col-md-6">
-                           <div class="feature_item">
-                             <h4>Preparation of contract</h4>
-                             <p>After drawing up the contract, we DO NOT claim the authorship of your project. This agreement will spell out the services we provide and mutual consent to include your project in the service.</p>
-                           </div>
-                         </div>
-                       </div>
-                     </div>
-                   </section>
-                   
-                   <div><center><p>Requirements for posting projects for download on KASYA Apps</p>
-				</div></center>
-                   
-        <section class="feature_area p_120" id="feature">
-          <div class="container">
-            <div class="feature_inner row">
-              <div class="col-lg-3 col-md-6">
-                <div class="feature_item">
-                  <h4>Structure</h4>
-                  <p> There are no specific requirements for the project in this section, except for the main ones.</p>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                <div class="feature_item">
-                  <p> In this section, the publication will depend on the type of your project.</p>
-                </div>
-              </div>
-             </section>
-                   
-                                	<div><center>
-					<p>Requirements for hosting projects with demo on KASYA Apps</p>
-				</div></center>
-             
-             
-                  <section class="feature_area p_120" id="feature">
-                    <div class="container">
-                      <div class="feature_inner row">
-                        <div class="col-lg-3 col-md-6">
-                          <div class="feature_item">
-                            <h4>Structure</h4>
-                            <p> We host projects based on the work of <b> web technologies</b>.</p>
-                          </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                          <div class="feature_item">
-                            <p>For best results, we recommend game engines like Construct 2/3 (If you don't know a programming language), as well as Unity. </p>
-                          </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                          <div class="feature_item">
-                            <p>Please note that all posted projects are not checked by the system, but by the employees of the KASYA Team. Before posting, you will have to give the source code (under the contract, we do not change the structure of your application) to check for malware.</p>
-                          </div>
-                        </div>
-                       <div class="col-lg-3 col-md-6">
-                       <div class="feature_item">
-                      <p>Also, you need to attach the "ReadMe.txt" file, in which you need to indicate the name of the project, a small description. Based on this data, we will create a personal game page.</p>
-                    </div>
-                  </div>
-                </section>
-                     
-               <div><center>
-					<p>Punishment and blacklist system</p>
-				</div></center>
-				
-				
-				   <section class="blog_area single-post-area p_120">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 posts-list">
-                        <div class="single-post row">
-                            <div class="col-lg-12">
-                            </div>
-                            
-                            <div class="col-lg-3  col-md-3">
-                                <div class="blog_info text-right">
-                                    <div class="post_tag">
-                                        <a class="active" href="#">KASYA Team</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-9 col-md-9 blog_details">
-                                <h2>How the ban system works:</h2>
-                                <p class="excert">Since all the basic information flows through the employees of the KASYA Team, we are monitoring. To identify violators, a database is created (This database does not go beyond the KASYA Team.) When you re-submit an application, we compare you with the data in the database and determine there already. If we have any questions, we will interview you.</p>
-                                </div>
-				
-				     <section class="feature_area p_120" id="feature">
-				       <div class="container">
-								  <h3 class="mb-20 title_color">Reasons for which you can be blacklisted by KASYA Team:</h3>
-								  <div class="">
-								    <ol class="ordered-list">
-								      <li><span>For attempting to host malware.<br/><sub>Eternal ban.<sub/></span></li>
-								      <li><span>Repeated violation of established rules.<br/><sub>From one month to 3 months.</sub></span></li>
-								      <li><span>Flood / spam<br/><sub>From one month to 3 months</sub></span>
-							              <li><span>Repeated provocations towards developers KASYA Team.<br/><sub>From 3 months to a year</sub></span></li>
-								      <li><span>Attempts to hack servers.<br/><sub>Eternal ban</sub></span></li>
-								      <h4><span>This list will be further supplemented.</span></h4>
-								    </ol>
-								  </div>
-								</div>
-								</div>
-								</div>
-					  </section>
-               <footer class="footer-area p_120">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3  col-md-6 col-sm-6">
-                        <div class="single-footer-widget tp_widgets">
-                           <h6 class="footer_title">Developers</h6>
-                            <ul class="list">
-                            	<li><a href="#">Alexander Kaurtsev - Lead Programmer, Creator KASYA Team</a></li>
-                            	<li><a href="#">Vlad Rudenko - head of the testing department</a></li>
-                            	<li><a href="#">Albert Khabirov - assistant</a></li>
-                            	<li><a href="#">Maxim Makeev - graphic designer</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-md-6 col-sm-6">
-                        <div class="single-footer-widget news_widgets">
-                            <h6 class="footer_title">KASYA Team</h6>
-                            <p> We have the concept of a primitive neural network ... Shall we develop it? </p>		
-                            <div id="mc_embed_signup">
-                                <form target="_blank" action="/kasya-team" method="get" class="subscribe_form relative">
-                                    <div class="input-group d-flex flex-row">
-                                    </div>									
-                                    <div class="mt-10 info"></div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row footer-bottom d-flex justify-content-between align-items-center">
-                    <p class="col-lg-8 col-md-8 footer-text m-0">
-KASYA Team &copy; <script>document.write(new Date().getFullYear());</script>.</a>
-</div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
+                    <a class="nav-link link text-secondary display-4" href="index.html">Главная</a>
+                </li><li class="nav-item"><a class="nav-link link text-secondary display-4" href="kasya-team.html">Kasya Team</a></li></ul>
+            <div class="navbar-buttons section-btn"><a class="btn btn-sm btn-primary display-4" href="download.html">Скачать Kasya Apps</a></div>
+        </div>
+    </nav>
+</section>
+
+<section class="header11 cid-suULaMXFlV fullscreen" id="header11-1x">
+    <div class="container align-left">
+        <div class="media-container-column white col-md-12">
+            <h3 class="section-subtitle py-3 fonts-style display-5">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</h3>
+            <h1 class="section-title py-3 fonts-style display-1">Kasya Develop</h1>
+            <p class="text py-3 fonts-style display-5">Данная страница <strong>создана для разработчиков</strong>, у которых есть свои проекты</p>
+            <div class="section-btn py-4"><a class="btn btn-md btn-white-outline display-4" href="kasya-develop.html#content4-1y">Что такое Kasya Develop?</a>
+                    <a class="btn btn-md btn-white-outline display-4" href="https://vk.com/kasyateam">Получить Kasya Develop</a></div>
+        </div>
+    </div>
+</section>
+
+<section class="section content4 cid-suULvUr9ii" id="content4-1y">
+    <div class="container">
+        <div class="media-container-row">
+            <div class="title col-12 col-md-8">
+                <h2 class="align-center pb-3 fonts-style display-2">Что такое Kasya Develop?</h2>
+                <h3 class="section-subtitle align-center light fonts-style display-5">Это площадка для начинающих разработчиков. При получении статуса Kasya Develop, появляется возможность размещения своих работ на Kasya Apps</h3>
             </div>
-        </footer>
+        </div>
+    </div>
+</section>
+
+<section class="section article content10 cid-suULBmgpXa" id="content10-1z">
+    <div class="container">
+        <div class="inner-container" style="width: 66%;">
+            <hr class="line" style="width: 25%;">
+            <div class="section-text align-center white fonts-style display-5">Стоит обратить внимание на то, что все проекты и работы разработчиков проверяются сотрудниками Kasya Team.</div>
+            <hr class="line" style="width: 25%;">
+        </div>
+    </div>
+</section>
+
+<section class="section content4 cid-suUMwPqcHf" id="content4-22">
+    <div class="container">
+        <div class="media-container-row">
+            <div class="title col-12 col-md-8">
+                <h2 class="align-center pb-3 fonts-style display-2">Правила</h2>
+                <h3 class="section-subtitle align-center light fonts-style display-5">Если вы захотели стать одним из сообщества Kasya Develop, то посмотрите на правила.</h3>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features10 cid-suUMvfAGB8" id="features10-21">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card p-3 col-12 col-md-6 col-lg-4">
+                <div class="media mb-3">
+                    <div class="card-img align-self-center">
+                        <span class="mbri-bootstrap iconfont"></span>
+                    </div>
+                    <h4 class="card-title media-body py-3 fonts-style display-7">Тип проекта</h4>
+                </div>
+                <div class="card-box">
+                    <p class="text fonts-style display-7">Необходимо указывать, какой у вас проект. Для запуска в игровой площадке (Kasya Apps), то ваш проект должен быть построен на структуре web. Принимаются работы, сделанные на Unity, а так же на Construct 2 (эти игровые движки автоматически могут подстроить игру под web структуру)</p>
+                </div>
+            </div>
+
+            <div class="card p-3 col-12 col-md-6 col-lg-4">
+                <div class="media mb-3">
+                    <div class="card-img align-self-center">
+                        <span class="iconfont mbri-touch"></span>
+                    </div>
+                    <h4 class="card-title media-body py-3 fonts-style display-7">
+                        Требования к проекту</h4>
+                </div>
+                <div class="card-box">
+                    <p class="text fonts-style display-7">В вашем проекте не должно быть монетизации, спама, флуда, вредоносного ПО. Просим обратить внимание на то, что все проекты проверяются не программами, а сотрудниками.&nbsp;</p>
+                </div>
+            </div>
+
+            <div class="card p-3 col-12 col-md-6 col-lg-4">
+                <div class="media mb-3">
+                    <div class="card-img align-self-center">
+                        <span class="iconfont mbri-responsive"></span>
+                    </div>
+                    <h4 class="card-title media-body py-3 fonts-style display-7">Авторство</h4>
+                </div>
+                <div class="card-box">
+                    <p class="text fonts-style display-7">Проект должен полностью принадлежать вам, чтобы избежать проблемы с авторскими правами.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section article content10 cid-suUNCCUoJq" id="content10-23">
+    <div class="container">
+        <div class="inner-container" style="width: 66%;">
+            <hr class="line" style="width: 25%;">
+            <div class="section-text align-center white fonts-style display-5">Мы не любим неадекватных пользователей. Такие могут попасть в спам базу Kasya, после чего выбраться оттуда будет немного сложно.</div>
+            <hr class="line" style="width: 25%;">
+        </div>
+    </div>
+</section>
+
+<section class="cid-suUOMmr2Pm" id="footer5-25">
+    <div class="container">
+        <div class="media-container-row">
+            <div class="col-md-3">
+                <div class="media-wrap">
+                    <a href="kasya-room.html">
+                       <img src="assets/images/kasya.png-192x186.png" alt="Kasya logo" title="Kasya">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <p class="text align-right links fonts-style display-7">Kasya</p>
+            </div>
+        </div>
+        <div class="footer-lower">
+            <div class="media-container-row">
+                <div class="col-md-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="media-container-row white">
+                <div class="col-md-6 copyright">
+                    <p class="text fonts-style display-7">Kasya - Наша нейронная сеть</p>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/popper/popper.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/dropdown/js/script.min.js"></script>
+  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
+ 
+  
+  <input name="animation" type="hidden">
+  </body>
+</html>
