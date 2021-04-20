@@ -9,7 +9,8 @@
                 window.location.href = "/error";
                 } else if (country == "Россия") {
                 } else if (country == "Польша") {            
-                } else if (country == "Белоруссия") {
+                } else if (country == "Белорусь") {
+                window.location.href = "/block"; alert('sosi');
                 } else if (country == "Украина") {
                 } else if (country == "Казахстан") {
                 } else {
