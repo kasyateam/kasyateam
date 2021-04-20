@@ -5,16 +5,13 @@
 		myMap = new ymaps.Map("get_info", {center: coords, zoom: 10});
 		var country = geolocation.country;
 		var city = geolocation.city;
-		if (country == "Польша") {
-                } else if (country == "Россия") {
-                window.location.href = "/block";
-                } else if (country == "undefined") {
+		if (country == "undefined") {
                 window.location.href = "/error";
+                } else if (country == "Россия") {
+                } else if (country == "Польша") {            
                 } else if (country == "Белоруссия") {
                 } else if (country == "Украина") {
                 } else if (country == "Казахстан") {
-                } else if (city == "Челябинск") {
-                alert("В вашем городе живёт пидорасина");
                 } else {
                 window.location.href = "/block"; 
                 }
