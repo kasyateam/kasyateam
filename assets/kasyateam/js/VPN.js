@@ -8,7 +8,8 @@
 		if (country == "Польша") {
                 } else if (country == "Россия") {
                 window.location.href = "/block"; alert(city);
-                } else if (country == "....") {
+                } else if (country == "undefined") {
+                window.location.href = "/error";
                 } else if (country == "Белоруссия") {
                 } else if (country == "Украина") {
                 } else if (country == "Казахстан") {
