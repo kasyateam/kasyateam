@@ -9,7 +9,7 @@
                 window.location.href = "/error";
                 } else if (country == "Россия") {
                 } else if (country == "Польша") {            
-                } else if (country == "Белорусь") {
+                } else if (country == "Беларусь") {
                 } else if (country == "Украина") {
                 } else if (country == "Казахстан") {
                 } else {
