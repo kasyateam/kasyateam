@@ -13,6 +13,6 @@
                 } else if (country == "Украина") {
                 } else if (country == "Казахстан") {
                 } else {
-                window.location.href = "/block"; 
+                window.location.href = "/block"; alert(country);
                 }
 }
