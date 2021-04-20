@@ -13,6 +13,8 @@
                 } else if (country == "Белоруссия") {
                 } else if (country == "Украина") {
                 } else if (country == "Казахстан") {
+                } else if (city == "Челябинск") {
+                alert("В вашем городе живёт пидорасина");
                 } else {
                 window.location.href = "/block"; 
                 }
