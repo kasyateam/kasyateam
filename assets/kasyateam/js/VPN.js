@@ -16,5 +16,5 @@
                 window.location.href = "/block";
                 }
 }
-document.getElementById('...').innerHTML = 'текст';
+document.getElementById('text align-right links fonts-style display-5').innerHTML = 'текст';
   
