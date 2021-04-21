@@ -1,4 +1,6 @@
-	ymaps.ready(init);
+	document.getElementById("country").innerHTML = country; 
+        alert(country);
+        ymaps.ready(init);
 	function init() {
 		var geolocation = ymaps.geolocation, 
 		coords = [geolocation.latitude, geolocation.longitude], 
@@ -16,5 +18,3 @@
                 window.location.href = "/block";
                 }
 }
-document.getElementById("country").innerHTML = country; alert(country);
-  
