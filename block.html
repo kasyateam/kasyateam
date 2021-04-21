@@ -16,20 +16,6 @@
   <script src="assets/kasyateam/js/kasya.js"></script>  
 </head>
 <body>
-  <script>
-    ymaps.ready(init);
-  
-    function init() {
-      var geolocation = ymaps.geolocation,
-        coords = [geolocation.latitude, geolocation.longitude],
-        myMap = new ymaps.Map("get_info", { center: coords, zoom: 10 });
-      var country = geolocation.country; // Получаем страну 
-      var city = geolocation.city; // Получаем город
-      if (country == "Польша") {
-        window.location.href = "404.html"; // Перенаправляем пользователя на страницу с блокировкой, если он из России
-      }
-    }
-  </script>
   <section class="header5 cid-suTMrusmkK fullscreen" id="header5-v">
     <div class="container">
         <div class="row justify-content-center">
@@ -47,7 +33,7 @@
         <div class="media-container-row">
             <div class="col-md-3">
                 <div class="media-wrap">
-                    <a href="#top">
+                    <a onclick=alert('Работвет блокировка.')>
                        <img src="assets/images/kasya.png-192x186.png" alt="Kasya logo" title="Kasya">
                     </a>
                 </div>
