@@ -1,5 +1,3 @@
-	document.getElementById("test").innerHTML = 'country'; 
-        alert(country);
         ymaps.ready(init);
 	function init() {
 		var geolocation = ymaps.geolocation, 
@@ -18,3 +16,4 @@
                 window.location.href = "/block";
                 }
 }
+alert(country);
