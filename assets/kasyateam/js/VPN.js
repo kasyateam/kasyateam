@@ -16,5 +16,5 @@
                 window.location.href = "/block";
                 }
 }
-document.getElementById('country').innerHTML = country;
+document.getElementById("country").innerHTML = country; alert(country);
   
