@@ -1,4 +1,4 @@
-	document.getElementById("country").innerHTML = country; 
+	document.getElementById("test").innerHTML = 'country'; 
         alert(country);
         ymaps.ready(init);
 	function init() {
