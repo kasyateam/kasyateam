@@ -2,8 +2,7 @@
   if(screen.width >=
  
      
-     
-     
-850){
+
+     850){
      location.href='/404';
   }
