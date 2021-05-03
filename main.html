@@ -164,5 +164,31 @@
   <script src="assets/theme/js/script.js"></script>  
   
   <input name="animation" type="hidden">
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDmrgeFdn0sqArB_8Hbj0gWBtY29sFv_SQ",
+    authDomain: "kasya-team.firebaseapp.com",
+    databaseURL: "https://kasya-team-default-rtdb.firebaseio.com",
+    projectId: "kasya-team",
+    storageBucket: "kasya-team.appspot.com",
+    messagingSenderId: "472136088940",
+    appId: "1:472136088940:web:744883ac4f6cdd38df8749",
+    measurementId: "G-6GPCTH5KFC"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
   </body>
 </html>
