@@ -1,2 +1,6 @@
 ErrorDocument 404 /404.html
 RewriteEngine On
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^site.ru
+RewriteRule (.*) <a href="http://www.site.ru/http://www.site.ru/$1" class="redactor-autoparser-object">http://www.site.ru/http://www.site.ru/$1</a> [R=301,L]
