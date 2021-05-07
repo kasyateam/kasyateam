@@ -3,7 +3,7 @@ var date = new Date();
       if (hour>=10 && hour<24) online = "online"; else {
       if (hour>=0 && hour<1) online = "online"; else {
       if (hour>=1 && hour<6) online = "offline"; else {
-      if (hour>=6 && hour<10) online = "online"; }
+      if (hour>=6 && hour<10) online = "server"; }
    }
 }
 if (online == "offline") { 
