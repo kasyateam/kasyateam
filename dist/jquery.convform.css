@@ -163,7 +163,7 @@ div.conv-form-wrapper div.wrapper-messages::-webkit-scrollbar, div#feed ul::-web
     /* optional: just make scrollbar invisible */
 }
 input[type="text"].userInputDynamic.error {
-    color: #ac0000 !important;
+    color: #8048f8 !important;
 }
 input[type="text"].userInputDynamic {
     border-radius: 3px;
@@ -171,7 +171,7 @@ input[type="text"].userInputDynamic {
 }
 
 textarea.userInputDynamic.error {
-    color: #ac0000 !important;
+    color: #8048f8 !important;
 }
 
 textarea.userInputDynamic {
@@ -204,11 +204,11 @@ div.conv-form-wrapper div.options:after {
 }
 div.conv-form-wrapper div.options div.option {
     padding: 7px 12px;
-    border: 1px solid rgba(6,153,184,0.3);
+    border: 1px solid #8048f8;
     display: inline-block;
     margin: 5px;
     background: #fff;
-    color: #06c5a6;
+    color: #8048f8;
     cursor: pointer;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -240,13 +240,13 @@ div.conv-form-wrapper  div#messages div.message {
     word-wrap: break-word;
 }
 div.conv-form-wrapper  div#messages div.message.to {
-    background: #efefef;
-    color: #6f6f6f;
+    background: #8048f8;
+    color: #FFFFFF;
     float: left;
     border-top-left-radius: 0;
 }
 div.conv-form-wrapper div#messages div.message.from {
-    background: #06b79a;
+    background: #8048f8;
     color: #fff;
     border-top-right-radius: 0;
 }
@@ -271,14 +271,14 @@ div.conv-form-wrapper div#messages div.message.from {
     }
 }
 div.conv-form-wrapper div.options div.option:hover {
-    background: #eeeeee;
+    background: #8048f8;
 }
 div.conv-form-wrapper div.options div.option.selected {
-    background: #06b79a;
+    background: #8048f8;
     color: #fff;
 }
 div.conv-form-wrapper div.options div.option.selected:hover {
-    background: #069c7f;
+    background: #8048f8;
 }
 
 form.convFormDynamic button.submit {
@@ -286,7 +286,7 @@ form.convFormDynamic button.submit {
     border: none;
     float: left;
     margin: 5px;
-    color: #06c5a6;
+    color: #8048f8;
     cursor: pointer;
     border-radius: 8px;
     font-size: 1.1rem;
@@ -299,7 +299,7 @@ form.convFormDynamic button.submit {
 
 
 form.convFormDynamic button.submit:hover {
-    background: #06b79a;
+    background: #8048f8;
     color: #fff;
 }
 
@@ -326,14 +326,14 @@ span.clear {
 .spinLoader,
 .spinLoader:before,
 .spinLoader:after {
-    background: #06c5a6 !important;
+    background: #8048f8 !important;
     -webkit-animation: spinLoaderChat 1s infinite ease-in-out;
     animation: spinLoaderChat 1s infinite ease-in-out;
     width: 1em;
     height: 4em;
 }
 .spinLoader {
-    color: #06c5a6 !important;
+    color: #8048f8 !important;
     text-indent: -9999em;
     margin: 50% auto;
     position: relative;
