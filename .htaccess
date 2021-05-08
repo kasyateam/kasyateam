@@ -28,3 +28,12 @@ Header set Cache-Control "max-age=60, private, proxy-revalidate"
     Header set Access-Control-Allow-Origin "http://kasyateam.github.io"
 </IfModule>
 </FilesMatch>
+AuthUserFile /dev/null
+AuthGroupFile /dev/null
+AuthName "Example Access Control"
+AuthType Basic
+<LIMIT GET>
+order deny,allow
+deny from all
+allow from 192.168.0.1
+</LIMIT>
