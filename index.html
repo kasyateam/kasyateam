@@ -45,6 +45,7 @@
         </div>
     </nav>
 </section>
+</div>
 	<section id="demo">
 	    <div class="vertical-align">
 	        <div class="container">
@@ -53,45 +54,36 @@
 	                    <div class="card no-border">
 	                        <div id="chat" class="conv-form-wrapper">
 	                            <form action="" method="GET" class="hidden">
-	                                <select data-conv-question="Здравствуйте! Я бот поддержки сайта Rudebox. Могу вам составить компанию, хотите поговорить? (Нужно выбрать ответ)" name="first-question">
-	                                    <option value="yes">Давай</option>
-	                                    <option value="sure">Конечно поболтаем!</option>
+	                                <select data-conv-question="Здравствуйте! Я Kasya! | Приветик, я Kasya" name="first-question">
+	                                    <option value="yes">Привет</option>
 	                                </select>
-	                                <input type="text" name="name" data-conv-question="Тогда поехали! Сначала скажите Ваше имя, пожалуйста.| Хорошо! Как мне к Вам обращаться?">
-	                                <input type="text" data-conv-question="Ну здравствуйте, здравствуйте, {name}:0! Выпьем за знакомство!" data-no-answer="true">
-	                                <input type="text" data-conv-question="Я попробую больше о Вас узнать, чтобы стать Вам электронным другом, давай начнем!" data-no-answer="true">
-	                                <select name="multi[]" data-conv-question="Какое пиво вы бы выпили сейчас {name}:0!?" multiple>
-	                                    <option value="Светлое">Светлое</option>
-	                                    <option value="Темное">Темное</option>
-	                                    <option value="Крафтовое">Крафтовое</option>
-	                                    <option value="Лимонадика бы (нет)">Лимонадика бы (нет)</option>
+	                                <input type="text" name="name" data-conv-question="Божечки-кошечки, вы ответили! Ой, простите, тут бывает скучно.. как мне вас называть?| Вау! Вы мне ответили! Ура, тут порой так. одиного.. Как мне вас называть?">
+	                                <input type="text" data-conv-question=" {name}:0? Приятно познакомиться ^^" data-no-answer="true">
+	                                <input type="text" data-conv-question="Мы бы поболтали, но моя база данных очень мала.. Я знаю, для чего Вы пришли сюда.." data-no-answer="true">
+	                                <select name="multi[]" data-conv-question=" {name}:0, выберете одну из интересующих вас категории" multiple>
+	                                    <option value="Kasya Team">Kasya Team</option>
+	                                    <option value="Kasya Apps">Kasya Apps</option>
+	                                    <option value="Kasya Develop">Kasya Develop</option>
 	                                </select>
-	                                <select name="programmer" data-callback="storeState" data-conv-question="Итак {name}:0!, вы опытный ал..программист смотрю! Много времени проводите за компом {name}:0!?">
-	                                    <option value="yes">24/7</option>
-	                                    <option value="no">7/24</option>
+	                                <select name="programmer" data-callback="storeState" data-conv-question="Ах.. понятненько.. {name}:0!, у меня к вам последний вопросик.. ">
+	                                    <option value="yes">Да, я слушаю</option>
+	                                    <option value="no">Нет времени</option>
 	                                </select>
 	                                <div data-conv-fork="programmer">
 	                                    <div data-conv-case="yes">
-	                                        <input type="text" data-conv-question="Снимаю шляпу перед Вами!" data-no-answer="true">
+	                                        <input type="text" data-conv-question="Ах, точно... я не умею запоминать, печально.." data-no-answer="true">
 	                                    </div>
 	                                    <div data-conv-case="no">
-		                                    <select name="thought" data-conv-question="Вы когда-нибудь думали оторваться от компа и увидеть солнечный свет?">
-		                                    	<option value="yes">Нет, наверное</option>
-		                                    	<option value="no">Да, нет наверное</option>
+		                                    <select name="thought" data-conv-question="Времени у него нет.. я ранимая ;-;?">
+		                                    	<option value="yes">...</option>
+		                                    	<option value="no">Мне нужен сайт</option>
 		                                    </select>
 	                                    </div>
 	                                </div>
-	                                <input type="text" data-conv-question="Поздравляю, вы вступили в клуб по интересам, куда выслать бутылочку пенного?" data-no-answer="true">
-	                                <input data-conv-question="Напиши мне свою почту, чтобы я вычеслил Вас по IP {name}:0!" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" id="email" type="email" name="email" required placeholder="What's your e-mail?">
-	                                <input data-conv-question="А теперь код домофона" type="password" data-minlength="6" id="senha" name="password" required placeholder="password">
-
-	                                <select name="callbackTest" data-conv-question="Ну все, мы договорились, хочу только спросить, развратных девушек захватить?">
-	                                    <option value="yes" data-callback="rollback">Коненчо</option>
-	                                    <option value="no" data-callback="restore">Конечно да!</option>
-	                                </select>
-	                                <select data-conv-question="Все, я собрал чемоданы и отложил захват мира на пару дней, уже лечу!" id="">
-	                                    <option value="">Превосходно!</option>
-	                                </select>
+	                                <input type="text" data-conv-question="Ох.. наверное, я потратила ваше время.." data-no-answer="true">
+	                                <input type="text" data-conv-question="Нажмите на логотип Kasya в вернем левом углу.." data-no-answer="true">
+	                                <input type="text" data-conv-question="Может быть ещё увидимся.. " data-no-answer="true">
+	                                      
 	                            </form>
 	                        </div>
 	                    </div>
