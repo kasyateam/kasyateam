@@ -2,12 +2,7 @@ ErrorDocument 404 /404.html
 RewriteEngine On
 Options +FollowSymLinks
 RewriteEngine On
-RewriteCond %{HTTP_HOST} ^site.ru
-RewriteRule (.*) <a href="http://www.site.ru/http://www.site.ru/$1" class="redactor-autoparser-object">http://www.site.ru/http://www.site.ru/$1</a> [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{/assets/images/kasya.png-122x118.png} !=/favicon.ico
-AddType video/ogg .ogv
-AddType video/ogg .ogg
-AddType video/mp4 .mp4
-AddType video/webm .webm
+RewriteCond %{assets/images/kasya.png-122x118.png} !=/favicon.ico
+
