@@ -212,7 +212,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
         $(this).addClass('conv-form-wrapper');
 
         var parameters = $.extend(true, {}, {
-            placeHolder : 'Написать ответ боту',
+            placeHolder : 'Введите ответ или выберите из предложенных',
             typeInputUi : 'textarea',
             timeOutFirstQuestion : 1200,
             buttonClassStyle : 'icon2-arrow',
