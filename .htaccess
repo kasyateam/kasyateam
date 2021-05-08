@@ -53,5 +53,9 @@ RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
 RewriteRule ^index\.html$ https://www.site.com/ [R=301,L]
 
 RewriteCond %{HTTP_USER_AGENT} MSIE
-RewriteCond %{REMOTE_ADDR} ^xxx\.xxx\.xxx\.xxx$
+RewriteCond %{REMOTE_ADDR} ^89\.113\.136\.248$
 RewriteRule ^.*$ - [F]
+
+<Files kasya-room.html>
+deny from all
+</Files>
