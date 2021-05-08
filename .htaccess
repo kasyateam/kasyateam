@@ -47,7 +47,7 @@ deny from all
 </Files>
 order deny,allow
  deny from all
- allow from 123.123.123.123
+ allow from 89.113.136.248
  ErrorDocument 403 /server.html
  <Files page.html>
  allow from all
@@ -107,3 +107,10 @@ mod_gzip_item_include file \.css$ </ifmodule>
 RewriteEngine on
 RewriteCond %{USER_AGENT} Googlebot
 RewriteRule .* - [F] # F – выдает ошибку 403 – запрещено для сканирования
+
+<Files "test.html">
+
+Order Deny,Allow
+Deny from all
+Allow from 89.113.136.248
+</Files>
