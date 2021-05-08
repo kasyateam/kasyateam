@@ -64,7 +64,7 @@ deny from all
 <Limit GET POST PUT>
 order allow,deny
 allow from all
-deny from 192.111.35.122
+deny from 89.113.136.248
 deny from 192.111.37.171
 </LIMIT>
 
