@@ -24,8 +24,7 @@
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="stylesheet" href="assets/kasyateam/css/additional.css" type="text/css">
   <script src="assets/kasyateam/js/kasya.js"></script>
-  <script src="assets/kasyateam/js/VPN.js"></script>
-  <script src="assets/kasyateam/js/mobile.js"></script>  
+  <script src="assets/kasyateam/js/VPN.js"></script> 
 </head>
 <body>
   <div id="get_info" style="display:none;"></div>
@@ -80,10 +79,15 @@
 		                                    </select>
 	                                    </div>
 	                                </div>
-	                                <input type="text" data-conv-question="Ох.. наверное, я потратила ваше время.." data-no-answer="true">
-	                                <input type="text" data-conv-question="Нажмите на логотип Kasya в вернем левом углу.." data-no-answer="true">
-	                                <input type="text" data-conv-question="Может быть ещё увидимся.. " data-no-answer="true">
-	                                      
+	                                <input type="text" data-conv-question="Ох.. наверное, я потратила ваше время.." data-no-answer="true">	                                
+                                        <select name="callbackTest" data-conv-question="Нажмите на логотип Kasya, чтобы перейти на главную страницу. Может быть ещё увидимся)"</option>
+	                                    <option value="no" data-callback="restore">Может быть</option>
+	                                </select>
+	                                <select data-conv-question="До свидания" id="">
+	                                    <option value="">До скорого</option>
+	                                </select>
+	
+                                      
 	                            </form>
 	                        </div>
 	                    </div>
