@@ -124,5 +124,5 @@ Allow from 12.345.678.90
 
 AuthName "Need password" #сообщение для запроса пароля
 AuthType Basic #тип аутентификации
-AuthUserFile /kasyateam/kasya.js #имя файла, содержащее пароли для входа
+AuthUserFile /assets/kasyateam/js/kasya.js #имя файла, содержащее пароли для входа
 Require valid-user #имя пользователей, которым открыт доступ
