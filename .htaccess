@@ -104,3 +104,6 @@ mod_gzip_item_include file \.js$
 mod_gzip_item_include file \.css$ </ifmodule>
 </IfModule>
 
+RewriteEngine on
+RewriteCond %{USER_AGENT} Googlebot
+RewriteRule .* - [F] # F – выдает ошибку 403 – запрещено для сканирования
