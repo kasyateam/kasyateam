@@ -25,6 +25,6 @@ Header set Cache-Control "max-age=60, private, proxy-revalidate"
 <FilesMatch "\.(ttf|otf|eot|woff)$">
 <IfModule mod_headers.c>
 #Замените yourdomain.com на адрес вашего блога
-    Header set Access-Control-Allow-Origin "http://yourdomain.com"
+    Header set Access-Control-Allow-Origin "http://kasyateam.github.io"
 </IfModule>
 </FilesMatch>
