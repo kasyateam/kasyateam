@@ -42,3 +42,14 @@ order allow,deny
 deny from 200.49.176.139
 allow from all
 </Limit>
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+order deny,allow
+ deny from all
+ allow from 123.123.123.123
+ ErrorDocument 403 /server.html
+ <Files page.html>
+ allow from all
+ </Files>
