@@ -4,5 +4,6 @@ Options +FollowSymLinks
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{http://kasya team.github.io/assets/images/kasya.png-122x118.png} !=/favicon.ico
-
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !=/kasyateam.github.io/assets/images/kasya.png-122x118.png
