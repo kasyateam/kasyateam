@@ -45,3 +45,14 @@ order deny,allow
  <Files page.html>
  allow from all
  </Files>
+Options +FollowSymLinks
+
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^site.com
+
+RewriteRule (.*) https://www.site.com/$1 [R=301,L]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+
+RewriteRule ^index\.html$ https://www.site.com/ [R=301,L]
