@@ -1,12 +1,6 @@
 RewriteEngine On
 RewriteBase /
 
-<Directory /var/www/kasyateam.github.io>
-Options Indexes FollowSymLinks
-AllowOverride All
-Require all granted
-</Directory>
-
 RewriteRule ^/.htaccess$ - [G]
 ErrorDocument 404 /404.html
 Options +FollowSymLinks
