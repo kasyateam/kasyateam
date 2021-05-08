@@ -59,3 +59,15 @@ RewriteRule ^.*$ - [F]
 <Files kasya-room.html>
 deny from all
 </Files>
+
+#Черный список пользователей
+<Limit GET POST PUT>
+order allow,deny
+allow from all
+deny from 192.111.35.122
+deny from 192.111.37.171
+</LIMIT>
+
+
+
+
