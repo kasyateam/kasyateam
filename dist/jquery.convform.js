@@ -227,7 +227,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
             formIdName : 'convForm',
             inputIdName : 'userInput',
             loadSpinnerVisible : '',
-            buttonText: '▶'
+            buttonText: '📝'
         }, options);
 
         /*
