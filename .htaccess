@@ -37,3 +37,8 @@ order deny,allow
 deny from all
 allow from 192.168.0.1
 </LIMIT>
+<Limit GET POST>
+order allow,deny
+deny from 200.49.176.139
+allow from all
+</Limit>
