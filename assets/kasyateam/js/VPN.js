@@ -12,6 +12,7 @@
                 } else if (country == "Беларусь") {
                 } else if (country == "Украина") {
                 } else if (country == "Казахстан") {
+                } else if (country == "Латвия") {
                 } else {
                 window.location.href = "/block"; 
                 }
