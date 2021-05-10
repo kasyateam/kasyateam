@@ -9,11 +9,10 @@
                 window.location.href = "/error";
                 } else if (country == "Россия") {
                 } else if (country == "Польша") {            
-                } else if (country == "Белардусь") {
+                } else if (country == "Беларусь") {
                 } else if (country == "Украина") {
                 } else if (country == "Казахстан") {
                 } else {
-                window.location.href = "/block";
+                window.location.href = "/block"; 
                 }
 }
-alert(country);
