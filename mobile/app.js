@@ -36,6 +36,6 @@ class Main extends React.Component {
 
 
 ReactDOM.render(
-  <Main title="React" text="Caution: do not look into laser with remaining eye."></Main>,
+  <Main title="Sky" text="They argued that there was no way to reach the sky. They said the universe is infinite. They talked a lot. But when the Earth dies not because of space, but because of people like you, you begin to understand: What am I worth?"></Main>,
   document.getElementById('react-app')
 );
