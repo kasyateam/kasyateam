@@ -172,34 +172,43 @@
 	<script type="text/javascript" src="cmd/jquery-1.12.3.min.js"></script>
 	<script type="text/javascript" src="cmd/dist/autosize.min.js"></script>
 	<script type="text/javascript" src="cmd/dist/jquery.convform.js"></script>
+		<script>
+		function google() {
+			window.open("https://google.com");
+		}
+		function bing() {
+			window.open("https://bing.com");
+		}
+		var rollbackTo = false;
+		var originalState = false;
+		function storeState(stateWrapper) {
+			rollbackTo = stateWrapper.current;
+			console.log("storeState called: ",rollbackTo);
+		}
+		function rollback(stateWrapper) {
+			console.log("rollback called: ", rollbackTo, originalState);
+			console.log("answers at the time of user input: ", stateWrapper.answers);
+			if(rollbackTo!=false) {
+				if(originalState==false) {
+					originalState = stateWrapper.current.next;
+						console.log('stored original state');
+				}
+				stateWrapper.current.next = rollbackTo;
+				console.log('changed current.next to rollbackTo');
+			}
+		}
+		function restore(stateWrapper) {
+			if(originalState != false) {
+				stateWrapper.current.next = originalState;
+				console.log('changed current.next to originalState');
+			}
+		}
+	</script>
 	<script>
 		jQuery(function($){
-			var count = 0;
-			var convForm = $('#chat').convform({eventList:{onInputSubmit: function(convState, ready) {
-				//here you send the response to your API, get the results and build the next question
-				//when ready, call 'ready' callback (passed as the second parameter)
-		        if(convState.current.answer.value==='end') {
-		            convState.current.next = false;
-					//emulating random response time (100-600ms)
-					setTimeout(ready, Math.random()*500+100);
-		        } else {
-		            convState.current.next = convState.newState({
-		                type: 'select',
-		                name: 'dynamic-question-'+count,
-		                questions: ['This question state was built on your previous answer (you answered: '+convState.current.answer.text+')'],
-		                answers: [
-		                    {text: 'Answer 1', value: '1'},
-		                    {text: 'Answer 2', value: '2'},
-		                    {text: 'END', value: 'end'}
-		                ]
-		            });
-					//emulating random response time (100-600ms)
-					setTimeout(ready, Math.random()*500+100);
-		        }
-		        count++;
-		    }}});
+			var convForm = $('#chat').convform();
+			console.log(convForm);
 		});
 	</script>
 </body>
 </html>
-
