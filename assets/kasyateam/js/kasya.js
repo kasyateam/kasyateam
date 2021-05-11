@@ -12,7 +12,7 @@ window.location.href = "/offline";
 window.location.href = "/server";
 } else { }
 
-var message="Нам не нравится, что вы хотите сделать...";
+var message="Зачем вы это делаете?";
 function clickIE4(){
 if (event.button==2){
 alert(message);
