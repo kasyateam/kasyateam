@@ -14,6 +14,6 @@
                 } else if (country == "Казахстан") {
                 } else if (country == "Латвия") {
                 } else {
-                window.location.href = "/block"; 
+               // window.location.href = "/block"; 
                 }
 }
