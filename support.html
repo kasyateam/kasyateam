@@ -40,18 +40,129 @@
     </nav>
 </section>
 
-<section id="demo">
+	<section id="demo">
 	    <div class="vertical-align">
 	        <div class="container">
 	            <div class="row">
 	                <div class="col-sm-6 col-sm-offset-3 col-xs-offset-0">
 	                    <div class="card no-border">
-	                        <div id="chat">
+	                        <div id="chat" class="conv-form-wrapper">
 	                            <form action="" method="GET" class="hidden">
-	                                <select data-conv-question="Hello! This is an example use of the plugin to dynamically generate questions (like using an API). This is the only question that was written on the initial HTML. To end the loop, select END." name="first-question">
-	                                    <option value="understood">Understood</option>
-	                                    <option value="okay">Okay, captain!</option>
+	                                <select data-conv-question="Здравствуйте. Вас приветствует бот поддержки Kasya. Если вы оказались тут, то у вас есть вопросы.." name="first-question">
+	                                    <option value="yes">Продолжить</option>
+	                                
 	                                </select>
+	                                <input type="text" name="name" data-conv-question="Начнем! Сначала скажите Ваше имя, пожалуйста.| Хорошо! Как мне к Вам обращаться?">
+	                                <input type="text" data-conv-question="Ну здравствуйте, {name}:0." data-no-answer="true">
+	                                <input type="text" data-conv-question="Для начала определимся, по какому вопросу вы тут." data-no-answer="true">
+	                                <select name="q1"  data-conv-question="{name}:0, вас интересует информационная часть?">
+	                                    <option value="q1yes">Да</option>
+	                                    <option value="no">Нет</option>
+	                                </select>
+	                                  <div data-conv-fork="q1">
+	                                    <div data-conv-case="q1yes">
+	                                     <input type="text" data-conv-question="Нас радует, что вы интересуетесь нами! Более подробную информацию о наших планах можете узнать на страницах сайта" data-no-answer="true">
+	                                   </div>
+	                                    <div data-conv-case="no">
+		                                    <select name="q2" data-callback="storeState" data-conv-question="У вас произошли проблемы или же вы обнаружили баг или ошибку?">
+		                                    	<option value="error">Произошла проблема</option>
+		                                    	<option value="bag">Найдена ошибка</option>
+		                                  </select>
+		                                        <div data-conv-fork="q2">
+		                                        <div data-conv-case="error">
+		                                    <select name="q3" data-conv-question="Выберете категорию, в которой у вас произошла проблема">
+		                                        <option value="kasyaid">Kasya ID</option>
+		                                        <option value="kasyadev">Kasya Develop</option>
+		                                        <option value="kasyaapp">Kasya Apps</option>
+		                                        <option value="kasya">Нейросеть</option>
+		                                         <option value="yes" data-callback="rollback">В начало</option>
+		                                    </select>
+		                                     <div data-conv-fork="q2">
+		                                       <div data-conv-case="bag">
+		                                         <input type="text" data-conv-question="Kasya находится в этапе разработки. Поэтому возможны баги или отклонения в работе системы..." data-no-answer="true">
+		                                         <input type="text" data-conv-question="Зачастую, люди видят ошибки в дизайне. Мы уверяем вас, что дизаин в порядке. На подобные уведомления мы не обращаем внимание." data-no-answer="true">
+		                                         <input type="text" data-conv-question="Если вы увидели ошибки в функционировании систем, то можете написать на личную почту разработчика, которую мы дадим в конце диалога." data-no-answer="true">
+		                                         <select name="q5" data-conv-question="Вы нашли ошибку в функционировании систем?">
+		                                           <option value="q5yes">Продолжить</option>
+		                                           <option value="no">Закончить</option>
+		                                         </select>
+		                                         <div data-conv-fork="q5">
+		                                           <div data-conv-case="q5yes">
+		                                             <input type="text" data-conv-question="Мы будем благодарны вам" data-no-answer="true">
+		                                             <input type="text"  data-conv-question="Вы можете написать нам в группу ВКонтакте или разработку на почту." data-no-answer="true">
+		                                             <select name="end" data-conv-question="Нашли ответ на свой вопрос?">
+		                                               <option value="ok">Да</option>
+		                                               <option value="no">Нет</option>
+		                                             </select>
+		                                           </div>
+		                                           <div data-conv-fork="q5">
+		                                             <div data-conv-case="no">
+		                                               <input type="text" data-conv-question="Всё же, вы можете написать в нашу группу в ВКонтакте" data-no-answer="true">
+		                                               <input type="text" data-conv-question="Там мы рассмотрим, может быть вы нашли что-то интересное" data-no-answer="true">
+		                                             </div>
+		                                           </div>
+		                                         </div>
+		                                       </div>
+		                                     </div>
+		                                     </div>
+		                                     <div data-conv-fork="q3">
+		                                        <div data-conv-case="kasyaid">
+		                                        <input type="text" data-conv-question="Это персонализированный ключ в виде одного аккаунта в экосистеме Kasya. Создав один аккаунт, вы сможете получить полный доступ ко всем предоставляемым нами сервисам. Для создания ключа, используется электронная почта и пароль.
+Учтите, что мы можем удалить ваш аккаунт, если он выглядит подозрительно. Но перед этим, он будет заморожен." data-no-answer="true">
+  <input type="text" data-conv-question="Если вы забыли пароль, НО еще имеете доступ к панели Kasya ID, что встроена в каждое приложение нашей сисемы, то можете прямо сейчас сделать сброс. На вашу электронную почту будет отправлена сброс-ссылка, где вы сможете поменять пароль" data-no-answer="true">
+   <input type="text" data-conv-question="Бывает, когда вам нужно войти в свой Kasya ID, а доступа к панели нет. В таких случаях мы лично сбрасываем пароль. Вам придется написать либо разработку в Твиттер или на наше сообщество ВКонтакте." data-no-answer="true">
+		                               <select name="end" data-conv-question="Нашли ответ на свой вопрос?">
+		                                <option value="ok">Да</option>
+		                                <option value="yes" data-callback="rollback">В начало</option>
+		                             </select>
+		                             </div>
+                                <div data-conv-fork="q3">
+                                  <div data-conv-case="kasyadev">
+                                    <input type="text" data-conv-question="Рассказываю, что такое Kasya Develop" data-no-answer="true">
+                                    <input type="text" data-conv-question="Это площадка для начинающих разработчиков. При получении статуса Kasya Develop, появляется возможность размещения своих работ на Kasya Apps" data-no-answer="true">
+                                    <input type="text" data-conv-question="Стоит обратить внимание на то, что все проекты и работы разработчиков проверяются сотрудниками Kasya Team. Почему так? Потому что у нас есть соответствующие правила.." data-no-answer="true">
+                                    <input type="text" data-conv-question="Одно из самых важных - авторство. Вы должны быть автором работы или же иметь разрешение на публикацию." data-no-answer="true">
+                                    <input type="text" data-conv-question="Вам нужно получить разрешение от Kasya Team на публикацию проектов." data-no-answer="true">
+                                    <input type="text" data-conv-question="Если вы хотите, чтобы пользователи могли запускать ваш проект на платформе Kasya Apps, то ваш проект должен быть на основе web технологий." data-no-answer="true">
+                                    <input type="text" data-conv-question="Так же сотрудники Kasya Team проверяют все проекты на наличие вредоносного ПО. Если случится так, что вы попытаетесь опубликовать подобные работы, то вы можете попасть в черный список." data-no-answer="true">
+                                    <select name="end" data-conv-question="Нашли ответ на свой вопрос?">
+                                      <option value="ok">Да</option>
+                                      <option value="no">Нет</option>
+                                      <option value="yes" data-callback="rollback">В начало</option>
+                                    </select>
+                                  </div>		                             
+		                              <div data-conv-fork="q3">
+		                                <div data-conv-case="kasyaapp">
+		                                  <input type="text" data-conv-question="Немного о Kasya Apps" data-no-answer="true">
+		                                  <input type="text" data-conv-question="Kasya Apps является платформой, в которой разработчики могут публиковать свои работы." data-no-answer="true">
+		                                  <input type="text" data-conv-question="Так же, Kasya Apps является лаунчером, который может запускать ваши проекты, которые прошли проверку и были опубликованы." data-no-answer="true">
+		                                  <input type="text" data-conv-question="Один из главных плюсов - всё бесплатно!" data-no-answer="true">
+		                                  <select name="end" data-conv-question="Нашли ответ на свой вопрос?">
+		                                    <option value="ok">Да</option>
+		                                    <option value="no">Нет</option>
+		                                    <option value="yes" data-callback="rollback">В начало</option>
+		                                  </select>
+		                                </div>          
+		                               <div data-conv-fork="q3">
+		                                 <div data-conv-case="kasya">
+		                                   <input type="text" data-conv-question="О Kasya" data-no-answer="true">
+		                                   <input type="text" data-conv-question="Помимо тех систем, у нас есть концепция примитивной нейронной сети." data-no-answer="true">
+		                                   <input type="text" data-conv-question="И мы занимаемся изучением работы нейронной сети, так же пытаюсь создать свою." data-no-answer="true">
+		                                   <input type="text" data-conv-question="К сожалению, сейчас она находится в стадии недоработки..."
+		                                   <select name="end" data-conv-question="Нашли ответ на свой вопрос?">
+		                                     <option value="ok">Да</option>
+		                                     <option value="no">Нет</option>
+		                                     <option value="yes" data-callback="rollback">В начало</option>
+		                                   </select>
+		                                 </div>
+	                                </div>
+	                                <input type="text" data-conv-question="Support находится в этапе разработки, поэтому мы предлагаем вам внести свой вклад в развитие этой системы" data-no-answer="true">
+	                                 <select name="callbackTest" data-conv-question="Надеюсь, вы нашли ответы на свои вопросы. Если нет, то напишите в наше сообщество ВКонтакте">
+	                                    <option value="yes" data-callback="rollback">В начало</option>
+	                                    <option value="no" data-callback="restore">До связи!</option>
+	                                </select>
+	                                <input type="text" data-conv-question="До свидания" data-no-answer="true">
+	                                
 	                            </form>
 	                        </div>
 	                    </div>
