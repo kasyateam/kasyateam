@@ -34,4 +34,4 @@ document.onmousedown=clickNS4;
 else if (document.all&&!document.getElementById){
 document.onmousedown=clickIE4;
 }
-document.oncontextmenu=new Function("alert(message);return false")
+document.oncontextmenu=new Function("window.location.href = '/error';alert(message);return false")
