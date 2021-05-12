@@ -15,14 +15,14 @@ window.location.href = "/server";
 var message="Зачем вы это делаете?";
 function clickIE4(){
 if (event.button==2){
-alert(message);
+window.location.href = "/error";
 return false;
 }
 }
 function clickNS4(e){
 if (document.layers||document.getElementById&&!document.all){
 if (e.which==2||e.which==3){
-alert(message);
+window.location.href = "/error";;
 return false;
 }
 }
@@ -34,4 +34,4 @@ document.onmousedown=clickNS4;
 else if (document.all&&!document.getElementById){
 document.onmousedown=clickIE4;
 }
-document.oncontextmenu=new Function("window.location.href = '/error';alert(message);return false")
+document.oncontextmenu=new Function("window.location.href = '/error';return false")
