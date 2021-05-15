@@ -1,6 +1,4 @@
-document.writeln("
-
-<!DOCTYPE html>
+document.write("<!DOCTYPE html>
 <html>
 <head>
   <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script> 
@@ -44,6 +42,4 @@ document.writeln("
   
   <input name="animation" type="hidden">
   </body>
-</html>
-
-");
+</html>");
