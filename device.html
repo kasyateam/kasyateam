@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+DOCTYPE html>
 <html>
 <head>
   <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script> 
@@ -41,5 +42,23 @@
   
   
   <input name="animation" type="hidden">
+
+<script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
+<script>
+ var firebaseConfig = {
+    apiKey: "AIzaSyDmrgeFdn0sqArB_8Hbj0gWBtY29sFv_SQ",
+    authDomain: "kasya-team.firebaseapp.com",
+    databaseURL: "https://kasya-team-default-rtdb.firebaseio.com",
+    projectId: "kasya-team",
+    storageBucket: "kasya-team.appspot.com",
+    messagingSenderId: "472136088940",
+    appId: "1:472136088940:web:744883ac4f6cdd38df8749",
+    measurementId: "G-6GPCTH5KFC"
+  };
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
   </body>
 </html>
