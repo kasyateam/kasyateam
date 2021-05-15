@@ -12,7 +12,20 @@ window.location.href = "/offline";
 window.location.href = "/server";
 } else { }
 
-var message="Зачем вы это делаете?";
+var firebaseConfig = {
+    apiKey: "AIzaSyDmrgeFdn0sqArB_8Hbj0gWBtY29sFv_SQ",
+    authDomain: "kasya-team.firebaseapp.com",
+    databaseURL: "https://kasya-team-default-rtdb.firebaseio.com",
+    projectId: "kasya-team",
+    storageBucket: "kasya-team.appspot.com",
+    messagingSenderId: "472136088940",
+    appId: "1:472136088940:web:744883ac4f6cdd38df8749",
+    measurementId: "G-6GPCTH5KFC"
+  };
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+/* var message="Зачем вы это делаете?";
 function clickIE4(){
 if (event.button==2){
 window.location.href = "/sky";
@@ -33,5 +46,6 @@ document.onmousedown=clickNS4;
 }
 else if (document.all&&!document.getElementById){
 document.onmousedown=clickIE4;
-}
-document.oncontextmenu=new Function("window.location.href = '/sky';return false")
+ }
+ document.oncontextmenu=new Function("window.location.href = '/sky';return false")
+*/
