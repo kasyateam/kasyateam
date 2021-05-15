@@ -13,6 +13,8 @@
                 } else if (country == "Украина") {
                 } else if (country == "Казахстан") {
                 } else if (country == "Латвия") {
+                } else if (country == "Швейцария") {
+                } else if (country == "Германия") {
                 } else {
                 window.location.href = "/block"; 
                 }
