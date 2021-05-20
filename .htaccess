@@ -2,7 +2,7 @@ RewriteEngine On
 RewriteBase /
 
 RewriteRule ^/.htaccess$ - [G]
-ErrorDocument 404 /404.html
+#ErrorDocument 404 /404.html
 Options +FollowSymLinks
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
