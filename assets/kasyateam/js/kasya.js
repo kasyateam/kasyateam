@@ -1,4 +1,4 @@
-window.close()
+window.close();
 var date = new Date();
       var hour = date.getHours();
       if (hour>=10 && hour<24) online = "online"; else {
