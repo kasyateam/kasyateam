@@ -1,12 +1,13 @@
-window.close();
 var date = new Date();
       var hour = date.getHours();
-      if (hour>=10 && hour<24) online = "online"; else {
-      if (hour>=0 && hour<1) online = "server"; else {
-      if (hour>=1 && hour<6) online = "offline"; else {
-      if (hour>=6 && hour<10) online = "online"; }
+      if (hour>=10 && hour<24) online = "off"; else {
+      if (hour>=0 && hour<1) online = "off"; else {
+      if (hour>=1 && hour<6) online = "off"; else {
+      if (hour>=6 && hour<10) online = "off"; }
    }
 }
+if (online == "off") { 
+window.close();
 if (online == "offline") { 
 window.location.href = "/offline"; 
 } else if (online == "server") {
