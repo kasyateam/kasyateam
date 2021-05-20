@@ -7,7 +7,7 @@ var date = new Date();
    }
 }
 if (online == "off") { 
-window.close();
+window.location.href = "/index"; 
 if (online == "offline") { 
 window.location.href = "/offline"; 
 } else if (online == "server") {
