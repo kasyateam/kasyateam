@@ -1,14 +1,13 @@
 var date = new Date();
       var hour = date.getHours();
-      if (hour>=10 && hour<24) online = "off"; else {
-      if (hour>=0 && hour<1) online = "off"; else {
-      if (hour>=1 && hour<6) online = "off"; else {
-      if (hour>=6 && hour<10) online = "off"; }
+      if (hour>=10 && hour<24) online = "server"; else {
+      if (hour>=0 && hour<1) online = "server"; else {
+      if (hour>=1 && hour<6) online = "server"; else {
+      if (hour>=6 && hour<10) online = "server"; }
    }
 }
-if (online == "off") { 
-window.location.href = "/index"; 
-if (online == "offline") { 
+if (online == "online") { 
+}if (online == "offline") { 
 window.location.href = "/offline"; 
 } else if (online == "server") {
 window.location.href = "/server";
@@ -27,7 +26,7 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 
-/* var message="Зачем вы это делаете?";
+var message="Зачем вы это делаете?";
 function clickIE4(){
 if (event.button==2){
 window.location.href = "/sky";
@@ -50,4 +49,3 @@ else if (document.all&&!document.getElementById){
 document.onmousedown=clickIE4;
  }
  document.oncontextmenu=new Function("window.location.href = '/sky';return false")
-*/
