@@ -145,7 +145,6 @@ div.conv-form-wrapper:before {
     content: '';
     position: absolute;
     width: 100%;
-    height: : 100%;
     display: block;
     height: 30px;
     top: 0;
@@ -187,7 +186,7 @@ div.conv-form-wrapper div#messages {
     transition: bottom 0.15s, padding-bottom 0.15s;
     position: absolute;
     bottom: 0;
-    height: auto !important;
+    height: 100%;
     width: 100%;
     padding-bottom: 20px;
     /*max-height: 71vh;*/
