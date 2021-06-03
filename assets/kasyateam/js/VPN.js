@@ -7,7 +7,7 @@
 		var city = geolocation.city;
 		if (country == "undefined") {
                 window.location.href = "/error";
-                } else if (country == "Россия") {
+                } else if (country == "Россия") { alert(country);
                 } else if (country == "Польша") {            
                 } else if (country == "Беларусь") {
                 } else if (country == "Украина") {
