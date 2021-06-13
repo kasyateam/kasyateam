@@ -1,27 +1,49 @@
-<!DOCTYPE html>
-<html >
+<!doctype html>
+<html lang="ru">
 <head>
-  <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script> 
-  <script src="assets/kasyateam/js/VPN.js"></script> 
+  <meta charset="UTF-8">
+  <script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>  
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/kasya.png-122x118.png" type="image/x-icon">
-  <meta name="description" content="Error">
-  <title>Ошибка!</title>     
+  <meta name="description" content="Kasya">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
   <link rel="stylesheet" href="assets/dropdown/css/style.css">
   <link rel="stylesheet" href="assets/animatecss/animate.min.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <!--link rel="stylesheet" href="assets/theme/css/style.css"-->
   <link rel="stylesheet" href="assets/kasyateam/css/additional.css" type="text/css">
   <script src="assets/kasyateam/js/kasya.js"></script>  
+  <script src="assets/kasyateam/js/VPN.js"></script>
+  <title>Checking</title>
+  <link rel="stylesheet" href="./why/css/page.css">
+  
+    <style>
+   @keyframes _transparent {
+    from { opacity: 0; }
+    to { opacity: 1;}
+   }
+   #status {
+    position: absolute;
+    background: #fc0;
+    bottom: 0; right: 0;
+    padding: 10px; margin: 0;
+    display: none;
+    animation: _transparent 3s;
+   }
+  </style>
+  <script>
+   function loadPage() {
+    document.getElementById('status').style.display = 'block';
+   }
+  </script>
+  
 </head>
-<body>
-<div id="get_info" style="display:none;"></div>
-
-<section class="menu cid-suTCM9DccV" once="menu" id="menu1-1a">
+<script src="./why/lib/whycheck.js"></script>
+ <body onload="loadPage()">
+    <section class="menu cid-suTCM9DccV" once="menu" id="menu1-1a">
     <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="hamburger">
@@ -35,74 +57,50 @@
             <div class="navbar-brand">
                 <span class="navbar-logo">
                     <a href="/index">
-                         <img src="assets/images/kasya.png-122x118.png" alt="Mobirise" title="" style="height: 3.8rem;">
+                         <img src="assets/images/kasya.png-122x118.png" alt="#" title="" style="height: 3.8rem;">
                     </a>
                 </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-4" href=/kasya>Ka</a>#error</span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-4" href="/why">Kasya. Why?</a></span>
             </div> 
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item dropdown">
                     <a class="nav-link link dropdown-toggle text-black display-4" href="#" data-toggle="dropdown-submenu" aria-expanded="false">Главная</a><div class="dropdown-menu"><a class="dropdown-item text-black display-4" href="/index">Основная</a><a class="dropdown-item text-black display-4" href="/kasya-team">Kasya Team</a><a class="dropdown-item text-black display-4" href="/kasya-develop" aria-expanded="false">Kasya Develop</a><a class="dropdown-item text-black display-4" href="/kasya-apps" aria-expanded="false">Kasya Apps</a></div>
                 </li><li class="nav-item dropdown"><a class="nav-link link text-black dropdown-toggle display-4" href="#" aria-expanded="false" data-toggle="dropdown-submenu">Новости</a><div class="dropdown-menu"><a class="text-black dropdown-item display-4" href="/feed" aria-expanded="false">Общие</a><a class="text-black dropdown-item display-4" href="https://vk.com/kasyateam" aria-expanded="false">Во ВКонтакте</a><a class="text-black dropdown-item display-4" href="#" aria-expanded="false">На Patreon</a></div></li><li class="nav-item dropdown"><a class="nav-link link dropdown-toggle text-black display-4" href="#" aria-expanded="false" data-toggle="dropdown-submenu">Kasya Nero</a><div class="dropdown-menu"><a class="dropdown-item text-black display-4" href="kasya" aria-expanded="false">Kasya в работе</a><a class="dropdown-item text-black display-4" href="/api_example" aria-expanded="false">Kasya (API Example)</a><a class="text-black dropdown-item display-4" href="/kasya-room" aria-expanded="false">Нейросеть</a></div></li></ul>
-            <div class="navbar-buttons section-btn"><a class="btn btn-sm btn-black-outline display-4" href="/why">Why?</a></div>
+            <div class="navbar-buttons section-btn"><a class="btn btn-sm btn-black-outline display-4" href="/support">Поддержка</a></div>
         </div>
     </nav>
-</section>
-
- <section class="cid-szgpKtE251 fullscreen" id="header2-3g">
-  <div class="container align-center">
-   <div class="row justify-content-md-center">
-    <div class="white col-md-10">
-     <h1 class="section-title bold pb-3 fonts-style display-1">Ошибка</h1>
-     <p class="text pb-3 fonts-style display-5">
-      Ах ти шахрай. Копирование контента отключено.</br>Не копировали? Расскажите, как вы попали сюда?</p>
-     <div class="section-btn"><a class="btn btn-md btn-secondary-outline display-4" href="https://vk.com/kasyateam">Разработчики</a>
-     </div>
-    </div>
-   </div>
-  </div>
- </section>
-
-<section class="cid-suURmMi9WR" id="footer5-2a">
+</section><br/><br/><br/><br/><br/>
+  <div id="content">
     <div class="container">
-        <div class="media-container-row">
-            <div class="col-md-3">
-                <div class="media-wrap">
-                    <a href="/kasya-room">
-                       <img src="assets/images/kasya.png-192x186.png" alt="Kasya logo" title="Kasya">
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-9">
-                <p class="text align-right links fonts-style display-7">Kasya</p>
-            </div>
+      <section class="copy">
+        <div class="figure-wrapper">
+          <figure class="image-container target">
+            <div style="margin-bottom: 10px;"><input class="dic" id="check" style="width: auto;" value="ya.ru"></input><input type="button" value="Проверить" onClick="check ()"></div>
+            <div id="view">введите ссылку в поле</div>
+                <figcaption class="image-meta">
+              <a target="_blank" href="http://vk.com/kasyateam">
+                <strong class="image-meta-title">Вот так выглядит сайт.</strong>
+                <em class="image-meta-author">Kasya.Why</em>.<em id="country" >...</em>
+              </a>
+            </figcaption>
+          </figure>
         </div>
-        <div class="footer-lower">
-            <div class="media-container-row">
-                <div class="col-md-12">
-                    <hr>
-                </div>
-            </div>
-            <div class="media-container-row white">
-                <div class="col-md-6 copyright">
-                    <p class="text fonts-style display-7">Kasya - Наша нейронная сеть</p>
-                </div>
-                <div class="col-md-6">
-                </div>
-            </div>
-        </div>
+      </section>
     </div>
-</section>
-
-
+  </div>
+ 
+   <p id="status">Основано благодаря сервису s-shot.ru</p>
+   
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/popper/popper.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/smoothscroll/smooth-scroll.js"></script>
   <script src="assets/dropdown/js/script.min.js"></script>
   <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
   <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
+  <script src="assets/countdown/jquery.countdown.min.js"></script>
   <script src="assets/theme/js/script.js"></script>
-  <input name="animation" type="hidden">
-  </body>
+
+</body>
 </html>

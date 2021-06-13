@@ -3,7 +3,22 @@
 <head>
 	<title>API Kasya</title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	script src="https://api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+	<script src="assets/kasyateam/js/VPN.js"></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	<link rel="shortcut icon" href="assets/images/kasya.png-122x118.png" type="image/x-icon">
+	<meta name="description" content="kasya develop">
+	<title>Api Example</title>
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="assets/dropdown/css/style.css">
+	<link rel="stylesheet" href="assets/animatecss/animate.min.css">
+	<link rel="stylesheet" href="assets/theme/css/style.css">
+	<link rel="stylesheet" href="assets/kasyateam/css/additional.css" type="text/css">
+	<script src="assets/kasyateam/js/kasya.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="cmd/dist/jquery.convform.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
@@ -11,17 +26,35 @@
 <body>
 
 
-  <section class="menu cid-suTCM9DccV" once="menu" id="menu1-3">
-    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-toggleable-sm">
+ <section class="menu cid-suTCM9DccV" once="menu" id="menu1-1a">
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </button>
         <div class="menu-logo">
             <div class="navbar-brand">
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-success display-4">Пример API запросов&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</a></span>
+                <span class="navbar-logo">
+                    <a href="/index">
+                         <img src="assets/images/kasya.png-122x118.png" alt="Kasya" title="" style="height: 3.8rem;">
+                    </a>
+                </span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-4" href=/aip_examlle>Nero. Api Example</a></span>
+            </div> 
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item dropdown">
+                    <a class="nav-link link dropdown-toggle text-black display-4" href="#" data-toggle="dropdown-submenu" aria-expanded="false">Главная</a><div class="dropdown-menu"><a class="dropdown-item text-black display-4" href="/index">Основная</a><a class="dropdown-item text-black display-4" href="/kasya-team">Kasya Team</a><a class="dropdown-item text-black display-4" href="/kasya-develop" aria-expanded="false">Kasya Develop</a><a class="dropdown-item text-black display-4" href="/kasya-apps" aria-expanded="false">Kasya Apps</a></div>
+                </li><li class="nav-item dropdown"><a class="nav-link link text-black dropdown-toggle display-4" href="#" aria-expanded="false" data-toggle="dropdown-submenu">Новости</a><div class="dropdown-menu"><a class="text-black dropdown-item display-4" href="/feed" aria-expanded="false">Общие</a><a class="text-black dropdown-item display-4" href="https://vk.com/kasyateam" aria-expanded="false">Во ВКонтакте</a><a class="text-black dropdown-item display-4" href="#" aria-expanded="false">На Patreon</a></div></li><li class="nav-item dropdown"><a class="nav-link link dropdown-toggle text-black display-4" href="#" aria-expanded="false" data-toggle="dropdown-submenu">Kasya Nero</a><div class="dropdown-menu"><a class="dropdown-item text-black display-4" href="kasya" aria-expanded="false">Kasya в работе</a><a  class="nav-link link text-secondary display-4" href="/api_example" aria-expanded="false">Kasya (API Example)</a><a class="text-black dropdown-item display-4" href="/kasya-room" aria-expanded="false">Нейросеть</a></div></li></ul>
             </div>
         </div>
     </nav>
 </section>
+
 
 	<section id="demo">
 	    <div class="vertical-align">
@@ -75,5 +108,17 @@
 		    }}});
 		});
 	</script>
+	
+	
+	 <script src="assets/web/assets/jquery/jquery.min.js"></script>
+	 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	 <script src="assets/smoothscroll/smooth-scroll.js"></script>
+	 <script src="assets/dropdown/js/script.min.js"></script>
+	 <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+	 <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
+	 <input name="animation" type="hidden">
+	 <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+	 <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
+	 
 </body>
 </html>
