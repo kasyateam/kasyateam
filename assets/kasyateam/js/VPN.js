@@ -15,9 +15,9 @@ ymaps.ready(init);
                 } else if (country == "Латвия") {			
                 } else if (country == "Швейцария") {			
                 } else if (country == "Германия") {
-                } else {
+                } else if (window.location.pathname == '/block'){
+                }else {
                 window.location.href = "/block"; 
-alert(window.location.pathname);
                 }
 var el = document.getElementById('country');	
 if (typeof el.innerText !== 'undefined') {
