@@ -6,11 +6,11 @@ win.why =  '/feed.html';
 win.update = '/update.html'
 
 if (screen.width >= 850 && open == win.why) {
-  window.location.href = './k-feed.html'
+  window.location.href = './k-feed'
 }else if (screen.width <= 850 && open == win.feed){
-  window.location.href = './main.html'
+  window.location.href = './main.html#feed'
 }else if (screen.width <= 850 && open == win.update){
-  window.location.href = './update.html'
+  window.location.href = './update'
 }else {
-  window.location.href = './device.html'
+  window.location.href = './device'
 }
