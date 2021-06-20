@@ -16,6 +16,7 @@ ymaps.ready(init);
                 } else if (country == "Швейцария") {			
                 } else if (country == "Германия") {
                 } else if (window.location.pathname == '/block'){
+                }else if (window.location.pathname == '/unblock'){
                 }else {
                 window.location.href = "/block"; 
                 }
