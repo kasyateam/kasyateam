@@ -241,12 +241,14 @@ div.conv-form-wrapper  div#messages div.message {
     clear: both;
     max-width: 65%;
     word-wrap: break-word;
+    
 }
 div.conv-form-wrapper  div#messages div.message.to {
     background: #8048f8;
     color: #FFFFFF;
     float: left;
     border-top-left-radius: 0;
+    
 }
 div.conv-form-wrapper div#messages div.message.from {
     background: #8048f8;
