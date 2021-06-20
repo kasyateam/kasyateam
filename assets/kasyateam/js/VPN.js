@@ -19,9 +19,4 @@ ymaps.ready(init);
                 window.location.href = "/block"; 
                 }
 }
-var el = document.getElementById('country');	
-if (typeof el.innerText !== 'undefined') {
-   el.innerText = country;
-  } else {
-   el.textContent = country;
-  }
+alert('test')
