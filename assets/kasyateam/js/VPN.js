@@ -7,9 +7,9 @@ function init() {
 		var city = geolocation.city;
 		var map = window.location.pathname;
 		var post = document.getElementById('country');
-		if (typeof post.innerText !== 'undefined') {
+		if (country == indefined) {
                 post.innerText = country;
-                } else if (country == "Россfия") { 
+                } else if (country == "Россия") { 
                 } else if (country == "Польша") {   
                 } else if (country == "Беларусь") {
                 } else if (country == "Украина") {
