@@ -5,10 +5,7 @@ function init() {
 		myMap = new ymaps.Map("get_info", {center: coords, zoom: 10});
 		var country = geolocation.country;
 		var city = geolocation.city;
-		var map = window.location.pathname;
-		var post = document.getElementById('country');
-		if (country == indefined) {
-                post.innerText = country;
+		if (country == " ") {
                 } else if (country == "Росfсия") { 
                 } else if (country == "Польша") {   
                 } else if (country == "Беларусь") {
