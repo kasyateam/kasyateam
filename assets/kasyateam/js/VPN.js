@@ -17,7 +17,7 @@ ymaps.ready(init);
                 } else if (country == "Германия") {
                 } else {
                 window.location.href = "/block"; 
-alert(window.location.patchname);
+alert(window.location.pathname);
                 }
 var el = document.getElementById('country');	
 if (typeof el.innerText !== 'undefined') {
