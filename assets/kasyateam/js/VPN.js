@@ -1,12 +1,5 @@
 ymaps.ready(init);
-function unblock() {
-  if (true) {
-    alert('test')
-  } else {
-    alert('not test')
-  }
-}
-	function init() {
+function init() {
 		var geolocation = ymaps.geolocation, 
 		coords = [geolocation.latitude, geolocation.longitude], 
 		myMap = new ymaps.Map("get_info", {center: coords, zoom: 10});
@@ -15,11 +8,8 @@ function unblock() {
 		var map = window.location.pathname;
 		var post = document.getElementById('country');
 		if (typeof post.innerText !== 'undefined') {
-   post.innerText = country;} 
-   else {}
-   if (country == undefined) {
-                window.location.href = "/error";
-                } else if (country == "Рsоссия") { 
+                post.innerText = country;} 
+                } else if (country == "Россия") { 
                 } else if (country == "Польша") {   
                 } else if (country == "Беларусь") {
                 } else if (country == "Украина") {
