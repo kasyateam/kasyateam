@@ -12,8 +12,9 @@ ymaps.ready(init);
                 } else if (country == "Беларусь") {			
                 } else if (country == "Украина") {			 
                 } else if (country == "Казахстан") {			  
-                } else if (country == "Латвия") {			
+                } else if (country == "Латвия") {
                 } else if (country == "Швейцария") {			
+                } else if (country == "США") {						
                 } else if (country == "Германия") {
                 } else if (window.location.pathname == '/block'){
                 }else if (window.location.pathname == '/unblock'){
