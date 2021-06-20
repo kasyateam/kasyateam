@@ -8,7 +8,6 @@ var date = new Date();
    }
 }
 if (online == "online") { 
-window.location.href = "/server";
 }if (online == "offline") { 
 window.location.href = "/offline";
 } else if (online == "server") {
