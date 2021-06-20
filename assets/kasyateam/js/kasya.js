@@ -7,9 +7,9 @@ var date = new Date();
       }
    }
 }
-if (online == "online") { 
+if (online == "server") { 
 }if (online == "offline") { 
 window.location.href = "/offline";
-} else if (online == "server") {
+} else if (online == "servedr") {
 window.location.href = "/server";
 } else {}
