@@ -1,17 +1,11 @@
-/*var open = document.location.pathname;
-var message1 = 'Данная функция доступна в приложении K-Feed';
-var win = {}
-win.feed = '/why-check';
-win.why =  '/feed';
-win.update = '/update'
+var open = window.location.pathname
 
-if (screen.width >= 850 && open == win.why) {
-  window.location.href = './k-feed'
-}else if (screen.width <= 850 && open == win.feed){
-  window.location.href = './main.html#feed'
-}else if (screen.width <= 850 && open == win.update){
-  window.location.href = './update'
+if (screen.width <= 850 && open == '/why-check'){
+window.location.href = './k-feed'
+}else if (screen.width <= 850 && open == '/feed'){
+window.location.href = './main#feed'
+}else if (screen.width <= 850 && open == '/update'){
+window.location.href = './k-feed'
 }else {
-  window.location.href = './device'
+window.location.href = './device'
 }
-*/
