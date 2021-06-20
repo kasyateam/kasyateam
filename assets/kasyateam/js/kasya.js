@@ -7,9 +7,13 @@ var date = new Date();
       }
    }
 }
-if (online == "online") { 
-}if (online == "offline") { 
+if (online == "online") {
+}else if (online == "offline") {
 window.location.href = "/offline";
-} else if (online == "server") {
+}else if (online == "server") {
 window.location.href = "/server";
-} else {}
+}else if (window.location.pathname == '/offline'){
+}else if (window.location.pathname == '/server'){
+} else {
+window.location.href = "/error";
+}
