@@ -10,6 +10,6 @@ var date = new Date();
 if (online == "server") { 
 }if (online == "offline") { 
 window.location.href = "/offline";
-} else if (online == "servedr") {
-window.location.href = "/server";
+} else if (online == "server") {
+window.location.href = "/serveer";
 } else {}
