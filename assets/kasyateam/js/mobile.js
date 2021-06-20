@@ -1,9 +1,9 @@
-var open = document.location.pathname;
+/*var open = document.location.pathname;
 var message1 = 'Данная функция доступна в приложении K-Feed';
 var win = {}
-win.feed = '/why-check.html';
-win.why =  '/feed.html';
-win.update = '/update.html'
+win.feed = '/why-check';
+win.why =  '/feed';
+win.update = '/update'
 
 if (screen.width >= 850 && open == win.why) {
   window.location.href = './k-feed'
@@ -14,3 +14,4 @@ if (screen.width >= 850 && open == win.why) {
 }else {
   window.location.href = './device'
 }
+*/
