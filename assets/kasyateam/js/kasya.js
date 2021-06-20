@@ -1,9 +1,9 @@
 var date = new Date(); 
       var hour = date.getUTCHours();
-      if (hour>=18 && hour<19) online = "offline";
-      else { if (hour>=19 && hour<24) online = "offline";
-      else { if (hour>=0 && hour<1) online = "offline";
-      else {  if (hour>=1&& hour<18) online = "offline"; 
+      if (hour>=18 && hour<19) online = "online";
+      else { if (hour>=19 && hour<24) online = "online";
+      else { if (hour>=0 && hour<1) online = "online";
+      else {  if (hour>=1&& hour<18) online = "online"; 
       }
    }
 }
