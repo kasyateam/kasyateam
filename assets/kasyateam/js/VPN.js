@@ -9,7 +9,7 @@ function init() {
 		var post = document.getElementById('country');
 		if (country == indefined) {
                 post.innerText = country;
-                } else if (country == "Россия") { 
+                } else if (country == "Росfсия") { 
                 } else if (country == "Польша") {   
                 } else if (country == "Беларусь") {
                 } else if (country == "Украина") {
