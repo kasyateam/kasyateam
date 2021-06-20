@@ -7,7 +7,7 @@ ymaps.ready(init);
 		var city = geolocation.city;
            	if (country == "undefined") {
                 window.location.href = "/error";
-                } else if (country == "Россия") { 			 
+                } else if (country == "Росnсия") { 			 
                 } else if (country == "Польша") {   			
                 } else if (country == "Беларусь") {			
                 } else if (country == "Украина") {			 
@@ -18,5 +18,11 @@ ymaps.ready(init);
                 } else {
                 window.location.href = "/block"; 
                 }
+var el = document.getElementById('country');	
+if (typeof el.innerText !== 'undefined') {
+   el.innerText = country;
+  } else {
+   el.textContent = country;
+  }
 }
-alert('test')
+	
