@@ -8,15 +8,12 @@ var date = new Date();
    }
 }
 if (online == "online") {
-
+}else if (window.location.pathname == '/offline'){
+}else if (window.location.pathname == '/server'){
 }else if (online == "offline") {
 window.location.href = "/offline";
 }else if (online == "server") {
 window.location.href = "/server";
-}else if (window.location.pathname == '/offline' && online != "server"){
-
-}else if (window.location.pathname == '/server' && online != "offline"){
-
 } else {
 window.location.href = "/error";
 }
