@@ -8,7 +8,7 @@ function init() {
 		var map = window.location.pathname;
 		var post = document.getElementById('country');
 		if (typeof post.innerText !== 'undefined') {
-                post.innerText = country;} 
+                post.innerText = country;
                 } else if (country == "Россия") { 
                 } else if (country == "Польша") {   
                 } else if (country == "Беларусь") {
