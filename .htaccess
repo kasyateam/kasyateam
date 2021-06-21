@@ -6,7 +6,7 @@ ErrorDocument 404 /404.html
 order allow,deny
 deny from 89.113.139.9
 allow from all
-#<FilesMatch ".(htaccess|htpasswd|log)$">
-#Order Allow,Deny
-#Deny from all
-#</FilesMatch>
+<FilesMatch ".(htaccess|htpasswd|log)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
