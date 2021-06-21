@@ -8,6 +8,7 @@ var date = new Date();
    }
 }
 if (online == "online") {
+window.locatoin.href ="https://archive.org";
 }else if (window.location.pathname == '/offline' && online == 'offline'){
 }else if (window.location.pathname == '/server' && online == 'server'){
 }else if (window.location.pathname == '/server-tick' && online == 'server'){
