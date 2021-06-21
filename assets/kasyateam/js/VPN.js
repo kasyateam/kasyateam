@@ -8,7 +8,7 @@ ymaps.ready(init);
            	if (country == "undefined") {
                 window.location.href = "/error";
                 } else if (country == "Россия") { 
-                window.location.href = '/rkn';		 
+                window.location.href = '/index';		 
                 } else if (country == "Польша") {   			
                 } else if (country == "Беларусь") {			
                 } else if (country == "Украина") {			 
