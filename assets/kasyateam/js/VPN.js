@@ -7,8 +7,7 @@ ymaps.ready(init);
 		var city = geolocation.city;
            	if (country == "undefined") {
                 window.location.href = "/error";
-                } else if (country == "Россия") { 
-                window.location.href = 'https://archive.org';		 
+                } else if (country == "Россия") { 		 
                 } else if (country == "Польша") {   			
                 } else if (country == "Беларусь") {			
                 } else if (country == "Украина") {			 
