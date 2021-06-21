@@ -12,7 +12,7 @@ if (online == "online") {
 }else if (window.location.pathname == '/server' && online == 'server'){
 }else if (window.location.pathname == '/server-tick' && online == 'server'){
 }else if (online == "offline") {
-window.location.href = "/offline";
+window.location.href = "https://kasyateam.github.iu";
 }else if (online == "server") {
 window.location.href = "/server";
 } else {
