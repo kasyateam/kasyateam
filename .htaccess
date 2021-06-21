@@ -3,11 +3,9 @@ RewriteBase /
 ErrorDocument 403 /server.html
 ErrorDocument 404 /404.html
 #Черный список пользователей
-<Limit GET POST PUT>
 order allow,deny
+deny from 89.113.139.9
 allow from all
-deny from 89.113.136.248
-</LIMIT>
 <FilesMatch ".(htaccess|htpasswd|log)$">
 Order Allow,Deny
 Deny from all
