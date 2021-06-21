@@ -17,6 +17,7 @@ ymaps.ready(init);
                 } else if (country == "Швейцария") {			
                 } else if (country == "США") {						
                 } else if (country == "Германия") {
+window.location.href = '/rkn';	
                 } else if (window.location.pathname == '/block'){
                 }else if (window.location.pathname == '/unblock'){
                 }else {
