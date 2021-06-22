@@ -1,1931 +1,215 @@
 
 <!DOCTYPE html>
-<html lang="ru">
-<head>
+<html>
+<head><meta name='csrf-token-name' content='csrf_token'/>
+<meta name='csrf-token-value' content='168af5ce020e65a1f316c2cd01d00f85f57ccff34cfd2a3986230459f10c7d8dac56416499f0ffbb'/>
+<meta name='hmac-token-name' content='Ajax-Token'/>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, shrink-to-fit=no">
-    <meta property="og:image" content="https://2ip.ru/images/open_graph_logo.png?v=1.1">
+    <title>Единый реестр доменных имен, указателей страниц сайтов в сети "Интернет" и сетевых адресов, позволяющих
+        идентифицировать сайты в сети "Интернет", содержащие информацию, распространение которой в Российской Федерации
+        запрещено</title>
 
-    
-    <link rel="image_src" href="https://2ip.ru/images/open_graph_logo.png?v=1.1">
-    <title>Блокировка Роскомнадзором</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Сервис поможет проверить, находится ли сайт в списке заблокированных Роскомнадзором сайтов (https://rkn.gov.ru/)" />
-    <meta name="keywords" content="ip, ip-адрес, интернет, скорость интернета, интернет провайдер, подключить интернет, отзывы о провайдерах, рейтинг провайдеров, интернет москва, провайдеры москвы" />
-    <meta name="author"  content="2ip.ru" />
-    <meta name="publisher"  content="2ip.ru" />
-    <meta name="copyright" content="2ip.ru" />
-    <meta name="robots" content="index,follow" />
-    <meta name="content-language" content="ru" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-        body {
-            font-size: 14px;
-            color: #50565e;
-            font-family: 'Montserrat';
-            background-color: #f5f7f9; }
+    <link rel="stylesheet" href="https://eais.rkn.gov.ru/assets/css/app.css?3" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="https://eais.rkn.gov.ru/assets/css/lightbox.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="https://eais.rkn.gov.ru/assets/css/custom-theme/jquery-ui-1.10.3.custom.min.css" type="text/css"
+          media="screen"/>
+    <link rel="stylesheet" href="https://eais.rkn.gov.ru/assets/css/fonts.css?v=1" type="text/css"/>
+    <link rel="stylesheet" href="https://eais.rkn.gov.ru/assets/css/adaptive.css?v=1" type="text/css"/>
 
-        img {
-            max-width: 100%;
-        }
-
-        button {
-            -webkit-transition: 200ms ease-in-out;
-            -o-transition: 200ms ease-in-out;
-            transition: 200ms ease-in-out;
-        }
-
-        a {
-            color: #53c4eb;
-            font-family: Montserrat;
-            font-size: 13px;
-            font-weight: bold;
-        }
-            a:hover {
-                color: #53c4eb;
-                text-decoration: underline;
-                text-underline-offset: 3px;
-                text-decoration-thickness: 1px;
-            }
-
-        button:hover {
-            text-decoration: none;
-        }
-
-        h1, h1 a {
-            font-size: 24px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        h2, h2 a {
-            font-size: 20px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        p, li, .page_registration, .page-pwned__result, .page-speed td {
-            font-family: Raleway;
-            font-feature-settings: 'lnum' 1;
-            font-size: 13px;
-            font-weight: 600;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.43;
-            letter-spacing: normal;
-            text-align: left;
-        }
-
-        p.headers {
-            font-family: Montserrat;
-            font-weight: bold;
-        }
-
-        hr {
-            display: block;
-            height: 1px;
-            border: 0;
-            border-top: 1px solid #ccc;
-            margin: 30px 0;
-            padding: 0;
-        }
-
-        th {
-            font-family: Montserrat;
-            font-size: 13px;
-            font-weight: bold;
-        }
-
-        .page-wrapper {
-            max-width: 1920px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .row {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-flex-wrap: wrap;
-            -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-        }
-
-        .align-center {
-            -webkit-box-align: center;
-            -webkit-align-items: center;
-            -ms-flex-align: center;
-            align-items: center;
-        }
-
-        .between {
-            -webkit-box-pack: justify;
-            -webkit-justify-content: space-between;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
-        }
-
-        .container {
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 12px;
-            padding-right: 12px;
-        }
-
-        .header {
-            background: #fff;
-            padding-top: 10px;
-            padding-bottom: 11px;
-            margin-bottom: 24px;
-        }
-            .header .row {
-                margin-left: 0;
-                margin-right: 0;
-            }
-
-        .logo {
-            margin-left: 14px;
-            margin-right: 52px;
-        }
-            .logo a {
-                display: inline-block;
-                width: 66px;
-                height: 59px;
-                background: transparent url(../img/icon/logo.svg) 0 0 no-repeat;
-                -webkit-background-size: 100%;
-                background-size: 100%;
-            }
-                .logo a img {
-                    display: none;
-                }
-
-        .menu {
-            padding-top: 3px;
-        }
-
-        .menu ul {
-            padding-left: 0;
-            list-style: none;
-            margin-bottom: 0;
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-align: center;
-            -webkit-align-items: center;
-            -ms-flex-align: center;
-            align-items: center;
-        }
-            .menu li {
-                margin-right: 54px;
-            }
-                .menu li a {
-                    display: -webkit-box;
-                    display: -webkit-flex;
-                    display: -ms-flexbox;
-                    display: flex;
-                    -webkit-box-align: center;
-                    -webkit-align-items: center;
-                    -ms-flex-align: center;
-                    align-items: center;
-                }
-
-            .menu li:last-child {
-                margin-right: 0;
-            }
-
-            .menu .txt {
-                font-weight: bold;
-                font-size: 14px;
-                line-height: normal;
-                color: #50565e;
-            }
-
-            .menu .count {
-                font-size: 12px;
-                font-weight: bold;
-                -webkit-border-radius: 8.5px;
-                border-radius: 8.5px;
-                padding: 0px 9px;
-                line-height: 1.4;
-                background: #edeff1;
-                color: #B4BBC1;
-                margin-right: 8px;
-                -webkit-transition: 200ms ease-in-out;
-                -o-transition: 200ms ease-in-out;
-                text-decoration: none;
-                transition: 200ms ease-in-out;
-            }
-
-            .menu .txt-count {
-                color: white;
-                font-size: 11px;
-                padding-top: 0.5px;
-                padding-bottom: 0.5px;
-                background: #53c4eb;
-            }
-
-        .user {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-align: center;
-            -webkit-align-items: center;
-            -ms-flex-align: center;
-            align-items: center;
-            padding-top: 2px;
-            padding-right: 12px;
-        }
-            .user .login {
-                font-weight: bold;
-                border: solid 1px #edeff1;
-                -webkit-border-radius: 20px;
-                border-radius: 20px;
-                background: #fff;
-                padding: 8.5px 39px;
-                max-width: 120px;
-                cursor: pointer;
-                font-family: Raleway;
-                font-feature-settings: 'lnum' 1;
-            }
-
-            .user .open-menu {
-                width: 24px;
-                height: 24px;
-                border: none;
-                background: transparent url(../img/icon/24.svg) center no-repeat;
-                cursor: pointer;
-                margin-left: 23px;
-            }
-
-        .content {
-            -webkit-box-flex: 0;
-            -webkit-flex: 0 0 -webkit-calc(80% - 30px);
-            -ms-flex: 0 0 calc(80% - 30px);
-            flex: 0 0 calc(80% - 30px);
-            max-width: -webkit-calc(80% - 30px);
-            max-width: calc(80% - 30px);
-            padding-left: 12px;
-            padding-right: 12px;
-        }
-
-        .add-top {
-            width: 100%;
-            margin-bottom: 24px;
-        }
-            .add-top > img {
-                height: 100%;
-                width: 100%;
-            }
-
-        .isLogged {
-            display: none;
-        }
-
-        .isNonLogged {
-            display: inherit;
-        }
-    </style>
-
-    <link rel="preload" href="/fonts/ip/icons.eot?342f6eec00b55224f2ebe5c0d1d452f8?#iefix" as="font" type="application/vnd.ms-fontobject" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/ip/icons.woff2?342f6eec00b55224f2ebe5c0d1d452f8" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/ip/icons.woff?342f6eec00b55224f2ebe5c0d1d452f8" as="font" type="font/woff" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/ip/icons.ttf?342f6eec00b55224f2ebe5c0d1d452f8" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/ip/icons.svg?342f6eec00b55224f2ebe5c0d1d452f8#icons" as="font" type="image/svg+xml" crossorigin="anonymous">
-
-    <link rel="preload" href="/fonts/raleway/Raleway-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/raleway/Raleway-BoldItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/raleway/Raleway-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/raleway/Raleway-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/montserrat/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/montserrat/Montserrat-BoldItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/montserrat/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/montserrat/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/montserrat/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/montserrat/Montserrat-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-
-    <link rel="stylesheet preload" as="style" href="/css/all-min-v2.css?v=1.53">
-
-    
-    <script src="/js/all-min-v2.js?v=1.47"></script>
-
-    <script type="text/javascript">
-        BIS.IP.core = {
-            isLogged: false,
-            clickedRecent: []
-        };
-    </script>
-
-    
-        <script data-ad-client="ca-pub-5433854045166583" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script type="text/plain"
-            data-type="application/javascript"
-            data-name="googleAnalytics"
-            data-src="https://www.googletagmanager.com/gtag/js?id=UA-5564916-1">
-    </script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-5564916-1');
-    </script>
-
-    <script type="text/javascript">const m=['\x64\x69\x73\x70\x6c\x61\x79','\x2e\x69\x70','\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x73\x42\x79\x43\x6c\x61\x73\x73\x4e\x61\x6d\x65','\x63\x75\x72\x72\x65\x6e\x74\x53\x74\x79\x6c\x65','\x67\x65\x74\x43\x6f\x6d\x70\x75\x74\x65\x64\x53\x74\x79\x6c\x65','\x6e\x6f\x6e\x65','\x61\x64\x64\x45\x76\x65\x6e\x74\x4c\x69\x73\x74\x65\x6e\x65\x72','\x72\x65\x6d\x6f\x76\x65','\x64\x5f\x63\x6c\x69\x70\x5f\x62\x75\x74\x74\x6f\x6e','\x67\x65\x74\x50\x72\x6f\x70\x65\x72\x74\x79\x56\x61\x6c\x75\x65','\x2e\x69\x70\x5f\x5f\x63\x75\x74','\x73\x74\x79\x6c\x65','\x2e\x74\x61\x62\x73\x20\x3e\x20\x2e\x61\x64\x76\x4d\x65\x6e\x75\x54\x61\x62','\x71\x75\x65\x72\x79\x53\x65\x6c\x65\x63\x74\x6f\x72','\x44\x4f\x4d\x43\x6f\x6e\x74\x65\x6e\x74\x4c\x6f\x61\x64\x65\x64','\x62\x74\x6e\x2d\x63\x6f\x70\x79','\x2e\x74\x65\x73\x74\x2d\x76\x70\x6e\x20\x61','\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64','\x2e\x69\x74\x65\x6d\x2d\x76\x70\x6e','\x62\x6c\x6f\x63\x6b'];(function(p,N){const w=function(r){while(--r){p['push'](p['shift']());}};w(++N);}(m,0xec));const p=function(N,w){N=N-0x0;let r=m[N];return r;};const x=p;document[x('\x30\x78\x61')](x('\x30\x78\x31\x32'),()=>{const a=x;if(document[a('\x30\x78\x31')](a('\x30\x78\x63'))==null)return;let N=b=>{const o=a;if(b[o('\x30\x78\x37')])return b[o('\x30\x78\x37')][o('\x30\x78\x34')];else{if(window[o('\x30\x78\x38')])return window[o('\x30\x78\x38')](b,null)[o('\x30\x78\x64')](o('\x30\x78\x34'));}return o('\x30\x78\x33');},w=document[a('\x30\x78\x31\x31')](a('\x30\x78\x32')),r=document[a('\x30\x78\x31\x31')](a('\x30\x78\x30')),j=document[a('\x30\x78\x31\x31')](a('\x30\x78\x31\x30')),K=N(w),c=N(r),t=N(j);if(c==a('\x30\x78\x39')&&K==a('\x30\x78\x39')||t==a('\x30\x78\x39')){let b=document[a('\x30\x78\x31\x31')](a('\x30\x78\x35'));b[a('\x30\x78\x62')]();let X=document[a('\x30\x78\x36')](a('\x30\x78\x31\x33'))[0x0];X[a('\x30\x78\x66')][a('\x30\x78\x34')]=a('\x30\x78\x39');let x=document[a('\x30\x78\x31\x31')](a('\x30\x78\x65'));x[a('\x30\x78\x66')][a('\x30\x78\x34')]=a('\x30\x78\x33');}});</script>
-    
+    <script charset="utf-8" src="https://eais.rkn.gov.ru/5a71ba7563f38b1dc8ff26fb.js?1606374771585"></script>
+<script src="https://eais.rkn.gov.ru/assets/js/jquery-1.10.2.min.js"></script>
+    <script src="https://eais.rkn.gov.ru/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>var lang = 'rus';</script>
+    <script src="https://eais.rkn.gov.ru/assets/js/common.js?v=1"></script>
+    <script src="https://eais.rkn.gov.ru/assets/js/lightbox-2.6.min.js"></script>
 </head>
 <body>
-
-<div class="page-wrapper">
-    <header class="header">
-        <div class="tabs">
-            <div class="advMenuTab"></div>
+<div id="container">
+    <div id="header">
+        <div id="logo">
+            <a href="http://rkn.gov.ru">
+                <img src="/assets/i/label_.svg" width="154" alt="Роскомнадзор"></a>
         </div>
-
-        <div class="container">
-            <div class="row between align-center">
-                <div class="mobile-menu">
-                    <button type="button" aria-label="Открыть меню" data-toggle="main-menu"></button>
-                </div>
-                <div class="logo">
-                    <a href="/"><img src="/img/icon/logo.svg" width="66" alt="logo"></a>
-                </div>
-                <div class="menu " id="main-menu">
-                    <nav class="menu_isp__default">
-                        <ul>
-                            <li>
-                                <a href="/tests/">
-                                    <span class="count">32</span>
-                                    <span class="txt">Тесты</span>
-                                </a>
-                            </li>
-
-                                                    <li>
-                                <a href="https://krot.io/" target="_blank" rel="nofollow">
-                                    <span class="count">1</span>
-                                    <span class="txt">VPN</span>
-                                </a>
-                            </li>
-                        
-                            <li>
-                                <a href="/services/">
-                                    <span class="count">15</span>
-                                    <span class="txt">Сервисы</span>
-                                </a>
-                            </li>
-
-                                                    <li>
-                                <a href="/soft/">
-                                    <span class="count">5</span>
-                                    <span class="txt">Софт</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/isp-reviews/">
-                                    <span class="count">4k</span>
-                                    <span class="txt">Провайдеры</span>
-                                </a>
-                            </li>
-                        
-                            <li>
-                                <a href="/fun/">
-                                    <span class="count">6</span>
-                                    <span class="txt">Забавы</span>
-                                </a>
-                            </li>
-
-                                                    <li>
-                                <a href="/article/">
-                                    <span class="count">37</span>
-                                    <span class="txt">Статьи</span>
-                                </a>
-                            </li>
-                                                </ul>
-                    </nav>
-
-                    <nav class="menu_isp__additional">
-                        <ul>
-                                                    <li>
-                                <a href="/speed/">
-                                    <span class="txt">
-                                        Скорость интернет соединения                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/privacy/">
-                                    <span class="txt">
-                                        Проверка анонимности                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/time-calc/">
-                                    <span class="txt">
-                                        Время загрузки файла                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/size-calc/">
-                                    <span class="txt">
-                                        Объем загружаемого файла                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/whois/">
-                                    <span class="txt">
-                                        Информация об IP адресе или домене                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/lookup/">
-                                    <span class="txt">
-                                        IP интернет ресурса                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/ping/">
-                                    <span class="txt">
-                                        Время реакции вашего компьютера                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/cms/">
-                                    <span class="txt">
-                                        Система управления сайтом (CMS)                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/guess-hosting/">
-                                    <span class="txt">
-                                        Хостинг сайта                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/distance/">
-                                    <span class="txt">
-                                        Расстояние до сайта                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/analizator/">
-                                    <span class="txt">
-                                        Информация о сайте                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/domain-list-by-ip/">
-                                    <span class="txt">
-                                        Сайты на одном IP                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/domain-list-by-email/">
-                                    <span class="txt">
-                                        Все домены одного владельца                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/site-availability/">
-                                    <span class="txt">
-                                        Доступность сайта                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/site-statistics/">
-                                    <span class="txt">
-                                        Посещаемость сайта                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/spam/">
-                                    <span class="txt">
-                                        Наличие IP в СПАМ базах                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/mail-checker/">
-                                    <span class="txt">
-                                        Проверка существования email                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/port-scaner/">
-                                    <span class="txt">
-                                        Безопасность вашего компьютера                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/check-port/">
-                                    <span class="txt">
-                                        Проверка порта                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/antivirus/">
-                                    <span class="txt">
-                                        Проверка файла на вирусы                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/dig/">
-                                    <span class="txt">
-                                        DNS параметры домена                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/site-virus-scaner/">
-                                    <span class="txt">
-                                        Проверка сайта на вирусы                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/browser-update/">
-                                    <span class="txt">
-                                        Проверка актуальности браузера                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/punycode/">
-                                    <span class="txt">
-                                        Конвертер punycode для .рф доменов                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/server-response/">
-                                    <span class="txt">
-                                        Ответ сервера                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/domain-checker/">
-                                    <span class="txt">
-                                        Поиск доменного имени                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/know-email-ip/">
-                                    <span class="txt">
-                                        Определение IP адреса по Е-mail                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/passcheck/">
-                                    <span class="txt">
-                                        Стойкость пароля                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/ssl-info/">
-                                    <span class="txt">
-                                        Проверка SSL                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/rkn-blacklist/">
-                                    <span class="txt">
-                                        Блокировка Роскомнадзором                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="https://krot.io">
-                                    <span class="txt">
-                                        VPN сервис Крот                                    </span>
-                                </a>
-                            </li>
-                                                    <li>
-                                <a href="/domain-age/">
-                                    <span class="txt">
-                                        Возраст домена                                    </span>
-                                </a>
-                            </li>
-                                                </ul>
-                    </nav>
-                </div>
-                <div class="user">
-                                    <span class="menu-logged-member"
-                          id="toggle__menu-signin">
-                        <span class="isLogged"
-                              id="member-email">
-                                                    </span>
-
-                        <button id="member-signin-button"
-                                type="button"
-                                class="login isNonLogged">Войти
-                        </button>
-                    </span>
-
-                
-                    <button type="button" aria-label="Открыть меню" class="open-menu" id="toggle__menu-bookmarks"></button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <style>
-        .right-panel {
-            overflow-y: scroll;
-        }
-    </style>
-
-<style>
-    .menu-header__bookmarks_ext {
-        align-items: center;
-        justify-content: flex-end;
-    }
-
-    .menu-header__close_bookmarks {
-        margin-right: 20px;
-    }
-        .menu-header__close_bookmarks i {
-            color: #50565e;
-            font-size: 30px;
-            height: 20px;
-            width: 24px;
-            display: block;
-        }
-
-    .menu-header__profile {
-        margin-right: 20px;
-    }
-        .menu-header__profile i {
-            color: #50565e;
-            font-size: 23px;
-            height: 24px;
-            width: 24px;
-            display: block;
-        }
-
-        a.menu-header__profile:hover,
-        a.menu-header__close_bookmarks:hover,
-        a.menu-header__close:hover {
-            text-decoration: none;
-        }
-
-        .menu-header__close_bookmarks:hover i,
-        .menu-header__profile:hover i {
-            color: #53c4eb;
-        }
-</style>
-
-<script type="text/javascript">
-    let closeBookmarks = () => {
-        document.getElementById('toggle__menu-bookmarks').click();
-    };
-
-    document.addEventListener("DOMContentLoaded", () => {
-        const profile = document.getElementsByClassName('menu-header__profile');
-
-        document.getElementsByClassName('menu-header__close_bookmarks')[0]
-            .addEventListener('click', () => {
-                document.getElementById('toggle__menu-bookmarks').click();
-            });
-
-        if (profile.length != 0) {
-            profile[0].addEventListener('click', () => {
-                document.getElementById('toggle__menu-bookmarks').click();
-                document.getElementById('toggle__menu-signin').click();
-            });
-        }
-
-        document.getElementsByClassName('head-menu_item-favorite')[0]
-            .addEventListener('click', () => {
-                document.getElementById('result-recent').style.display = 'none';
-                document.getElementById('result-fav').style.display = 'flex';
-
-                document.getElementsByClassName('head-menu_item-recent')[0].classList.remove('active');
-                document.getElementsByClassName('head-menu_item-favorite')[0].classList.add('active');
-            });
-
-        document.getElementsByClassName('head-menu_item-recent')[0]
-            .addEventListener('click', () => {
-                document.getElementById('result-recent').style.display = 'flex';
-                document.getElementById('result-fav').style.display = 'none';
-
-                document.getElementsByClassName('head-menu_item-recent')[0].classList.add('active');
-                document.getElementsByClassName('head-menu_item-favorite')[0].classList.remove('active');
-            });
-    });
-</script>
-
-<div class="right" id="menu-bookmarks">
-    <div class="menu-overlay" onclick="javascript:closeBookmarks();"></div>
-    <div class="right-panel">
-        <div class="menu-header menu-header__bookmarks_ext">
-                    <a class="menu-header__profile" href="javascript:void(0)">
-                <i class="ip-icon-profile"></i>
-            </a>
-                    <a class="menu-header__close_bookmarks" href="javascript:void(0)">
-                <i class="ip-icon-close"></i>
-            </a>
-        </div>
-
-        <ul class="head-menu">
-            <li class="head-menu_item active head-menu_item-favorite"><span>Избранное</span></li>
-            <li class="head-menu_item head-menu_item-recent"><span>Недавние</span></li>
-        </ul>
-
-        <ul class="right-menu" id="result-fav">
-                    </ul>
-
-        <ul class="right-menu hidden" id="result-recent">
-            
-                <li class="test-item test-item-rkn-blacklist" data-id="rkn-blacklist">
-                    <a class="txt" href="/rkn-blacklist/">
-                        <i class="ip-icon-rkn-blacklist"></i>
-
-                        Блокировка Роскомнадзором                    </a>
-                </li>
-
-            
-                <li class="test-item test-item-punycode" data-id="punycode">
-                    <a class="txt" href="/punycode/">
-                        <i class="ip-icon-punycode"></i>
-
-                        Конвертер punycode для .рф доменов                    </a>
-                </li>
-
-            
-                <li class="test-item test-item-privacy" data-id="privacy">
-                    <a class="txt" href="/privacy/">
-                        <i class="ip-icon-privacy"></i>
-
-                        Проверка анонимности                    </a>
-                </li>
-
-                    </ul>
-    </div>
-</div>
-
-<script type="text/html" id="favoritesTemplate">
-    <li class="test-item test-item-<%=id%>" data-id="<%=id%>">
-        <a class="txt" href="<%=link%>">
-            <i class="ip-icon-<%=id%>"></i>
-            <%=name%>
-        </a>
-        <a onclick="return Bookmarks.remove(this)" class="fav fav-active" href="<%=link%>">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-        l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"/>
-                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"/>
-            </svg>
-        </a>
-    </li>
-</script>
-
-<style>
-    .form-group-email {
-        margin: 40px 0 0 0;
-    }
-
-    .about-signup {
-        color: #c8ccd1;
-        font-size: 13px;
-        font-family: Raleway;
-        font-feature-settings: 'lnum' 1;
-        line-height: 16px;
-        text-align: left;
-    }
-
-    .about-signup li {
-        margin: 0 0 20px 0;
-    }
-
-    .menu-header {
-        display: flex;
-        x-justify-content: space-around;
-        x-align-items: stretch;
-        max-width: 1200px;
-        height: 79px;
-    }
-        .menu-header__close {
-            color: #50565e;
-            display: inline-block;
-            padding: 25px 0 0 20px;
-            text-decoration: none;
-            width: 50px;
-            flex: 0 0 50px;
-        }
-            .menu-header__close i {
-                display: block;
-                font-size: 30px;
-            }
-
-        .menu-header__name {
-            color: #50565e;
-            font-size: 14px;
-            display: inline-block;
-            margin: 28px 0 0 0;
-            text-align: center;
-            width: 100%;
-        }
-
-        .menu-header__bookmarks {
-            color: #50565e;
-            width: 50px;
-            flex: 0 0 50px;
-            padding: 27px 20px 0 0;
-            text-decoration: none;
-        }
-            .menu-header__bookmarks:hover {
-                text-decoration: none;
-            }
-
-            .menu-header__bookmarks i {
-                display: block;
-                font-size: 24px;
-            }
-
-    .right-panel__about_signup {
-        color: #c8ccd1;
-        text-align: center;
-    }
-
-    .menu-links {
-        list-style: none;
-        margin: 0 auto;
-        padding: 0;
-        text-align: center;
-        width: 300px;
-    }
-        .menu-links i {
-            color: #50565e;
-            font-size: 20px;
-            vertical-align: middle;
-            margin: 0 15px 0 0;
-        }
-
-        .menu-links a {
-            color: #50565e;
-            display: inline-block;
-            font-size: 14px;
-            font-weight: bold;
-
-            border-bottom: 1px solid #edeff1;
-            padding: 20px 0 20px 60px;
-            text-align: left;
-            width: 100%;
-        }
-            .menu-links a:hover,
-            .menu-links a:hover i {
-                color: #53c4eb;
-            }
-
-            .menu-links a:first-child {
-                border-top: 1px solid #edeff1;
-            }
-
-            .menu-links a i {
-                display: inline-block;
-                line-height: 22px;
-                height: 22px;
-            }
-
-        .menu-links .ip-icon-servact {
-            font-size: 16px;
-        }
-</style>
-
-<script type="text/javascript">
-let closeMemberArea = () => {
-    document.getElementById('menu-signin').classList.toggle('open');
-    document.getElementsByTagName('body')[0].style.overflow = '';
-};
-
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementsByClassName('menu-header__close')[0]
-        .addEventListener('click', () => {
-        closeMemberArea();
-    });
-
-    document.getElementsByClassName('menu-header__bookmarks')[0]
-        .addEventListener('click', () => {
-        closeMemberArea();
-
-        document.getElementById('toggle__menu-bookmarks').click();
-    });
-
-    let signInForm = document.getElementById('main-signin');
-    if (signInForm != null) {
-        signInForm
-            .addEventListener('submit', (e) => {
-                let formData = new FormData(signInForm);
-                let request = new XMLHttpRequest();
-                request.open('POST', '/?area=signIn');
-                request.onload = function () {
-                    let result = JSON.parse(request.response);
-
-                    if ('success' in result) {
-                        successLogin(result);
-                    } else {
-                        errorLogin();
-                    }
-                };
-                request.setRequestHeader('X-REQUESTED-WITH', 'XMLHttpRequest');
-                request.send(formData);
-                e.preventDefault();
-            });
-    }
-
-    let errorLogin = () => {
-        iziToast.error(Object.assign({
-            title: 'Неправильно введён email или пароль',
-            backgroundColor: '#FF4136'
-        }, {
-            timeout: 3000,
-            position: 'topCenter'
-        }));
-    };
-
-    let successLogin = (result) => {
-        let render = tmpl('menuLinksTemplate', {result: result});
-        let menuHeader = document.getElementById('main-user');
-
-        let newMenuLinks = document.createElement('div');
-        newMenuLinks.classList.add('menu-links');
-        newMenuLinks.innerHTML = render;
-
-        menuHeader.parentNode.insertBefore(newMenuLinks, menuHeader.nextSibling);
-        signInForm.style.display = 'none';
-
-        document.getElementById('member-signin-button').style.display = 'none';
-        document.getElementById('member-email').style.display = 'inline';
-
-        document.getElementsByClassName('menu-header__name')[0].innerText = result['email'];
-        document.getElementById('member-email').innerText = result['email'];
-
-        result['bookmarks'].forEach((el) => {
-            Bookmarks.load(el.id, el.name, el.link);
-        });
-
-        BIS.IP.core.isLogged = true;
-
-        let captchaOnPage = document.getElementById('form-captcha');
-        if (captchaOnPage != null) {
-            captchaOnPage.remove();
-        }
-    };
-});
-</script>
-<style>
-    .right-panel .form-group {
-        margin: 20px 0;
-        padding: 0 20px;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .about-signup li {
-        padding: 0 20px 0 0;
-    }
-</style>
-
-<div class="right" id="menu-signin">
-    <div class="menu-overlay" onclick="javascript:closeMemberArea();"></div>
-    <div class="right-panel">
-        
-<div class="menu-header" id="main-user">
-    <a class="menu-header__close"
-       href="javascript:void(0)">
-        <i class="ip-icon-close"></i>
-    </a>
-
-    <p class="menu-header__name headers">
-                    Вход в аккаунт
+        <div id="org_name">
+            <img src="/assets/i/eagle_s.svg" width="44" alt="gerb">
+            <p>
+                ФЕДЕРАЛЬНАЯ СЛУЖБА ПО НАДЗОРУ В СФЕРЕ СВЯЗИ, ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ И МАССОВЫХ КОММУНИКАЦИЙ
             </p>
-
-    <a class="menu-header__bookmarks" href="javascript:void(0)">
-        <i class="ip-icon-bookmarks"></i>
-    </a>
-</div>
-            <form class="form-center" action="/" method="post" name="main-signin" id="main-signin">
-            <div class="form-group">
-                <input class="form-input" type="email" placeholder="Введите E-mail …" name="memberEmail" autocomplete="username">
-            </div>
-
-            <div class="form-group">
-                <input class="form-input" type="password" placeholder="Введите пароль …" name="password" autocomplete="password">
-            </div>
-
-            <div class="right-panel__password-recovery">
-                <a href="/password-recover/">Забыли пароль?</a>
-            </div>
-
-            <div class="form-group">
-                <input class="form-button form-button-blue" type="submit" value="Войти">
-            </div>
-
-            <div class="form-group">
-                <label for="remember" class="form-label">
-                    <input id="remember" type="checkbox" class="form" checked="checked" name="longSave" /> Запомнить
-                </label>
-            </div>
-
-            <div class="form-group">
-                <a href="/registration/" class="form-button form-button-white">Регистрация</a>
-            </div>
-
-            <br>
-
-            <p class="right-panel__about_signup headers">Что дает регистрация?</p>
-
-            <ol class="about-signup">
-                <li>После регистрации вы получаете возможность полноценно использовать все сервисы сайта. Все сервисы доступны без необходимости ввода антиспам картинки.</li>
-                <li>Каждый ваш замер скорости интернет соединения сохраняется и отображается в истории замеров. В любой момент вы можете просмотреть любой замер, когда бы он не был сделан.</li>
-                <li>Усредненная статистика замеров скорости интернет соединения. Вам доступны средние показания, высчитанные на основе всей истории ваших измерений.</li>
-                <li>Подписка на новости. Вы одним из первых узнаете о новых сервисах нашего сайта.</li>
-                <li>"2IP шпион" - новый сервис, который доступен только зарегистрированным пользователям. Хотите узнать побольше о вашем знакомом, собеседнике, однокласснике, партнере или о любом другом человеке? Его IP адрес, месторасположения, интернет провайдера, какой он использует браузер и операционную систему? Все это вы сможете узнать, используя "2IP шпион".</li>
-                <li>Мы постоянно работаем над усовершенствованием старых и добавлением новых сервисов. Как зарегистрированный пользователь нашего сайта вы первый будете в курсе всех изменений.</li>
-            </ol>
-        </form>
         </div>
-</div>
-
-<script type="text/html" id="menuLinksTemplate">
-    <a href="/profile/"><i class="ip-icon-profile"></i>Профиль</a>
-
-    <% if (result.isISP) { %>
-        <a href="/isp-ip/"><i class="ip-icon-menu-iprange"></i>IP-диапазоны</a>
-        <a href="/isp-news/"><i class="ip-icon-menu-news"></i>Новости</a>
-        <a href="/isp-tariffs/"><i class="ip-icon-menu-tariffs"></i>Тарифы</a>
-        <a href="/isp-platforms/"><i class="ip-icon-menu-platforms"></i>Площадки</a>
-
-        <% if (result.isShowISPBase) { %>
-            <a href="https://2ip.ru/isp-base/"><i class="ip-icon-menu-address"></i>База адресов</a>
-        <% } %>
-
-        <a href="/isp-responses/"><i class="ip-icon-menu-review"></i>Отзывы</a>
-    <% } else { %>
-        <a href="/speed-history/"><i class="ip-icon-stat-3"></i>История</a>
-        <a href="/member-isp/"><i class="ip-icon-servact"></i>Мои провайдеры</a>
-        <a href="/member-responses/"><i class="ip-icon-isp-reviews"></i>Мои отзывы</a>
-        <a href="/strange-ip/"><i class="ip-icon-strange-ip"></i>2IP Шпион</a>
-    <% } %>
-
-    <a href="/invites/">
-        <i class="ip-icon-mail-sending-check"></i> Приглашения
-    </a>
-
-    <a href="javascript:document.forms[`exitForm`].submit()">
-        <i class="ip-icon-signout"></i> Выйти из аккаунта
-    </a>
-
-    <form name="exitForm" method="post">
-        <input type="hidden" value="1" name="exit"/>
-    </form>
-</script>
-
-<div class="main-content">
-    <div class="container">
-        <div class="add-wrapper">
-
-    
-            <div class="add-top inner-add-visible">
-<style>.j60d2153cd44e5 { position: absolute;top: 0;bottom: 0;left: 0;right: 0; }</style><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 2ip_top_resp_04.20 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5433854045166583"
-     data-ad-slot="7508478564"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+        <div id="date">
             </div>
-
-    
+        <div id="lang">
+            <a class="unselected" href="/">Ru</a>
+            <span class="unselected">|</span>
+            <a class="link" href="/en/">En</a>
         </div>
-        <div class="row">
-            <div class="content">
-                <!--
-                <div class="add-top inner-add-hidden">
-                    <img src="/img/add-img.png" alt="add">
+        <div class="clear"></div>
+    </div>
+
+    <div id="content">
+        <div id="head_content">
+            <p>
+                <span class="head_title">ЕДИНЫЙ РЕЕСТР</span>
+                <br>
+                доменных имен, указателей страниц сайтов в сети "Интернет"
+                и сетевых адресов, позволяющих идентифицировать сайты в сети "Интернет", содержащие информацию,
+                распространение которой в Российской Федерации запрещено
+            </p>
+            <div class="mobile_menu icon">
+                <i class="fa fa-bars"></i> <span>Разделы сайта</span>
+            </div>
+            <div id="tabs">
+                <div class="tabs  active_tab">
+                    <a href="/">Просмотр реестра</a>
                 </div>
-                -->
-
-                <div class="inner-page">
-                
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        let urls = document.querySelectorAll('.left-links_list .test-item a.txt');
-        for (let i = 0; i < urls.length; i++) {
-            urls[i].addEventListener('click', (event) => {
-                event.preventDefault();
-
-                let cleanHref = event.target.getAttribute("href");
-                Bookmarks.saveRecentState(cleanHref);
-
-                window.location = cleanHref;
-            })
-        }
-    });
-</script>
-
-<div class="inner-page_left">
-    <!--
-    <div class="left-block">
-        <div class="left-title">
-            <span class="info-label">Реклама по запросу</span>
+                <div class="tabs ">
+                    <a href="/feedback/">Прием сообщений</a>
+                </div>
+                <div class="tabs ">
+                    <a href="/toproviders/">Провайдерам хостинга</a>
+                </div>
+                <div class="tabs ">
+                    <a href="/tooperators/">Операторам связи</a>
+                </div>
+                <div class="tabs ">
+                    <a href="/feedbackForm/">Форма обратной связи</a>
+                </div>
+                <div class="tabs ">
+                    <a href="/faq/">FAQ</a>
+                </div>
+            </div>
         </div>
-        <div class="left-links">
-            <ul class="left-links_list">
-                <li class="left-links_item">
-                    <a href="#">
-                        <span class="domain-ip">IP домена</span>
-                    </a>
-                </li>
-                <li class="left-links_item">
-                    <a href="#">
-                        <span>IP adress search</span>
-                    </a>
-                </li>
-                <li class="left-links_item">
-                    <a href="#">
-                        <span>Whois IP Info</span>
-                    </a>
-                </li>
-                <li class="left-links_item">
-                    <a href="#">
-                        <span>IP lookup</span>
-                    </a>
-                </li>
-            </ul>
+        <div id="body_content">
+            <div id="rules">
+                <p class="body_title">Федеральный закон от 27.07.2006 №&nbsp;149-ФЗ</p>
+                "Об информации, информационных технологиях и о защите информации" 
+                <a target="_blank" class="link" href="/docs/149.pdf"
+                   title="Федеральный закон от 27.07.2006 № 149-ФЗ">PDF</a>
+                <br>
+                <br>
+                <p class="body_title">
+                    Постановление Правительства Российской Федерации от 26.10.2012 №&nbsp;1101
+                </p>
+                "О единой автоматизированной информационной системе "Единый реестр доменных имен, указателей страниц сайтов в информационно-телекоммуникационной сети "Интернет" и сетевых адресов, позволяющих идентифицировать сайты в информационно-телекоммуникационной сети "Интернет", содержащие информацию, распространение которой в Российской Федерации запрещено"
+                <a target="_blank" class="link" href="/docs/1101.pdf"
+                   title="Постановление Правительства Российской Федерации от 26 октября 2012 г. № 1101">PDF</a>
+                <br>
+                <br>
+                <p class="body_title">Приказ Роскомнадзора №&nbsp;84, МВД России №&nbsp;292, Роспотребнадзора №&nbsp;351, ФНС России ММВ-7-2/461@ от 18.05.2017</p>
+                "Об утверждении Критериев оценки материалов и (или) информации, необходимых для принятия решений Федеральной службой по надзору в сфере связи, информационных технологий и массовых коммуникаций, Министерством внутренних дел Российской Федерации, Федеральной службой по надзору в сфере защиты прав потребителей и благополучия человека, Федеральной налоговой службой о включении доменных имен и (или) указателей страниц сайтов в информационно-телекоммуникационной сети "Интернет", а также сетевых адресов, позволяющих идентифицировать сайты в сети "Интернет", содержащие запрещенную информацию, в единую автоматизированную информационную систему "Единый реестр доменных имен, указателей страниц сайтов в информационно-телекоммуникационной сети "Интернет" и сетевых адресов, позволяющих идентифицировать сайты в информационно-телекоммуникационной сети "Интернет", содержащие информацию, распространение которой в Российской Федерации запрещено"
+                <a target="_blank" class="link" href="/docs/0001201706290015.pdf" title=''>PDF</a>
+                <br>
+                <br>
+                <p class="body_title">Приказ Роскомнадзора от 14.12.2017 №&nbsp;249</p>
+                "Об утверждении требований к способам (методам) ограничения доступа к информационным ресурсам, а также требований к размещаемой информации об ограничении доступа к информационным ресурсам"
+                <a target="_blank" class="link" href="/docs/249.pdf"
+                   title="Приказ от 14.12.2017 №&nbsp;249 Об утверждении требований к способам (методам) ограничения доступа к информационным ресурсам, а также требований к размещаемой информации об ограничении доступа к информационным ресурсам">PDF</a>
+                <br>
+                <br>
 
-            <ul class="dots inner-page_dots">
-                <li class="dots-active"><button type="button">1</button></li>
-                <li><button type="button">2</button></li>
-                <li><button type="button">3</button></li>
-            </ul>
-        </div>
-    </div>
-    -->
+                <p class="body_title">Приказ Роскомнадзора от 21.02.2013 №&nbsp;170</p> 
+                "Об утверждении Порядка взаимодействия оператора единой автоматизированной информационной системы "Единый реестр доменных имен, указателей страниц сайтов в сети "Интернет" и сетевых адресов, позволяющих идентифицировать сайты в сети "Интернет", содержащие информацию, распространение которой в Российской Федерации запрещено" с провайдером хостинга"
+                <a class="link" class="link" target="_blank" href="/docs/170.pdf"
+                   title="Порядок взаимодействия оператора реестра с провайдером хостинга">PDF</a>
+                ;&nbsp;
+                <a class="link" target="_blank" href="/docs/170.doc"
+                   title="Порядок взаимодействия оператора реестра с провайдером хостинга">DOC</a>
+                <br>
+                <br>
+                <p class="body_title">Приказ Роскомнадзора от 09.06.2017 №&nbsp;100</p>
+                "Об утверждении Порядка доступа к информации, содержащейся в единой автоматизированной информационной системе "Единый реестр доменных имен, указателей страниц сайтов в информационно-телекоммуникационной сети "Интернет" и сетевых адресов, позволяющих идентифицировать сайты в информационно-телекоммуникационной сети "Интернет", содержащие информацию, распространение которой в Российской Федерации запрещено" 
+                <a class="link" class="link" target="_blank" href="/docs/0001201708210003.pdf"
+                   title="Порядок доступа к информации, содержащейся в единой автоматизированной информационной системе «Единый реестр доменных имен, указателей страниц сайтов в информационно-телекоммуникационной сети «Интернет» и сетевых адресов, позволяющих идентифицировать сайты в информационно-телекоммуникационной сети «Интернет», содержащие информацию, распространение которой в Российской Федерации запрещено»">PDF</a>
+                <br>
+                <br>
+                <p class="body_title">Приказ Роскомнадзора от 21.02.2013 №&nbsp;169</p>
+                "Об утверждении Порядка получения доступа к содержащейся в единой автоматизированной информационной системе "Единый реестр доменных имен, указателей страниц сайтов в сети "Интернет" и сетевых адресов, позволяющих идентифицировать сайты в сети "Интернет", содержащие информацию, распространение которой в Российской Федерации запрещено" информации оператором связи, оказывающим услуги по предоставлению доступа к информационно-телекоммуникационной сети "Интернет" 
+                <a class="link" class="link" target="_blank" href="https://vigruzki.rkn.gov.ru/docs/Order_169.pdf">PDF</a>
+                <br>
+                <br>
+            </div>
+            <div id="form">
+                	<p>Через форму, опубликованную ниже, вы можете получить <a class="link" href="/registerdata/">данные</a> о нахождении доменных имен, указателей страниц сайтов в сети "Интернет" и сетевых адресов, позволяющих идентифицировать сайты в сети "Интернет", содержащие информацию, распространение которой в Российской Федерации запрещено, в Едином реестре.</p>
 
-    <div class="sidebar_left__ad">
-<div class="ad_result__attached_content"><div style="width:250px; margin: auto; margin-top: 25px;">
+	<p>Для проверки ограничения доступа к сайтам и (или) страницам сайтов сети "Интернет" в рамках исполнения иных положений Федерального закона от 27.07.2006 №&nbsp;149-ФЗ "Об информации, информационных технологиях и защите информации", рекомендуем воспользоваться <a class="link" href="http://blocklist.rkn.gov.ru/">универсальным сервисом проверки ограничения доступа</a>.</p>
 
-</div></div>    </div>
-    <div class="left-block md-none">
-        <div class="left-title">
-            Тесты        </div>
-        <div class="left-links">
-            <ul class="left-links_list">
-                    <li class="left-links_test">
-                    <div class="test-item test-item-speed" data-id="speed">
-                        <a class="txt" href="/speed/">
-                            <i class="ip-icon-speed"></i>
-                            Скорость интернет соединения                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-privacy" data-id="privacy">
-                        <a class="txt" href="/privacy/">
-                            <i class="ip-icon-privacy"></i>
-                            Проверка анонимности                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-time-calc" data-id="time-calc">
-                        <a class="txt" href="/time-calc/">
-                            <i class="ip-icon-time-calc"></i>
-                            Время загрузки файла                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-size-calc" data-id="size-calc">
-                        <a class="txt" href="/size-calc/">
-                            <i class="ip-icon-size-calc"></i>
-                            Объем загружаемого файла                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-whois" data-id="whois">
-                        <a class="txt" href="/whois/">
-                            <i class="ip-icon-whois"></i>
-                            Информация об IP адресе или домене                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-lookup" data-id="lookup">
-                        <a class="txt" href="/lookup/">
-                            <i class="ip-icon-lookup"></i>
-                            IP интернет ресурса                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-ping" data-id="ping">
-                        <a class="txt" href="/ping/">
-                            <i class="ip-icon-ping"></i>
-                            Время реакции вашего компьютера                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-cms" data-id="cms">
-                        <a class="txt" href="/cms/">
-                            <i class="ip-icon-cms"></i>
-                            Система управления сайтом (CMS)                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-guess-hosting" data-id="guess-hosting">
-                        <a class="txt" href="/guess-hosting/">
-                            <i class="ip-icon-guess-hosting"></i>
-                            Хостинг сайта                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-distance" data-id="distance">
-                        <a class="txt" href="/distance/">
-                            <i class="ip-icon-distance"></i>
-                            Расстояние до сайта                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-analizator" data-id="analizator">
-                        <a class="txt" href="/analizator/">
-                            <i class="ip-icon-analizator"></i>
-                            Информация о сайте                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-domain-list-by-ip" data-id="domain-list-by-ip">
-                        <a class="txt" href="/domain-list-by-ip/">
-                            <i class="ip-icon-domain-list-by-ip"></i>
-                            Сайты на одном IP                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-domain-list-by-email" data-id="domain-list-by-email">
-                        <a class="txt" href="/domain-list-by-email/">
-                            <i class="ip-icon-domain-list-by-email"></i>
-                            Все домены одного владельца                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-site-availability" data-id="site-availability">
-                        <a class="txt" href="/site-availability/">
-                            <i class="ip-icon-site-availability"></i>
-                            Доступность сайта                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-site-statistics" data-id="site-statistics">
-                        <a class="txt" href="/site-statistics/">
-                            <i class="ip-icon-site-statistics"></i>
-                            Посещаемость сайта                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-spam" data-id="spam">
-                        <a class="txt" href="/spam/">
-                            <i class="ip-icon-spam"></i>
-                            Наличие IP в СПАМ базах                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-mail-checker" data-id="mail-checker">
-                        <a class="txt" href="/mail-checker/">
-                            <i class="ip-icon-mail-checker"></i>
-                            Проверка существования email                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-port-scaner" data-id="port-scaner">
-                        <a class="txt" href="/port-scaner/">
-                            <i class="ip-icon-port-scaner"></i>
-                            Безопасность вашего компьютера                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-check-port" data-id="check-port">
-                        <a class="txt" href="/check-port/">
-                            <i class="ip-icon-check-port"></i>
-                            Проверка порта                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-antivirus" data-id="antivirus">
-                        <a class="txt" href="/antivirus/">
-                            <i class="ip-icon-antivirus"></i>
-                            Проверка файла на вирусы                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-dig" data-id="dig">
-                        <a class="txt" href="/dig/">
-                            <i class="ip-icon-dig"></i>
-                            DNS параметры домена                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-site-virus-scaner" data-id="site-virus-scaner">
-                        <a class="txt" href="/site-virus-scaner/">
-                            <i class="ip-icon-site-virus-scaner"></i>
-                            Проверка сайта на вирусы                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-browser-update" data-id="browser-update">
-                        <a class="txt" href="/browser-update/">
-                            <i class="ip-icon-browser-update"></i>
-                            Проверка актуальности браузера                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-punycode" data-id="punycode">
-                        <a class="txt" href="/punycode/">
-                            <i class="ip-icon-punycode"></i>
-                            Конвертер punycode для .рф доменов                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-server-response" data-id="server-response">
-                        <a class="txt" href="/server-response/">
-                            <i class="ip-icon-server-response"></i>
-                            Ответ сервера                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-domain-checker" data-id="domain-checker">
-                        <a class="txt" href="/domain-checker/">
-                            <i class="ip-icon-domain-checker"></i>
-                            Поиск доменного имени                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-know-email-ip" data-id="know-email-ip">
-                        <a class="txt" href="/know-email-ip/">
-                            <i class="ip-icon-know-email-ip"></i>
-                            Определение IP адреса по Е-mail                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-passcheck" data-id="passcheck">
-                        <a class="txt" href="/passcheck/">
-                            <i class="ip-icon-passcheck"></i>
-                            Стойкость пароля                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-ssl-info" data-id="ssl-info">
-                        <a class="txt" href="/ssl-info/">
-                            <i class="ip-icon-ssl-info"></i>
-                            Проверка SSL                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-rkn-blacklist disabled-item" data-id="rkn-blacklist">
-
-                        <a class="txt" href="/rkn-blacklist/">
-                            <i class="ip-icon-rkn-blacklist"></i>
-                            Блокировка Роскомнадзором                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-															l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-krot" data-id="krot">
-                        <a class="txt" href="https://krot.io">
-                            <i class="ip-icon-krot"></i>
-                            VPN сервис Крот                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-                <li class="left-links_test">
-                    <div class="test-item test-item-domain-age" data-id="domain-age">
-                        <a class="txt" href="/domain-age/">
-                            <i class="ip-icon-domain-age"></i>
-                            Возраст домена                        </a>
-                        <a onclick="Bookmarks.add(this)" class="fav" title="В избранное">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-                                <path fill="#C8CCD1" class="star" d="M9,3.4l1.8,3.6l4,0.6l-2.9,2.8l0.7,4L9,12.4l-3.5,1.9l0.7-4L3.3,7.6l4-0.6L9,3.4z M9,0L6.2,5.7L0,6.5l4.5,4.4
-                                                                l-1.1,6.2l5.6-3l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                                <path fill="transparent" class="star" d="M9,0L6.2,5.6L0,6.5l4.5,4.3L3.4,17L9,14l5.6,3l-1.1-6.2L18,6.5l-6.2-0.9L9,0z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    </div>
-                    <div class="inner-page_main">
-                	<div id="content" class="narrow-column page-rkn-blacklist">
-		<h1>Блокировка Роскомнадзором</h1>
-		<p>
-			С 2012 г. в России принимаются законы, которые призваны контролировать Интернет. Эти законы позволяют запрещать и ограничивать доступ к определенным интернет сайтам. Для реализации этих законов создан реестр запрещённых сайтов, который находятся в ведении Роскомнадзора. Сайты, попадающие в этот реестр, блокируются интернет провайдерами на всей территории России.		</p>
-		<p>
-			С помощью нашего сервиса вы сможете узнать, заблокирован ли доступ к сайту на территории России.		</p>
-
-<div class="speed">
-	<form action="https://2ip.ru/rkn-blacklist/" method="post">
-		<div class="error">
-			<img src="/images/icon-attention.gif" alt=""> Отсутствует код подтверждения		</div>
-		<div class="error">
-			<img src="/images/icon-attention.gif" alt=""> Некорректный код подтверждения		</div>
-		<div>
-			<table>
-				<tr>
-					<th>
-                        URL или IP:
-					</th>
-					<td>
-						<input name="url" type="text" class="input-text" value="ok.ru" autofocus>
-					</td>
-				</tr>
-			</table>
-		</div>
-
-<script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", () => {
-        let form = document.querySelectorAll('.speed form')[0];
-        new FormValidation(form, {
-            'turingCode': {
-                'equalLength': {
-                    value: 5,
-                    error: 'Пожалуйста, введите цифры с картинки'
-                }
-            }
-        }, 'ru_RU');
-    });
-</script>
-
-<style>
-    .speed form > div.form-group {
-        margin: 0;
-        padding: 0;
-        align-items: center;
-        width: 530px;
-        padding: 0;
-    }
-
-    .form-group__input {
-        padding-left: 13px;
-        text-align: left;
-        width: 400px;
-    }
-        .form-group__input_short {
-            max-width: 300px;
-        }
-
-    .form-group__validation {
-        margin: 10px 0 0;
-    }
-
-    .speed form > div.form-group .column,
-    .speed form > div.form-group .column label {
-        padding: 0;
-        width: 130px;
-    }
-
-        .speed form > div.form-group .column label {
-            text-align: right;
-        }
-
-    @media (max-width: 767px) {
-        .speed form > div.form-group {
-            width: auto;
-            height: auto;
-        }
-
-        .speed form > div.form-group .column {
-            text-align: center;
-            margin: 0;
-            justify-content: normal;
-            align-items: normal;
-            width: 100%;
-        }
-            .speed form > div.form-group .column label {
-                margin: 0 0 15px 0;
-                text-align: center;
-            }
-
-        .form-group__validation {
-            width: auto;
-        }
-
-        .form-group__input {
-            text-align: center;
-        }
-
-        .speed form > div.speed__captcha {
-            padding: 0 25px;
-        }
-    }
-</style>
-
-<div class="form-group" id="form-captcha">
-    <div class="column col-3">
-        <label class="form-label" for="turingCode">
-            Код подтверждения:        </label>
-    </div>
-    <div class="form-group__input form-group__input_short">
-        <input name="turingCode"
-                              class="form-input"
-               type="text"
-               id="turingCode"
-               placeholder="Капча"
-               style="width: 90px; "
-               autocomplete="off"
-               data-border="1px solid #edeff1">
-
-        <img class="form-captcha" src="/?area=capchaController&highResolution=true&amp;rand=10516" id="capchaHolder" alt=""/>
-        <a href="#" class="form-captcha_refresh" title="Обновить цифры"></a>
-
-        <div id="turingCode-error" class="form-group__validation">
-                    </div>
-    </div>
-</div>		<div>
-			<table>
-				<tr>
-					<td colspan="2" class="center">
-						<input type="submit" class="input-button" value="Проверить">
-					</td>
-				</tr>
-			</table>
-		</div>
+	
+	<form style="margin-top:10px;" action="/" enctype="multipart/form-data" method="POST">
+		<input type="hidden" name="act" value="search">
+		<input id="sec" type="hidden" name="secretcodeId" value="">
+		<p id="person" class="body_title">Искомый ресурс</p>
+		<input class="inputMsg" style="width:630px;margin:0px;" type="text" name="searchstring" required maxlength="2000" value="">
+		<p id="sample">Примеры: <span class="link sample_first">1.2.3.4</span> (для ip адреса)<br><span class="link">example.com</span> (для доменного имени)<br><span class="link">http://example.com/news/</span> (для URL адреса)</p>
+		<p id="person" class="body_title">Защитный код:<br><img style="float: left; margin-right: 15px" id="captcha_image" src="/services/securimage/show/?08157d196767c4649f3f72d438c481c0" alt="Защитный код" /><div id="captcha_image_audio_div">
+<audio id="captcha_image_audio" preload="none" style="display: none">
+<source id="captcha_image_source_wav" src="/services/securimage/play/?id=60d215d0ba5cd" type="audio/wav">
+<object type="application/x-shockwave-flash" data="/services/securimage/swf/securimage_play.swf?bgcol=%23ffffff&amp;icon_file=%2Fassets%2Fi%2Fsecureimage%2Faudio_icon.png&amp;audio_file=%2Fservices%2Fsecurimage%2Fplay%2F%3F" height="24" width="24"><param name="movie" value="/services/securimage/swf/securimage_play.swf?bgcol=%23ffffff&amp;icon_file=%2Fassets%2Fi%2Fsecureimage%2Faudio_icon.png&amp;audio_file=%2Fservices%2Fsecurimage%2Fplay%2F%3F" /></object><br /></audio>
+</div>
+<div id="captcha_image_audio_controls">
+<a tabindex="-1" class="captcha_play_button" href="/services/securimage/play/?id=60d215d0ba5da" onclick="return false">
+<img class="captcha_play_image" height="24" width="24" src="/assets/i/secureimage/audio_icon.png" alt="Play CAPTCHA Audio" style="border: 0px">
+<img class="captcha_loading_image rotating" height="24" width="24" src="/assets/i/secureimage/loading.png" alt="Loading audio" style="display: none">
+</a>
+<noscript>Enable Javascript for audio controls</noscript>
+</div>
+<a tabindex="-1" style="border: 0" href="#" title="Перезагрузить изображение" onclick="captcha_image_audioObj.refresh(); document.getElementById('captcha_image').src = '/services/securimage/show/?' + Math.random(); this.blur(); return false"><img height="24" width="24" src="/assets/i/secureimage/refresh.png" alt="Перезагрузить изображение" onclick="this.blur()" style="border: 0px; vertical-align: bottom" /></a><br /><script type="text/javascript" src="/assets/js/securimage/securimage.js"></script>
+<script type="text/javascript">captcha_image_audioObj = new SecurimageAudio({ audioElement: 'captcha_image_audio', controlsElement: 'captcha_image_audio_controls' });</script>
+<div style="clear: both"></div><label for="captcha"></label> <input required type="text" name="secretcodestatus" id="captcha" /><br>
+			<input class="btn" type="submit" id="send_but2" value="Найти"></p>
 	</form>
-</div>
-<div class="ad_result__attached_content"><div align="center">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 2ip_content_resp_04.20 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5433854045166583"
-     data-ad-slot="2308316296"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-</div></div><div class="main-related">
-    <ul class="related-list">
-                    <li class="related-item">
-                <div class="test-item test-item-anonim">
-                    <a class="txt" href="/anonim/">
-                        <i class="ip-icon-anonim"></i>
-                        <span>Анонимайзер</span>
-                    </a>
-                    <a href="#" class="test-ar">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <path class="arrow-svg" fill="#C8CCD1" fill-rule="evenodd" d="M18.882 7.131l-1.639 1.47 2.748 2.397H5v2.005h14.991l-2.748 2.395L18.883 17 24 12z"/>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-                        <li class="related-item">
-                <div class="test-item test-item-privacy">
-                    <a class="txt" href="/privacy/">
-                        <i class="ip-icon-privacy"></i>
-                        <span>Проверка анонимности</span>
-                    </a>
-                    <a href="#" class="test-ar">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <path class="arrow-svg" fill="#C8CCD1" fill-rule="evenodd" d="M18.882 7.131l-1.639 1.47 2.748 2.397H5v2.005h14.991l-2.748 2.395L18.883 17 24 12z"/>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-                        <li class="related-item">
-                <div class="test-item test-item-whois">
-                    <a class="txt" href="/whois/">
-                        <i class="ip-icon-whois"></i>
-                        <span>Информация об IP адресе или домене</span>
-                    </a>
-                    <a href="#" class="test-ar">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <path class="arrow-svg" fill="#C8CCD1" fill-rule="evenodd" d="M18.882 7.131l-1.639 1.47 2.748 2.397H5v2.005h14.991l-2.748 2.395L18.883 17 24 12z"/>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-                </ul>
-</div>
-    	</div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="sidebar">
-                            <div class="sidebar-adv big-adv">
-<style>.b60d2153cd6dc8 { position: absolute;top: 0;bottom: 0;left: 0;right: 0; }</style><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 2ip_right_resp_04.20 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5433854045166583"
-     data-ad-slot="1022961265"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-                    </div>
-        
-                </div>
+	<br>
+	<ul class="list_ul">
+		<li><a class="link" href="/registerdata/">Перечень информации, предоставляемой из Единого реестра</a></li>
+		<li><a href="/assets/i/slayd.png?1" class="link" target="_blank" data-lightbox="lightbox">Процедура рассмотрения заявок в едином реестре</a></li>
+	</ul>
+	<br>
+	<p>Решение о включении в реестр доменных имен, указателей страниц сайтов в сети "Интернет" и сетевых адресов, позволяющих идентифицировать сайты в сети "Интернет", содержащие информацию, распространение которой в Российской Федерации запрещено, может быть обжаловано владельцем сайта в сети "Интернет", провайдером хостинга, оператором связи, оказывающим услуги по предоставлению доступа к информационно-телекоммуникационной сети "Интернет", в суд в течение трех месяцев со дня принятия такого решения.</p></div>
+            <div class="clear"></div>
         </div>
+    </div>
+    <div id="footer">
+        <p id="links_footer">Ссылки</p>
+        <div class="footer">
+            <p class="menu_footer">
+                <a href="http://minsvyaz.ru/ru/" class="link_footer">Минкомсвязь России</a>
+            </p>
+            <p class="menu_footer">
+                <a href="http://www.rspectr.com/" class="link_footer">РСпектр</a>
+            </p>
+            <p class="menu_footer">
+                <a href="http://nap.rkn.gov.ru/" class="link_footer">Реестр нарушителей авторских прав</a>
+            </p>
+            <p class="menu_footer">
+                <a href="http://reestr-svyaz.rkn.gov.ru" class="link_footer">Публичный реестр инфраструктуры связи и
+                    телерадиовещания РФ</a>
+            </p>
+            <p class="menu_footer2">
+                <a href="http://pd.rkn.gov.ru/" class="link_footer">Портал персональных данных</a>
+            </p>
+        </div>
+        <div class="clear"></div>
+        <p id="left_data"></p>
+        <p id="right_data">
+            109992, г.Москва,
+            <br>
+            Китайгородский пр., д.7, стр.2
+            <br>
+            Вопросы по сайту:
+            <a href="mailto:webmaster@rkn.gov.ru" class="link">webmaster@rkn.gov.ru</a>
+            <br></p>
     </div>
 </div>
 
-
-<style>.i60d2153cd9609 { position: absolute;top: 0;bottom: 0;left: 0;right: 0; }</style><div align="center"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 2ip_bottom_resp_01.21 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5433854045166583"
-     data-ad-slot="4196032169"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
-<br />
-<footer class="footer">
-    <div class="container">
-        <div class="footer-menu">
-            <ul>
-                            <li><a href="/registration/isp/">Провайдеру</a></li>
-                <li><a href="/press/">Пресса</a></li>
-                <li><a href="/adv/">Реклама</a></li>
-            
-                <li><a href="/disclaimer/">Соглашение</a></li>
-                <li><a href="/contact/">Обратная связь</a></li>
-                <li>
-                    <a href="/?area=designSwitcher" style="display: block;margin: -5px 0 0 0; text-decoration: none">
-                        <picture>
-                            <source srcset="/img/old2ip.webp 1x, /img/old2ip@2x.webp 2x, /img/old2ip@3x.webp 3x" type="image/webp">
-                            <img src="/img/old2ip.png" alt="Старый дизайн" title="Старый дизайн" height="36">
-                        </picture>
-                    </a>
-                </li>
-                            <li>
-                    <a href="https://2ip.io/">
-                        <img src="/img/flags/4x3/us.svg" alt="English version" title="English version" class="bottom-flag">
-                    </a>
-                </li>
-                        </ul>
-        </div>
-
-        <div class="social">
-            <ul class="social-list">
-                <li class="social-item fb">
-                    <a href="https://www.facebook.com/2ipru/" title="facebook" target="_blank">
-                        <i class="ip-icon-social-fb"></i>
-                        facebook
-                    </a>
-                </li>
-
-                <li class="social-item vk">
-                    <a href="https://vk.com/2ipru" title="vkontakte" target="_blank">
-                        <i class="ip-icon-social-vk"></i>
-                        vkontakte
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="copyright">© 2006–2021 <span>«2ip.ru»</span>. Все права защищены.</div>
-
-        <div class="scroll-top"><a href="#" title="Наверх"></a></div>
+<div id="divMsgModal" class="messageSend">
+    <p id="divMsgModalText">...</p>
+    <br>
+    <div style="text-align:center;">
+        <button class="btn closeBtnBig">Закрыть</button>
     </div>
-
-</footer>
 </div>
 
-
-<script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-
-    if (typeof _gat !== 'undefined') {
-        var pageTracker = _gat._getTracker("UA-5564916-1");
-        pageTracker._trackPageview();
-    }
-</script>
-
-<div class="body-blackout"></div>
 </body>
 </html>
