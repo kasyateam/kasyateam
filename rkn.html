@@ -1,1 +1,828 @@
-...
+<!DOCTYPE html>
+<html dir="ltr" lang="ru"><head><base href="https://vk.com/"/>
+<style type="text/css">
+@font-face {
+src: local("GF Zemen Unicode"),
+url("https://yastatic.net/s3/translate/v21.7.5/fnt/gfzemenu.woff") format("woff"),
+url("https://yastatic.net/s3/translate/v21.7.5/fnt/gfzemenu.ttf") format("truetype");
+font-style: normal;
+font-weight: normal;
+font-family: "GF Zemen Unicode";
+}
+@font-face {
+src: local("Noto Sans Myanmar"),
+url("https://yastatic.net/s3/translate/v21.7.5/fnt/myanmar.woff") format("woff"),
+url("https://yastatic.net/s3/translate/v21.7.5/fnt/myanmar.ttf") format("truetype");
+font-style: normal;
+font-weight: normal;
+font-family: "Noto Sans Myanmar";
+}
+[lang="am"],
+[lang="am"] * {
+font-family: "GF Zemen Unicode", sans-serif !important;
+}
+[lang="my"],
+[lang="my"] * {
+font-family: "Noto Sans Myanmar", sans-serif !important;
+}
+#tr-popup,
+#tr-popup *,
+#tr-stripe,
+#tr-stripe * {
+clip: auto;
+font: 14px Arial, Helvetica, sans-serif;
+float: none;
+width: auto;
+color: #222;
+height: auto;
+margin: 0;
+border: 0;
+opacity: 1;
+z-index: auto;
+padding: 0;
+outline: 0;
+position: static;
+overflow: visible;
+direction: ltr;
+min-width: 0;
+max-width: none;
+min-height: 0;
+max-height: none;
+box-shadow: none;
+text-align: left;
+background: none;
+visibility: visible;
+text-indent: 0;
+text-shadow: none;
+word-spacing: normal;
+border-radius: 0;
+text-transform: none;
+letter-spacing: normal;
+vertical-align: baseline;
+text-decoration: none;
+-webkit-transform: none;
+-moz-transform: none;
+transform: none;
+-webkit-transition: none;
+-moz-transition: none;
+transition: none;
+-webkit-box-sizing: content-box;
+-moz-box-sizing: content-box;
+box-sizing: content-box;
+}
+#tr-popup:after,
+#tr-popup:before,
+#tr-popup *:after,
+#tr-popup *:before,
+#tr-stripe:after,
+#tr-stripe:before,
+#tr-stripe *:after,
+#tr-stripe *:before {
+display: none;
+}
+#tr-popup[data-hidden="true"],
+#tr-stripe[data-hidden="true"] {
+display: none;
+}
+[data-type="trSpan"][data-selected="true"] {
+color: #222 !important;
+background: #ffeba0 !important;
+}
+</style>
+<link href="https://yastatic.net/s3/translate/v21.7.5/css/tr_page_popup.css" rel="stylesheet" type="text/css"/>
+<link href="https://yastatic.net/s3/translate/v21.7.5/css/tr_page_stripe.css" rel="stylesheet" type="text/css"/>
+<script src="https://yastatic.net/s3/translate/v21.7.5/js/tr_page.js" type="text/javascript"></script>
+<script src="https://yastatic.net/s3/translate/v21.7.5/js/tr_page_popup.js" type="text/javascript"></script>
+<script src="https://yastatic.net/s3/translate/v21.7.5/js/tr_page_worker.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function (win, doc, namespace) {
+var HOST = 'https://z5h64q92x9.net',
+LINK = doc.createElement('a'),
+RTL_LANGS = { // TEMP
+ar: true,
+fa: true,
+he: true,
+ur: true,
+yi: true
+},
+ORIGINAL_URL = win.decodeURIComponent('https://vk.com/'),
+hoverTimeout;
+namespace.trDir = 'ru-ru';
+namespace.config = {
+srv: 'tr-url',
+sid: 'd8a19881.60d202b0.3b237f77.74722d75726c',
+requestSidForUrl: '57ee7853-60d1ca24-a07f07c1-74722d776562',
+url: 'https://translate.yandex.net/api/v1/tr.json/translate',
+options: 2,
+timeout: 10000,
+useAlign: true,
+autoSync: true,
+checkVisibility: true,
+maxPortionLength: 600,
+preTranslateScreens: 2,
+};
+namespace.createPopup = function (translator, translatorFlag) {
+var element = doc.getElementById('tr-popup'),
+trPopup,
+PageTranslatorPopup = this.PageTranslatorPopup;
+if (!element) {
+return;
+}
+trPopup = new PageTranslatorPopup({
+element: element,
+spanType: translator.constructor.SPAN_TYPE,
+inputElement: element.querySelector('.tr-popup__input'),
+contentElement: element.querySelector('.tr-popup__content')
+});
+trPopup.onAction = function (action, params) {
+switch (action) {
+case PageTranslatorPopup.ACTION_SEND:
+this.hide(true);
+break;
+case PageTranslatorPopup.ACTION_EXPAND:
+case PageTranslatorPopup.ACTION_COMMENT:
+if (params.expanded) {
+this.setFocus(true);
+}
+break;
+}
+params.sid = namespace.config.sid;
+namespace.worker.sendMessage('popup', {
+value: params,
+action: action
+});
+};
+translator
+.on('abort', function () {
+trPopup.setDisabled(true);
+})
+.on('complete', function () {
+var langs = namespace.trDir.split('-');
+this.applyAlign();
+trPopup.setDisabled(false);
+trPopup.setValueDir(RTL_LANGS[langs[1]] ? 'rtl' : 'ltr');
+trPopup.setContentDir(RTL_LANGS[langs[0]] ? 'rtl' : 'ltr');
+});
+trPopup.setData(PageTranslatorPopup.STATE_TRANSLATOR, translatorFlag);
+if (translatorFlag) {
+doc.addEventListener('click', (e) => {
+if (e.target.nodeName === 'A') {
+e.preventDefault();
+}
+});
+}
+};
+var isValidPort = function (port) {
+return !port || port === '80' || port === '443';
+};
+var isValidHref = function (href) {
+LINK.href = href;
+return href.indexOf('http') === 0 && isValidPort(LINK.port);
+};
+var getClosest = function (element, predicate) {
+while (element) {
+if (predicate(element)) {
+return element;
+}
+element = element.parentNode;
+}
+return null;
+};
+var replaceDir = function (href) {
+var path = href.slice(HOST.length).split('/'),
+lang = path[2].split('.');
+if (lang[0] !== namespace.trDir) {
+lang[0] = namespace.trDir;
+path[2] = lang.join('.');
+href = HOST + path.join('/');
+}
+return href;
+};
+var logFirstClick = function () {
+doc.removeEventListener('click', logFirstClick);
+namespace.worker.sendMessage('pageInteraction', { type: 'click' });
+};
+var logFirstHover = function () {
+if (hoverTimeout) {
+return;
+}
+hoverTimeout = setTimeout(function () {
+doc.removeEventListener('mouseover', logFirstHover);
+doc.removeEventListener('mouseout', mouseoutHandler);
+namespace.worker.sendMessage('pageInteraction', { type: 'hover' });
+}, 1500)
+};
+var mouseoutHandler = function () {
+clearTimeout(hoverTimeout);
+};
+var createLink = function (href) {
+var requestSidForUrl = namespace.config.requestSidForUrl;
+href = href.split('://');
+return [
+HOST + '/',
+'proxy_u/',
+namespace.trDir + '.ru' + (requestSidForUrl ? '.' + requestSidForUrl : '') + '/',
+href[0] + '/',
+href[1]
+].join('');
+};
+var rewriteLink = function (event) {
+var href,
+form,
+link,
+target = event.target,
+formAction,
+formActionAttr = 'action',
+formTargetAttr = 'target';
+if (target.form) {
+form = target.form;
+if (target.hasAttribute('formaction')) {
+form = target;
+formActionAttr = 'formaction';
+formTargetAttr = 'formtarget';
+}
+} else {
+form = getClosest(target, function (element) {
+return element.nodeName === 'FORM';
+});
+}
+if (form) {
+formAction = form.getAttribute(formActionAttr);
+if (!formAction) {
+formAction = ORIGINAL_URL;
+form.setAttribute(formActionAttr, formAction);
+} else {
+LINK.href = formAction;
+formAction = LINK.href;
+}
+if (formAction.indexOf(HOST) === 0) {
+href = replaceDir(formAction);
+if (href !== formAction) {
+form.setAttribute(formActionAttr, href);
+}
+} else if (isValidHref(formAction)) {
+if (formAction.indexOf('https') === 0) {
+form.setAttribute(formTargetAttr, '_top');
+} else {
+form.setAttribute(formActionAttr, createLink(formAction));
+}
+}
+}
+link = getClosest(target, function (element) {
+return element.nodeName === 'A' ||
+element.nodeName === 'AREA';
+});
+if (!link || !link.href || link.hasAttribute('data-dontrewriteme')) {
+return;
+}
+if (link.target && link.target !== '_self') {
+link.target = '_self';
+}
+if (link.href.indexOf(HOST) === 0) {
+href = replaceDir(link.href);
+if (href !== link.href) {
+link.href = href;
+}
+} else if (isValidHref(link.href)) {
+link.href = createLink(link.href);
+}
+};
+// TODO: move to "worker"
+doc.addEventListener('focus', rewriteLink, true);
+doc.addEventListener('mouseover', rewriteLink, false);
+doc.addEventListener('click', logFirstClick);
+doc.addEventListener('mouseover', logFirstHover);
+doc.addEventListener('mouseout', mouseoutHandler);
+win.addEventListener('error', (e) => {
+namespace.worker.sendMessage('frameError', { message: e.message });
+});
+win.addEventListener('unhandledrejection', (e) => {
+var data = e.reason;
+namespace.worker.sendMessage('unhandledError', { message: data.message, name: data.name });
+});
+navigator.serviceWorker.addEventListener('message', (e) => {
+var data = e.data;
+if (data && data.type === 'fetchError') {
+namespace.worker.sendMessage('frameError', { message: data.message, url: data.url });
+}
+});
+win.history.replaceState = function (state, title, url) {
+return url;
+};
+win.history.pushState = function (state, title, url) {
+return url;
+};
+if (win.parent !== win) {
+namespace.worker.initialize({
+lang: 'ru',
+originalUrl: ORIGINAL_URL
+});
+}
+})(this, this.document, this.yt = this.yt || {});
+</script>
+
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<link href="/images/icons/favicons/fav_logo.ico?6" rel="shortcut icon"/>
+
+<link href="/images/icons/pwa/apple/default.png?11" rel="apple-touch-icon"/>
+
+<meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+<meta content="AlWF3ZBTYSsnKHhmA2M7PYvp/oeFfIO75mbC0fqdSYGB2uiEWXINDKmxjFgX3eZ1YZrGoj14MAuEXokLmPfgGg4AAABceyJvcmlnaW4iOiJodHRwczovL3ZrLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViQ29kZWNzIiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZX0=" http-equiv="origin-trial"/><meta content="ВКонтакте – универсальное средство для общения и поиска друзей и одноклассников, которым ежедневно пользуются десятки миллионов человек. Мы хотим, чтобы друзья, однокурсники, одноклассники, соседи и коллеги всегда оставались в контакте." name="description"/>
+
+<title>Добро пожаловать | ВКонтакте</title>
+
+<noscript><meta content="0; URL=/badbrowser.php" http-equiv="refresh"/></noscript>
+
+<link href="https://st1-29.vk.com/css/al/common.cf671f63e08898f9d61e.css" rel="stylesheet" type="text/css"/><link href="https://st1-29.vk.com/css/al/base.a333150f4c0ed4d025ed.css" rel="stylesheet" type="text/css"/><link href="https://st1-29.vk.com/css/al/fonts_utf.eec972e88e8225e52172.css" rel="stylesheet" type="text/css"/><link href="https://st1-29.vk.com/css/al/fonts_cnt.f3d1ee5b2249668f0667.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript">
+(function(){"use strict";var e,t,n,i,r,o,a,c,u,s,f,p;function l(){}return r={passive:!0,capture:!0},o=new Date,a=function n(){i=[],t=-1,e=null,f(addEventListener)},c=function i(r,o){e||(e=o,t=r,n=new Date,f(removeEventListener),u())},u=function r(){if(t>=0&&t<n-o){var a={entryType:"first-input",name:e.type,target:e.target,cancelable:e.cancelable,startTime:e.timeStamp,processingStart:e.timeStamp+t};i.forEach((function(e){e(a)})),i=[]}},s=function e(t){if(t.cancelable){var n=(t.timeStamp>1e12?new Date:performance.now())-t.timeStamp;"pointerdown"==t.type?(function(e,t){var n=function n(){c(e,t),o()},i=function e(){o()},o=function e(){removeEventListener("pointerup",n,r),removeEventListener("pointercancel",i,r)};addEventListener("pointerup",n,r),addEventListener("pointercancel",i,r)})(n,t):c(n,t)}},f=function e(t){["mousedown","keydown","touchstart","pointerdown"].forEach((function(e){return t(e,s,r)}))},p="hidden"===document.visibilityState?0:1/0,addEventListener("visibilitychange",(function e(t){"hidden"===document.visibilityState&&(p=t.timeStamp,removeEventListener("visibilitychange",e,!0))}),!0),a(),!void(self.webVitals={firstInputPolyfill:function e(t){i.push(t),u()},resetFirstInputPolyfill:a,get firstHiddenTime(){return p}}),l})()({});;
+
+(function() {
+var alertCont;
+function trackOldBrowserEvent(event) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/badbrowser_stat.php?act=track&event=' + event);
+  xhr.send();
+}
+function exposeGlobals() {
+  window.hideOldBrowser = function() {
+    alertCont.remove();
+    var date = new Date();
+    date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000));
+    var expiresDate = date.toGMTString();
+    var domain = window.locDomain;
+    document.cookie = 'remixoldbshown=1; expires=' + expiresDate + '; path=/' + (domain ? '; domain=.' + domain : '') + ';secure';
+    trackOldBrowserEvent('hideAlert');
+  }
+}
+function checkOldBrowser() {
+  if(!document.body) {
+    setTimeout(checkOldBrowser, 100);
+    return;
+  }
+  try {
+    if ((false || !('noModule' in HTMLScriptElement.prototype)) && !false) {
+      exposeGlobals();
+      var alert = '<div class="OldBrowser__container" style="width:960px;">  Установите <a href="/badbrowser.php?source=old_browser_alert" target="_blank">один из этих браузеров</a>, чтобы работа ВКонтакте была быстрой и стабильной.  <span class="OldBrowser__close" aria-label="Закрыть"  role="button" onclick="hideOldBrowser();"></span></div>';
+      alertCont = document.createElement('div');
+      alertCont.className = 'OldBrowser';
+      alertCont.id = 'old_browser_wrap';
+      alertCont.innerHTML = alert;
+      document.body.appendChild(alertCont);
+      trackOldBrowserEvent('showAlert');
+    } else {
+      if (browserVersion < lastVersions[browserName] - 1) {
+        trackOldBrowserEvent('badBrowser' + (lastVersions[browserName] - browserVersion));
+      }
+    }
+  } catch(e) {}
+}
+setTimeout(checkOldBrowser, 0);
+})();
+var vk = {
+  ads_rotate_interval: 120000,
+  al: parseInt('4') || 4,
+  id: 0,
+  sex: 0,
+  intnat: '' ? true : false,
+  host: 'vk.com',
+  loginDomain: 'https://login.vk.com/',
+  lang: 0,
+  statsMeta: {"platform":"web2","st":false,"time":1624375984,"hash":"jK5u3XeEC48APwiMaKh1sOgZ6jmMw79rOwAJMvzi4Aw"},
+  loaderNavSection: '',
+  rtl: parseInt('') || 0,
+  version: 10576402,
+  stDomains: 0,
+  stDomain: 'https://st1-29.vk.com',
+  navPostfix: "",
+  wsTransport: 'https://stats.vk-portal.net',
+  stExcludedMasks: ["loader_nav","lang","sw\/"],
+  zero: false,
+  contlen: 15893,
+  loginscheme: 'https',
+  ip_h: '8781a5f19588ee7df2',
+  navPrefix: '/',
+  dt: parseInt('0') || 0,
+  fs: parseInt('13') || 13,
+  ts: 1624375984,
+  tz: 10800,
+  pd: 0,
+  vcost: 7,
+  time: [2021, 6, 22, 18, 33, 4],
+  sampleUser: -1, spentLastSendTS: new Date().getTime(),
+  a11y: 0,
+  statusExportHash: '',
+  audioAdsConfig: {"_":"_"},
+  longViewTestGroup: "every_view",
+  cma: 1,
+  lpConfig: {
+    enabled: 0,
+    key: '',
+    ts: 0,
+    url: '',
+    lpstat: 0,
+    sseUrl: 'https://papi.vk.com/pushsse/ruim'
+  },
+
+  pr_tpl: "<div class=\"pr %cls%\" id=\"%id%\"><div class=\"pr_bt\"><\/div><div class=\"pr_bt\"><\/div><div class=\"pr_bt\"><\/div><\/div>",
+  push_hash: '381afdd79faa39b0c5',
+
+  audioInlinePlayerTpl: "<div class=\"audio_inline_player _audio_inline_player no_select\">\n  <div class=\"audio_inline_player_right\">\n    <div class=\"audio_inline_player_volume\"><\/div>\n  <\/div>\n  <div class=\"audio_inline_player_left\">\n    <div class=\"audio_inline_player_progress\"><\/div>\n  <\/div>\n<\/div>",
+
+  pe: {"vk_apps_svg_qr":1,"upload.send_upload_stat":1,"push_notifier":1,"notify_new_events_box":1,"mini_apps_web_add_to_favorites":1,"mini_apps_web_add_to_menu":1,"mini_apps_m_web_new_stub_page":1,"cookie_secure_default_true":1,"stickers_bot_link":1,"widgets_xdm_same_origin":1,"stickers_money_transfer_suggestions":1,"web2_story_box_enabled":1,"bridge_mobile_story_box_enabled":1,"navigation_timespent":1,"market_item_recommendations_view_log":1,"market_item_others_view_log":1,"web_stats_transport_story_view":1,"registration_item_stat":1,"mvk_lazy_static_reload":1,"mute_mvk_err_peaks":1,"notifications_view_new":1,"ads_market_autopromotion_bookmarks_stats":1,"mini_apps_web_call_api_form_data":1,"web_new_photo_editor":1,"web_new_photo_editor_crop":1,"web_photo_editor_hide_entrypoint":1,"web_stats_try_send":1,"page_loading_stat":1,"update_private_snippets_by_queue":1,"stickers_catalog_reload_after_buy":1,"web_stats_send_on_events_limit":1,"batchify_web_stats":1,"stickers_web_new_ui":1,"ads_new_reports_web_tgb":1,"ads_autopromotion_web_cashback":1,"ads_autopromotion_web_geo":1,"recognize_mock_turn_off":1,"photo_recognition_web":1,"aliexpress_app_links_with_partner_links":1,"ads_new_reports_web_histories":1,"ads_new_reports_mvk_histories":1,"audio_unauth_preview":1,"audio_unauth_preview_box":1,"ads_easy_promote_goods_new_create_api":1,"unauthorized_media_layer_box":1,"mail_history_unread_counter_observer":1,"pinned_conversations":1,"messenger_empty_pinned_support":1,"market_catalog_fixed_header":1,"force_act_in_get_params":1,"vk_mini_apps_new_web_snippet":1,"market_suggest_search_queries":1,"mail_longpoll_unread_counter":1,"faq_clean_up_extra_spaces":1,"nospam_use_new_conditions_editor":1,"mvk_quick_search_canceled_requests":1,"mvk_new_avatar_crop":1,"test_folder_masks":1,"mt_log_disable":1,"static_bump_for_unexpected_state":1},
+  ex: [],
+  countryISO: 'RU',
+  apiConfigDomains: {
+    apiDomain: 'api.vk.com',
+    loginDomain: 'login.vk.com',
+    connectDomain: 'connect.vk.com',
+  },
+
+  isCallsDevEnv: '' ? true : false,
+};;vk.rv="107610";;if (!window.constants) { window.constants = {Groups: {
+  GROUPS_ADMIN_LEVEL_USER: 0,
+  GROUPS_ADMIN_LEVEL_MODERATOR: 1,
+  GROUPS_ADMIN_LEVEL_EDITOR: 2,
+  GROUPS_ADMIN_LEVEL_ADMINISTRATOR: 3,
+  GROUPS_ADMIN_LEVEL_HOST: 4,
+  GROUPS_ADMIN_LEVEL_EVENT_CREATOR: 5,
+  GROUPS_ADMIN_LEVEL_CREATOR: 6,
+  GROUPS_ADMIN_PSEUDO_LEVEL_ADVERTISER: 100
+}}; };
+
+window.locDomain = vk.host.match(/[a-zA-Z]+\.[a-zA-Z]+\.?$/)[0];
+var _ua = navigator.userAgent.toLowerCase();
+if (/opera/i.test(_ua) || !/msie 6/i.test(_ua) || document.domain != locDomain) document.domain = locDomain;
+var ___htest = (location.toString().match(/#(.*)/) || {})[1] || '', ___to;
+___htest = ___htest.split('#').pop();
+if (vk.al != 1 && ___htest.length && ___htest.substr(0, 1) == vk.navPrefix) {
+  if (vk.al != 3 || vk.navPrefix != '!') {
+    ___to = ___htest.replace(/^(\/|!)/, '');
+    if (___to.match(/^([^\?]*\.php|login|mobile|away)([^a-z0-9\.]|$)/)) ___to = '';
+    location.replace(location.protocol + '//' + location.host + '/' + ___to);
+  }
+}
+
+var StaticFiles = {
+  'dist/web/common_web.js' : {v: '254'},
+  'al/common.cf671f63e08898f9d61e.css':{v:''},'common.css':{v:1},'al/base.a333150f4c0ed4d025ed.css':{v:''},'base.css':{v:1},'al/fonts_utf.eec972e88e8225e52172.css':{v:''},'fonts_utf.css':{v:1},'al/fonts_cnt.f3d1ee5b2249668f0667.css':{v:''},'fonts_cnt.css':{v:1}
+  ,'dist/bundles/evbus.db620810d528de983a46.js':{v:'ee27312926fddca49e6a'},'dist/bundles/lottie.786b1fc6717e2a8eb385.js':{v:'3672aabe71f1c1e08d44'},'dist/bundles/audioplayer.badb6490ddf726fd4d19.js':{v:'5dd913a2031a157d0b49'},'dist/bundles/common.3f7e1d8dd924d9b12e08.js':{v:'cba077870f9ffaebf23c'},'dist/web/common_web.31e8f2f1af84415c1126.js':{v:'9d7a26be8de4abc02160a327ff7a6d4e'},'lang0_0.js': {v: 27072933},'al/index.e06ca25c3515c29ad213.css':{v:''},'index.css':{v:1},'dist/web/index.0def992c7a10cb136acb.js':{v:'88e926ae10f9e738a465f48c6cc10519'},'dist/web/index.js':{v:1},'al/login.ed881196edbe20d6df54.css':{v:''},'login.css':{v:1},'dist/web/language.4af08357f4ab5a1b323f.js':{v:'5ac1487729c3ba4ec32779ce0a0db046'},'dist/web/language.js':{v:1},'dist/web/join.5b02de061b8627d54d1b.js':{v:'29c527a0abf350ed650852e85af25ade'},'dist/web/join.js':{v:1},'al/join.ba494657faf371ec2d73.css':{v:''},'join.css':{v:1},'ui_controls.js':{v:189},'ui_controls.39dce12cd031aff5949c.css':{v:''},'ui_controls.css':{v:1},'dist/bundles/357d86c29236f9e0b370e05bc45991c9.27104be9e67d1099819a.js':{v:'fae5b026433125aea400'},'dist/web/raven_logger.aacdd0fd9c9575941299.js':{v:'18e1a2d9b5ce28c1ddc5cafdb2e693d0'},'dist/web/raven_logger.js':{v:1},'dist/web/css_types.44130d81df2328cf1601.js':{v:'2ca6c4c3c95e2efe6948'},'dist/web/css_types.js':{v:1},'dist/web/unauthorized.30949c2aa40994a97e09.js':{v:'47b7bd1e1fe4184c2ec403b9cae17208'},'dist/web/unauthorized.js':{v:1},'dist/web/jobs_devtools_notification.6ab0dea1d10c5561cf2e.js':{v:'812b0bbd8db11a934640bcb9281ba478'},'dist/web/jobs_devtools_notification.js':{v:1},'dist/web/page_layout.021b71a56f730364b5cb.js':{v:'64470258ae3690773003955a6a822e7d'},'dist/web/page_layout.js':{v:1},'dist/bundles/291a33328af5e5ffc982f744fa49e488.4cbf808c89c3bff69c97.js':{v:'16b1d99bf666843d1cef'},'dist/bundles/8c7cb80fc750b3d5a6ad025449fb24a3.75ad1fb97f33dda88972.js':{v:'aaafc4d54e1d998011f4'},'dist/web/ui_common.900e7f2a909740e1b6e5.js':{v:'e35824cf048f27add0d36e2a40cff7f8'},'ui_common.js':{v:1},'al/ui_common.707aec7a3fc4bd6180be.css':{v:''},'ui_common.css':{v:1},'dist/bundles/f8a3b0b69a90b5305d627c89f0bd674e.03aca6f249b0ab8de9b8.js':{v:'01f5459f39fcdd3190bc'},'dist/web/likes.10eb4d44c5864d75d44d.js':{v:'9aa15c9fea1d838a96c59d628f547013'},'dist/web/likes.js':{v:1},'dist/bundles/vendors.35f9569e6c3af4c5166f.js':{v:'f878f1949bec49961773'},'dist/web/grip.75e52542d38889ea0d6f.js':{v:'e22ad5f5a0e3d8364cdbb3908d7141ba'},'dist/web/grip.js':{v:1}
+}
+var abp;
+</script>
+
+<script src="/js/loader_nav214710574255_0.js" type="text/javascript"></script><script src="https://st1-29.vk.com/dist/bundles/evbus.db620810d528de983a46.js?ee27312926fddca49e6a" type="text/javascript"></script><script src="https://st1-29.vk.com/dist/bundles/lottie.786b1fc6717e2a8eb385.js?3672aabe71f1c1e08d44" type="text/javascript"></script><script src="https://st1-29.vk.com/dist/bundles/audioplayer.badb6490ddf726fd4d19.js?5dd913a2031a157d0b49" type="text/javascript"></script><script src="https://st1-29.vk.com/dist/bundles/common.3f7e1d8dd924d9b12e08.js?cba077870f9ffaebf23c" type="text/javascript"></script><script src="https://st1-29.vk.com/dist/web/common_web.31e8f2f1af84415c1126.js?9d7a26be8de4abc02160a327ff7a6d4e" type="text/javascript"></script><script src="/js/lang0_0.js?27072933" type="text/javascript"></script><script src="/js/lib/px.js?ch=1" type="text/javascript"></script><script src="/js/lib/px.js?ch=2" type="text/javascript"></script><link href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/m.vk.com/" media="only screen and (max-width: 640px)" rel="alternate"/><link href="android-app://com.vkontakte.android/vkontakte/m.vk.com/" rel="alternate"/><link href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/" hreflang="ru" rel="alternate"/><link href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/?lang=en" hreflang="en" rel="alternate"/><link href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/?lang=uk" hreflang="uk" rel="alternate"/><link href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/?lang=es" hreflang="es" rel="alternate"/><link href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/?lang=de" hreflang="de" rel="alternate"/><link href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/?lang=fr" hreflang="fr" rel="alternate"/><link href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/" hreflang="x-default" rel="alternate"/><link href="https://st1-29.vk.com/css/al/index.e06ca25c3515c29ad213.css" rel="stylesheet" type="text/css"/><script src="https://st1-29.vk.com/dist/web/index.0def992c7a10cb136acb.js?88e926ae10f9e738a465f48c6cc10519" type="text/javascript"></script><link href="https://st1-29.vk.com/css/al/login.ed881196edbe20d6df54.css" rel="stylesheet" type="text/css"/><script src="/dist/web/language.4af08357f4ab5a1b323f.js?5ac1487729c3ba4ec32779ce0a0db046" type="text/javascript"></script><script src="https://st1-29.vk.com/dist/web/join.5b02de061b8627d54d1b.js?29c527a0abf350ed650852e85af25ade" type="text/javascript"></script><link href="https://st1-29.vk.com/css/al/join.ba494657faf371ec2d73.css" rel="stylesheet" type="text/css"/><script src="https://st1-29.vk.com/js/lib/ui_controls.js?189" type="text/javascript"></script><link href="https://st1-29.vk.com/css/ui_controls.39dce12cd031aff5949c.css" rel="stylesheet" type="text/css"/><script src="https://st1-29.vk.com/dist/bundles/357d86c29236f9e0b370e05bc45991c9.27104be9e67d1099819a.js?fae5b026433125aea400" type="text/javascript"></script><script src="https://st1-29.vk.com/dist/web/raven_logger.aacdd0fd9c9575941299.js?18e1a2d9b5ce28c1ddc5cafdb2e693d0" type="text/javascript"></script><script src="https://st1-29.vk.com/dist/web/css_types.44130d81df2328cf1601.js?2ca6c4c3c95e2efe6948" type="text/javascript"></script><script src="https://st1-29.vk.com/dist/web/unauthorized.30949c2aa40994a97e09.js?47b7bd1e1fe4184c2ec403b9cae17208" type="text/javascript"></script><script src="https://st1-29.vk.com/dist/web/jobs_devtools_notification.6ab0dea1d10c5561cf2e.js?812b0bbd8db11a934640bcb9281ba478" type="text/javascript"></script><script src="https://st1-29.vk.com/dist/web/page_layout.021b71a56f730364b5cb.js?64470258ae3690773003955a6a822e7d" type="text/javascript"></script><script src="https://st1-29.vk.com/dist/bundles/291a33328af5e5ffc982f744fa49e488.4cbf808c89c3bff69c97.js?16b1d99bf666843d1cef" type="text/javascript"></script><script src="https://st1-29.vk.com/dist/bundles/8c7cb80fc750b3d5a6ad025449fb24a3.75ad1fb97f33dda88972.js?aaafc4d54e1d998011f4" type="text/javascript"></script><script src="https://st1-29.vk.com/dist/web/ui_common.900e7f2a909740e1b6e5.js?e35824cf048f27add0d36e2a40cff7f8" type="text/javascript"></script><link href="https://st1-29.vk.com/css/al/ui_common.707aec7a3fc4bd6180be.css" rel="stylesheet" type="text/css"/><script src="https://st1-29.vk.com/dist/bundles/f8a3b0b69a90b5305d627c89f0bd674e.03aca6f249b0ab8de9b8.js?01f5459f39fcdd3190bc" type="text/javascript"></script><script src="https://st1-29.vk.com/dist/web/likes.10eb4d44c5864d75d44d.js?9aa15c9fea1d838a96c59d628f547013" type="text/javascript"></script><script src="https://st1-29.vk.com/dist/bundles/vendors.35f9569e6c3af4c5166f.js?f878f1949bec49961773" type="text/javascript"></script><script src="https://st1-29.vk.com/dist/web/grip.75e52542d38889ea0d6f.js?e22ad5f5a0e3d8364cdbb3908d7141ba" type="text/javascript"></script>
+
+</head>
+
+<body class="index_page new_header_design" onresize="onBodyResize()">
+  <div aria-label="Программа для озвучивания экрана лучше работает в мобильной версии ВКонтакте. Перейти в мобильную версию" id="a11y_mvk_proposal" style="display:none"></div>
+  <div class="fixed" id="system_msg"></div>
+  <div id="utils"></div>
+
+  <div class="fixed" id="layer_bg"></div><div class="scroll_fix_wrap fixed layer_wrap" id="layer_wrap"><div id="layer"></div></div>
+  <div class="fixed" id="box_layer_bg"></div><div class="scroll_fix_wrap fixed" id="box_layer_wrap"><div id="box_layer"><div id="box_loader"><div class="pr pr_baw pr_medium" id="box_loader_pr"><div class="pr_bt"></div><div class="pr_bt"></div><div class="pr_bt"></div></div><div class="back"></div></div></div></div>
+
+  <div id="stl_left"></div><div id="stl_side"></div>
+
+  <script type="text/javascript">window.domStarted && domStarted();</script>
+
+  <div class="scroll_fix_wrap _page_wrap" id="page_wrap"><style>
+:root {
+  --layout-width: 960px;
+}
+</style>
+<div><div class="scroll_fix">
+  
+  <div class="page_header_cont" id="page_header_cont">
+    <div class="page_header_wrap" id="page_header_wrap">
+      <a class="top_back_link" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/" id="top_back_link" onclick="if (nav.go(this, event, {back: true}) === false) { showBackLink(); return false; }"></a>
+      <header class="p_head p_head_l0" id="page_header">
+        <ul class="HeaderNav" id="top_nav">
+  <li class="HeaderNav__item HeaderNav__item--logo">
+    <a accesskey="1" aria-label="На главную" class="TopHomeLink" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/">
+      <svg fill="none" height="24" width="136" xmlns="http://www.w3.org/2000/svg"><path d="M0 11.5c0-5.42 0-8.13 1.68-9.82C3.37 0 6.08 0 11.5 0h1c5.42 0 8.13 0 9.82 1.68C24 3.37 24 6.08 24 11.5v1c0 5.42 0 8.13-1.68 9.82C20.63 24 17.92 24 12.5 24h-1c-5.42 0-8.13 0-9.82-1.68C0 20.63 0 17.92 0 12.5z" fill="#2787f5"></path><g clip-rule="evenodd" fill-rule="evenodd"><path d="M6.5 7.5H4.75c-.5 0-.6.24-.6.5 0 .46.6 2.76 2.76 5.8 1.45 2.07 3.49 3.2 5.34 3.2 1.11 0 1.25-.25 1.25-.68v-1.57c0-.5.1-.6.46-.6.26 0 .7.13 1.74 1.13 1.19 1.19 1.38 1.72 2.05 1.72h1.75c.5 0 .75-.25.6-.74-.15-.5-.72-1.2-1.47-2.05-.4-.49-1.02-1-1.2-1.26-.26-.34-.2-.49 0-.78 0 0 2.13-3 2.35-4.03.11-.37 0-.64-.53-.64H17.5a.76.76 0 00-.76.5s-.9 2.16-2.15 3.57c-.41.41-.6.54-.82.54-.1 0-.27-.13-.27-.5V8.14c0-.44-.13-.64-.5-.64h-2.75c-.28 0-.45.2-.45.4 0 .42.64.52.7 1.7v2.58c0 .57-.1.67-.32.67-.6 0-2.04-2.18-2.9-4.67-.16-.48-.33-.68-.78-.68z" fill="#fff"></path><path d="M66.86 12.5c0 3.24-2.43 5.5-5.78 5.5s-5.78-2.26-5.78-5.5S57.73 7 61.08 7s5.78 2.26 5.78 5.5zm-8.97 0c0 1.97 1.3 3.3 3.19 3.3s3.19-1.33 3.19-3.3c0-1.98-1.3-3.25-3.19-3.25s-3.19 1.28-3.19 3.25zm-17.14-.21c.95-.44 1.56-1.18 1.56-2.33 0-1.73-1.58-2.96-3.87-2.96h-5.27v11h5.5c2.37 0 4.02-1.29 4.02-3.05 0-1.33-.87-2.32-1.94-2.66zM35.6 9.01h2.83c.85 0 1.44.5 1.44 1.2s-.6 1.2-1.44 1.2h-2.83zM38.67 16h-3.06V13.3h3.06c.96 0 1.59.55 1.59 1.36s-.63 1.33-1.59 1.33zM51.84 18h3.19l-5.06-5.71L54.61 7h-2.9l-3.68 4.27h-.6V7H45v11h2.44v-4.38h.59zM76.47 7v4.34h-4.93V7H69.1v11h2.43v-4.44h4.93V18h2.43V7zM86.9 18h-2.44V9.22h-3.8V7H90.7v2.22h-3.8zm9.5-11c-2.11 0-3.91.89-4.52 2.8l2.24.37c.34-.67 1.05-1.2 2.15-1.2 1.33 0 2.06.84 2.17 2.28h-2.32c-3.23 0-4.79 1.42-4.79 3.45 0 2.05 1.59 3.3 3.78 3.3 1.8 0 3-.72 3.53-1.63l.5 1.63h1.76v-6.18c0-3.19-1.74-4.82-4.5-4.82zm-.72 9c-1.19 0-1.9-.5-1.9-1.4 0-.85.57-1.44 2.43-1.44h2.35c0 1.8-1.19 2.84-2.88 2.84zm17.99 2h-3.2l-3.8-4.38h-.6V18h-2.43V7h2.43v4.27h.6L110.34 7h2.9l-4.63 5.29zm3.88 0h2.43V9.22h3.8V7h-10.04v2.22h3.8zM130.1 7c3.34 0 5.56 2.4 5.56 5.37 0 .3-.02.55-.04.79h-8.54c.23 1.69 1.36 2.69 3.17 2.69 1.29 0 2.15-.4 2.68-1.2l2.29.39c-.88 2.01-2.83 2.96-5.12 2.96a5.28 5.28 0 01-5.51-5.5c0-3.12 2.17-5.5 5.51-5.5zm2.92 4.25c-.4-1.37-1.4-2.15-2.92-2.15-1.48 0-2.47.74-2.87 2.15z" fill="currentcolor"></path></g></svg>
+      
+    </a>
+  </li>
+  <li class="HeaderNav__item HeaderNav__item--gap"><div class="TopSearch" id="ts_wrap" onmouseover="TopSearch.initFriendsList();">
+  <input name="disable-autofill" style="display: none;"/>
+  <input aria-label="Поиск" autocomplete="off" class="TopSearch__input" id="ts_input" name="disable-autofill" onmousedown="event.cancelBubble = true;" ontouchstart="event.cancelBubble = true;" placeholder="Поиск" type="text"/>
+</div></li>
+  <li class="HeaderNav__item HeaderNav__btns"><div class="top_audio_layer_place" id="top_audio_layer_place"></div></li>
+  <li class="HeaderNav__item HeaderNav__item--player"></li>
+  <li class="HeaderNav__item"><a class="top_nav_link" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/" id="top_switch_lang" onclick="Language.changeLang(this, 3, '2d295f3b1c8bf2ae2d'); return false;" style="">
+  Switch to English
+</a><a class="top_nav_link" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/join" id="top_reg_link" onclick="return !showBox('join.php', {act: 'box', from: nav.strLoc}, {}, event)" style="display: none">
+  регистрация
+</a></li>
+</ul>
+<div class="ts_cont_wrap" id="ts_cont_wrap" onmousedown="event.cancelBubble = true;" ontouchstart="event.cancelBubble = true;"></div>
+      </header>
+    </div>
+  </div>
+
+  <div id="page_layout">
+    <div class="side_bar fl_l sticky_top_force" id="side_bar" style="display: none">
+      <div class="side_bar_inner" id="side_bar_inner">
+        <div class="quick_login" id="quick_login">
+  <form action="https://login.vk.com/?act=login" id="quick_login_form" method="POST" name="login">
+    <input name="act" type="hidden" value="login"/>
+    <input name="role" type="hidden" value="al_frame"/>
+    <input id="quick_expire_input" name="expire" type="hidden" value=""/>
+    <input id="quick_login_to" name="to" type="hidden" value=""/>
+    <input id="quick_recaptcha" name="recaptcha" type="hidden" value=""/>
+    <input id="quick_captcha_sid" name="captcha_sid" type="hidden" value=""/>
+    <input id="quick_captcha_key" name="captcha_key" type="hidden" value=""/>
+    <input name="_origin" type="hidden" value="https://vk.com"/>
+    <input name="ip_h" type="hidden" value="8781a5f19588ee7df2"/>
+    <input name="lg_h" type="hidden" value="ebb86ed8f928621dfb"/>
+    <input id="quick_login_ul" name="ul" type="hidden" value=""/>
+    <div class="label">Телефон или email</div>
+    <div class="labeled"><input class="dark" id="quick_email" name="email" type="text" value=""/></div>
+    <div class="label">Пароль</div>
+    <div class="labeled"><input class="dark" id="quick_pass" name="pass" onkeyup="toggle('quick_expire', !!this.value);toggle('quick_forgot', !this.value)" type="password"/></div>
+    <input class="submit" type="submit"/>
+  </form>
+  <button class="quick_login_button flat_button button_wide" id="quick_login_button">Войти</button>
+  <button class="quick_reg_button flat_button button_wide" id="quick_reg_button" onclick="top.showBox('join.php', {act: 'box', from: nav.strLoc})" style="display: none">Регистрация</button>
+  <div class="clear forgot"><div class="checkbox" id="quick_expire" onclick="checkbox(this);ge('quick_expire_input').value=isChecked(this)?1:'';">Чужой компьютер</div><a class="quick_forgot" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/restore" id="quick_forgot" target="_top">Забыли пароль?</a></div>
+</div>
+      </div>
+    </div>
+
+    <div class="fl_r" id="page_body" style="width: 960px;">
+      
+      <div id="wrap_between"></div>
+      <div id="wrap3"><div id="wrap2">
+  <div id="wrap1">
+    <div id="content"><div class="IndexPageContent">
+<div class="IndexPageContent__content">
+<div class="LoginMobilePromo clear_fix">
+  <div class="login_mobile_apps">
+    <div class="login_mobile_header">ВКонтакте для мобильных устройств</div>
+    <div class="login_mobile_info">Установите официальное мобильное приложение ВКонтакте и оставайтесь в курсе новостей ваших друзей, где бы вы ни находились.</div>
+    
+
+    <div class="LoginMobilePromo__devices">
+      <a class="LoginMobilePromoDevice LoginMobilePromoDevice--android" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/play.google.com/store/apps/details?id=com.vkontakte.android" target="_blank">
+        <img alt="VK для Android" class="LoginMobilePromoDevice__img" src="https://sun1-83.userapi.com/aS-mwyJ1zs_AXbaKWFwCScf5WAosUQbHpDYEbQ/CP23n993AyY.png" srcset="https://sun1-83.userapi.com/aS-mwyJ1zs_AXbaKWFwCScf5WAosUQbHpDYEbQ/CP23n993AyY.png 1x, https://sun1-93.userapi.com/j-X7xBluz9wq4Yy7Hiutsgq5mMc_1W7GSs6vXQ/QxYo5rmc81s.png 2x"/>
+        <span class="LoginMobilePromoDevice__button flat_button secondary button_light">VK для Android</span>
+      </a>
+      <a class="LoginMobilePromoDevice LoginMobilePromoDevice--ios" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/itunes.apple.com/ru/app/id564177498" target="_blank">
+        <img alt="VK для iOS" class="LoginMobilePromoDevice__img" src="https://sun1-55.userapi.com/znUVrn03HYl3Iw0O_m-N5ht2kMtmcFb8I3HBiQ/hciP6yRUk08.png" srcset="https://sun1-55.userapi.com/znUVrn03HYl3Iw0O_m-N5ht2kMtmcFb8I3HBiQ/hciP6yRUk08.png 1x, https://sun1-99.userapi.com/Zbis5k3gPA0N4XemzV4DtWDVQX7cWdj8sY8gKg/SCxGN1WMcJA.png 2x"/>
+        <span class="LoginMobilePromoDevice__button flat_button secondary button_light">VK для iOS</span>
+      </a>
+    </div>
+
+    <a class="login_all_products_button" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/products">Все продукты</a>
+  </div>
+  <a class="login_mobile_close" id="login_mobile_close" onclick="curBox().hide()"></a>
+
+  <div class="login_about_mobile">
+    Для доступа к быстрой мобильной версии сайта ВКонтакте достаточно ввести в Вашем телефоне короткий адрес: <a href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/m.vk.com/" target="_blank">m.vk.com</a>
+  </div>
+</div>
+</div>
+<div class="index_rcolumn" id="index_rcolumn">
+  <div class="page_block index_login" id="index_login">
+    <form action="https://login.vk.com/?act=login" id="index_login_form" method="post" name="login">
+      <input id="act" name="act" type="hidden" value="login"/>
+      <input name="role" type="hidden" value="al_frame"/>
+      <input id="index_expire_input" name="expire" type="hidden" value=""/>
+      <input name="_origin" type="hidden" value="https://vk.com"/>
+      <input name="ip_h" type="hidden" value="8781a5f19588ee7df2"/>
+      <input name="lg_h" type="hidden" value="584e13759193425b9a"/>
+      <input class="big_text" id="index_email" name="email" placeholder="Телефон или email" type="text" value=""/>
+      <input class="big_text" id="index_pass" name="pass" onkeyup="toggle('index_expire', !!this.value);toggle('index_forgot', !this.value)" placeholder="Пароль" type="password" value=""/>
+      <button class="index_login_button flat_button button_big_text" id="index_login_button">Войти</button>
+      <div class="forgot">
+        <div class="checkbox" id="index_expire" onclick="checkbox(this);ge('index_expire_input').value=isChecked(this)?1:'';">Чужой компьютер</div>
+        <a class="index_forgot" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/restore" id="index_forgot" target="_top">Забыли пароль?</a>
+      </div>
+    </form>
+  </div>
+
+  <div class="page_block">
+    <div class="JoinForm">
+  <div class="JoinForm__in">
+    <div class="JoinForm__top">
+      <div class="JoinForm__header">Впервые ВКонтакте?</div>
+      <div class="JoinForm__subheader">Моментальная регистрация</div>
+      <div class="JoinForm__text"></div>
+    </div>
+
+    <div class="JoinForm__error"></div>
+
+    <div class="JoinForm__form">
+      <div class="JoinForm__textInputRow">
+        <input class="JoinForm__textInput big_text" name="first_name" placeholder="Ваше имя" type="text" value=""/>
+      </div>
+      <div class="JoinForm__textInputRow">
+        <input class="JoinForm__textInput big_text" name="last_name" placeholder="Ваша фамилия" type="text" value=""/>
+      </div>
+
+      <div class="JoinForm__birthdate">
+        <div class="JoinForm__label">
+          Дата рождения
+          <span class="hint_icon" data-title="&lt;b&gt;Заполненная дата рождения&lt;/b&gt; позволит друзьям легче найти вас, а также подбирать для вас интересные материалы.&lt;br&gt;Вы сможете всегда настроить видимость вашей даты рождения в редактировании профиля." onmouseover="showHint(this);"></span>
+        </div>
+
+        <div class="JoinForm__birthdateIn">
+          <div class="JoinForm__birthdateDay">
+            <input class="JoinForm__birthdateDayInput big_text" name="bday" type="text"/>
+          </div>
+          <div class="JoinForm__birthdateMonth">
+            <input class="JoinForm__birthdateMonthInput big_text" name="bmonth" type="text"/>
+          </div>
+          <div class="JoinForm__birthdateYear">
+            <input class="JoinForm__birthdateYearInput big_text" name="byear" type="text"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="JoinForm__sex JoinForm__sex--hidden">
+        <div class="JoinForm__label">Ваш пол</div>
+
+        <div class="JoinForm__sexIn">
+          <div class="JoinForm__sexRadio radiobtn" data-sex="1">Женский</div>
+          <div class="JoinForm__sexRadio radiobtn" data-sex="2">Мужской</div>
+        </div>
+      </div>
+
+      <button class="JoinForm__submitButton flat_button flat_button_positive button_wide button_big_text">Продолжить регистрацию</button>
+
+      <div class="JoinForm__facebookLogin FacebookLogin FacebookLogin--noNative">
+        <div class="FacebookLogin__button fb-login-button" data-button-type="continue_with" data-max-rows="1" data-placeholder="Войти через Facebook" data-size="medium" data-use-continue-as="true" data-width="264"></div>
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+  </div>
+
+    <div class="page_block index_vk_connect_faq" id="vk_connect_registration_faq">
+    После регистрации вы получите доступ ко всем возможностям VK Connect.
+    <br/>
+    <a href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/connect.vk.com/promo" target="_blank">
+      Узнать больше
+    </a>
+  </div>
+</div>
+</div>
+<div class="footer_wrap index_footer_wrap" id="index_footer_wrap">
+  <div class="footer_nav" id="bottom_nav">
+  <div class="footer_copy"><a href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/about">ВКонтакте</a> © 2006–2021</div>
+  <div class="footer_links">
+    <a class="bnav_a" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/about">О ВКонтакте</a>
+    <a class="bnav_a" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/support?act=home" style="display: none;">Помощь</a>
+    <a class="bnav_a" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/terms">Правила</a>
+    <a class="bnav_a" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/biz?utm_source=vk_inside&amp;utm_medium=authorization" style="" target="_blank">Для бизнеса</a>
+    
+    <a class="bnav_a" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/dev">Разработчикам</a>
+    <a class="bnav_a" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/jobs" style="display: none;">Вакансии</a>
+  </div>
+  <div class="footer_lang"><a class="footer_lang_link" onclick="Language.changeLang(this, 0, '2d295f3b1c8bf2ae2d')">Русский</a><a class="footer_lang_link" onclick="Language.changeLang(this, 1, '2d295f3b1c8bf2ae2d')">Українська</a><a class="footer_lang_link" onclick="Language.changeLang(this, 3, '2d295f3b1c8bf2ae2d')">English</a><a class="footer_lang_link" onclick="if (vk.al) { showBox('lang.php', {act: 'lang_dialog', all: 1}, {params: {dark: true, bodyStyle: 'padding: 0px'}, noreload: true}); } else { changeLang(1); } return false;">все языки »</a></div>
+</div>
+
+<div class="footer_bench clear">
+  
+</div>
+</div></div>
+  </div>
+</div></div>
+    </div>
+
+    <div class="footer_wrap fl_r" id="footer_wrap" style="width: 960px;"><div class="footer_nav" id="bottom_nav">
+  <div class="footer_copy"><a href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/about">ВКонтакте</a> © 2006–2021</div>
+  <div class="footer_links">
+    <a class="bnav_a" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/about">О ВКонтакте</a>
+    <a class="bnav_a" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/support?act=home" style="display: none;">Помощь</a>
+    <a class="bnav_a" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/terms">Правила</a>
+    <a class="bnav_a" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/biz?utm_source=vk_inside&amp;utm_medium=authorization" style="" target="_blank">Для бизнеса</a>
+    
+    <a class="bnav_a" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/dev">Разработчикам</a>
+    <a class="bnav_a" href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/jobs" style="display: none;">Вакансии</a>
+  </div>
+  <div class="footer_lang"><a class="footer_lang_link" onclick="Language.changeLang(this, 0, '2d295f3b1c8bf2ae2d')">Русский</a><a class="footer_lang_link" onclick="Language.changeLang(this, 1, '2d295f3b1c8bf2ae2d')">Українська</a><a class="footer_lang_link" onclick="Language.changeLang(this, 3, '2d295f3b1c8bf2ae2d')">English</a><a class="footer_lang_link" onclick="if (vk.al) { showBox('lang.php', {act: 'lang_dialog', all: 1}, {params: {dark: true, bodyStyle: 'padding: 0px'}, noreload: true}); } else { changeLang(1); } return false;">все языки »</a></div>
+</div>
+
+<div class="footer_bench clear">
+  
+</div></div>
+
+    <div class="clear"></div>
+  </div>
+</div></div><noscript><div style="position:absolute;left:-10000px;">
+<img height="1" src="//top-fwz1.mail.ru/counter?id=2579437;js=na" style="border:0;" width="1"/>
+</div></noscript><a href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/" style="display: none">https://vk.com</a><a href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/?lang=en" style="display: none">https://vk.com/?lang=en</a><a href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/?lang=uk" style="display: none">https://vk.com/?lang=uk</a><a href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/?lang=es" style="display: none">https://vk.com/?lang=es</a><a href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/?lang=de" style="display: none">https://vk.com/?lang=de</a><a href="https://z5h64q92x9.net/proxy_u/ru-ru.ru.57ee7853-60d1ca24-a07f07c1-74722d776562/https/vk.com/?lang=fr" style="display: none">https://vk.com/?lang=fr</a></div>
+  <div class="progress" id="global_prg"></div>
+
+  <script type="text/javascript">
+    if (parent && parent != window && (browser.msie || browser.opera || browser.mozilla || browser.chrome || browser.safari || browser.iphone)) {
+      document.getElementsByTagName('body')[0].innerHTML = '';
+    } else {
+      window.domReady && domReady();
+      (function(){"use strict";function e(e){var o=e.balance;updateMoney(o),window.initPageLayoutUI(),(browser.iphone||browser.ipad||browser.ipod)&&setStyle(bodyNode,{webkitTextSizeAdjust:"none"})}return e})()({"balance":0});(function(){"use strict";function i(i){var n=i.globalWarning,o=i.globalHttpsRequestError,e=ge("quick_login_form"),t=ge("quick_login"),u=ge("quick_email"),r=ge("quick_pass"),w=ge("quick_login_button"),a=w,c=function i(){setTimeout((function(){t.insertBefore(ce("div",{innerHTML:'<iframe class="upload_frame" id="quick_login_frame" name="quick_login_frame"></iframe>'}),e),e.target="quick_login_frame",u.onclick=window.loginByCredential,r.onclick=window.loginByCredential}),1)};window.top&&window.top!=window?window.onload=c:setTimeout(c,0),e.onsubmit=function(){return!!ge("quick_login_frame")&&(val("quick_login_ul")||trim(u.value)?trim(r.value)?(window.lockButton(window.__qfBtn=a),a=w,clearTimeout(window.__qlTimer),window.__qlTimer=setTimeout(window.loginSubmitError,35e3),domFC(domPS(e)).onload=function(){clearTimeout(window.__qlTimer),window.__qlTimer=setTimeout(window.loginSubmitError,3500)},!0):(window.notaBene(r),!1):(window.notaBene(u),!1))},window.loginSubmitError=function(){window.showFastBox(n,o)},window.focusLoginInput=function(){scrollToTop(0),window.notaBene("quick_email")},window.changeQuickRegButton=function(i){window.cur.noquickreg=i,i?hide("top_reg_link","quick_reg_button"):show("top_reg_link","quick_reg_button"),toggle("top_switch_lang",i&&window.langConfig&&3!=window.langConfig.id)},window.submitQuickLoginForm=function(i,n,o){window.setQuickLoginData(i,n,o),o&&o.prg&&(a=o.prg),e.onsubmit()&&e.submit()},window.setQuickLoginData=function(i,n,o){void 0!==i&&(ge("quick_email").value=i),void 0!==n&&(ge("quick_pass").value=n);var t=o&&o.params||{};each(t,(function(i,n){var o=ge("quick_"+i)||ge("quick_login_"+i);o?val(o,t[i]):e.appendChild(ce("input",{type:"hidden",name:i,id:"quick_login_"+i,value:n}))}))},window.loginByCredential=function(){if(!browserFeatures.cmaEnabled||!window.submitQuickLoginForm||window._loginByCredOffered)return!1;window._loginByCredOffered=!0,navigator.credentials.get({password:!0,mediation:"required"}).then((function(i){return!!i&&(window.submitQuickLoginForm(i.id,i.password),!0)}))},w&&(w.onclick=function(){e.onsubmit()&&e.submit()}),browser.opera_mobile&&show("quick_expire")}return i})()({"globalWarning":"Предупреждениe","globalHttpsRequestError":"Не удаётся пройти авторизацию по защищённому соединению. Чаще всего это происходит, когда на вашем компьютере установлены неправильные текущие дата и время. Пожалуйста, проверьте настройки даты и времени в системе и перезапустите браузер."});(function(){"use strict";function t(t){var i;t.hideSupport&&hide("support_link_td","top_support_link"),TopSearch.init()}return t})()({"hideSupport":true});(function(){"use strict";function r(){window.shortCurrency&&shortCurrency()}return r})()({});(function(){"use strict";function a(a){var n=a.params;window.handlePageParams&&handlePageParams(n)}return a})()({"params":{"id":0,"loc":"","noleftmenu":1,"wrap_page":1,"width":960,"width_dec":0,"width_dec_footer":0,"body_class":"index_page new_header_design ","to":"aW5kZXgucGhw","counters":[],"pvbig":0,"pvdark":1}});(function(){"use strict";function n(){addEvent(document,"click",window.onDocumentClick)}return n})()({});
+addLangKeys({"index_sel_bday":"День","global_apps":"Приложения","global_friends":"Друзья","global_communities":"Сообщества","head_search_results":"Результаты поиска","global_chats":"Диалоги","global_show_all_results":"Показать все результаты","global_news_search_results":"Результаты поиска в новостях","global_emoji_cat_recent":"Часто используемые","global_emoji_cat_1":"Эмоции","global_emoji_cat_2":"Животные и растения","global_emoji_cat_3":"Жесты и люди","global_emoji_cat_4":"Еда и напитки","global_emoji_cat_5":"Спорт и активности","global_emoji_cat_6":"Путешествия и транспорт","global_emoji_cat_7":"Предметы","global_emoji_cat_8":"Символы","global_emoji_cat_9":"Флаги","stories_archive_privacy_info":"Истории в архиве видите только вы","stories_remove_warning":"Вы действительно хотите удалить историю?<br>Отменить действие будет невозможно.","stories_remove_from_narrative_warning":"Вы действительно хотите удалить историю? <br>Она также удалится из сюжета.","stories_narrative_remove_warning":"Вы действительно хотите удалить сюжет?<br>Отменить действие будет невозможно.","stories_remove_confirm":"Удалить","stories_answer_placeholder":"Сообщение...","stories_answer_sent":"Сообщение отправлено","stories_blacklist_title":"Скрыты из историй","stories_settings":"Настройки","stories_add_blacklist_title":"Скрытие из историй","stories_add_blacklist_message":"Пользователь останется в друзьях, но истории не будут показываться в новостях.","stories_add_blacklist_button":"Скрыть из историй","stories_add_blacklist_message_group":"Вы останетесь подписчиком сообщества, но истории не будут показываться в новостях.","stories_remove_from_blacklist_button":"Вернуть в истории","stories_error_cant_load":"Не удалось загрузить историю.","stories_try_again":"Попробовать ещё раз","stories_error_expired":"Историю можно было посмотреть<br>в течение 24 часов после публикации","stories_error_deleted":"История удалена","stories_error_private":"Автор скрыл историю","stories_error_one_time_seen":"История больше не доступна","stories_mask_tooltip":"Попробовать эту маску","stories_mask_sent":"Маска отправлена на телефон","stories_followed":"Вы подписались&#33;","stories_unfollowed":"Вы отписались","stories_is_ad":"Реклама","stories_mask_from":["","Маска от {domain}","Маска от {domain}"],"stories_private_story":"Приватная<br>история","stories_expired_story":"История<br>истекла","stories_deleted_story":"История<br>удалена","stories_bad_browser":"Истории не поддерживаются в вашем браузере","stories_delete_all_replies_confirm":"Вы действительно хотите удалить все ответы {name} за последние сутки? <br>Отменить действие будет невозможно.","stories_hide_reply_button":"Скрыть ответ","stories_reply_hidden":"Ответ на историю скрыт.","stories_restore":"Восстановить","stories_hide_reply_continue":"Продолжить просмотр","stories_hide_all_replies":["","Скрыть все его ответы за последние сутки","Скрыть все её ответы за последние сутки"],"stories_reply_add_to_blacklist":"Занести в чёрный список","stories_hide_reply_warning":"Вы действительно хотите скрыть этот ответ?<br>Отменить действие будет невозможно.","stories_replies_more_button":["","Показать ещё %s ответившего","Показать ещё %s ответивших","Показать ещё %s ответивших"],"stories_all_replies_hidden":"Все ответы скрыты","stories_ban_confirm":"Вы действительно хотите добавить в чёрный список {name}?<br>Отменить действие будет невозможно.","stories_banned":"Пользователь в чёрном списке","stories_share":"Поделиться","stories_like":"Нравится","stories_app":"Мини-приложение","stories_write_message":"Написать сообщение","stories_follow":"Подписаться","stories_unfollow":"Отписаться","stories_report":"Пожаловаться","stories_report_sent":"Жалоба отправлена","stories_narrative_show":"Посмотреть cюжет","stories_narrative_bookmark_added":"Сюжет сохранён в {link}закладках{\/link}","stories_narrative_bookmark_deleted":"Сюжет удалён из закладок","stories_narrative_edit_button":"Редактировать сюжет","stories_set_cover_narrative":"Сделать обложкой сюжета","stories_story_is_cover_narrative":"Это обложка сюжета","stories_remove_from_narrative":"Удалить из сюжета","stories_narrative_cover_updated":"Обложка сюжета изменена","stories_remove_only_from_narrative_warning":"Вы действительно хотите удалить историю из сюжета? ","stories_narrative_add_bookmark_button":"Сохранить в закладках","stories_narrative_remove_bookmark_button":"Удалить из закладок","stories_narrative_copy_link":"Скопировать ссылку","stories_narrative_copy_link_done":"Ссылка скопирована","stories_show_hashtag_link":"Поиск по хештегу","stories_go_to_place":"Перейти к месту","stories_go_to_group":"Открыть сообщество","stories_go_to_profile":"Открыть профиль","stories_go_to_post":"Перейти к записи","stories_go_to_story":"Перейти к истории","stories_share_question":"Поделиться мнением","stories_live_ended_title":"Спасибо за просмотр&#33;","stories_live_ended_desc_club":"Сообщество {name} <br>завершило трансляцию.","stories_live_ended_desc_user":["","{name} завершил трансляцию.","{name} завершила трансляцию."],"stories_live_ended_open_club":"Открыть сообщество","stories_live_ended_open_user":"Открыть профиль","stories_live_ended_watch_next":"Смотреть далее","stories_live_N_watching":["","%s смотрит сейчас","%s смотрят сейчас","%s смотрят сейчас"],"stories_live_chat_msg_too_long":"Сообщение слишком длинное ","stories_questions_title":"Мнения","stories_question_reply":"Ответить","stories_question_reply_error":"Вы не можете отправить сообщение этому пользователю, так как он ограничил круг лиц, которые могут присылать ему сообщения.","stories_question_reply_send":"Отправить","stories_question_reply_placeholder":"Напишите сообщение...","stories_question_delete":"Удалить мнение","stories_question_author_ban":"Заблокировать","stories_question_author_unban":"Разблокировать автора","stories_question_author_blocked":"Автор заблокирован","stories_question_author_unblocked":"Автор разблокирован","stories_question_author_report":"Пожаловаться","stories_question_report_title":"Жалоба на мнение","stories_question_report_send":"Отправить","stories_question_more":"Действия","stories_question_sent":"Вы поделились мнением с {name}","stories_question_reply_box_title":"Сообщение {name}","stories_question_ask_placeholder":"Введите текст...","stories_question_ask_box_title":"Мнение к истории {name}","stories_question_report_reason":"Укажите причину","stories_question_forbidden":"Вы не можете поделиться мнением","stories_audio_add":"Добавить в мою музыку","stories_audio_added":"Аудиозапись добавлена","stories_audio_delete":"Удалить аудиозапись","stories_audio_deleted":"Аудиозапись удалена","stories_audio_next_audio":"Слушать далее","stories_reactions_title":"Быстрые реакции","stories_reactions_tooltip_feature":"Нажмите на поле ввода, чтобы отправить реакцию","stories_go_to_market_item":"Подробнее","stories_market_access_error_title":"Ошибка","stories_market_access_error_text":"Данный товар недоступен","stories_groups_feed_block":"Сообщества","stories_settings_box_tab_all":"Все","stories_settings_box_tab_separately":"Отображаемые отдельно","stories_settings_box_tab_grouped":"Сгруппированные","stories_settings_box_search_placeholder":"Поиск по сообществам","stories_settings_box_put_back":"Отображать последним","stories_groups_grid_title":"Истории сообществ","stories_go_to_app":"Перейти к приложению","stories_groups_grid_text":"Здесь собраны истории сообществ, на которые вы подписаны","stories_groups_tooltip":"Отмечайте истории, которые хотите видеть в общем списке","stories_detailed_stats":"Подробная статистика","stories_privacy_feedback_hint":"У вас ограничен доступ к историям. Перейдите в настройки приватности, чтобы это изменить.","stories_privacy_empty_views_hint":"Истории видите только вы. Сделайте их доступными всем, чтобы получать больше просмотров","stories_go_to_settings":"Перейти в настройки","stories_mark_not_interested":"Это не интересно","stories_thanks_feedback":"Спасибо&#33; Вы делаете рекомендации лучше","stories_stat_counter_off":"выкл","stories_add_to_narrative":"Добавить в сюжет","stories_feature_narrative_users":"Собирайте сюжеты из историй","stories_question_select_public":"Публично","stories_question_select_author_only":"Видно только автору","stories_question_select_anonymous":"Анонимно","stories_question_about_user_tooltip":"<b>Публично<\/b><br>{name} сможет указать ваше имя при публикации мнения.<br><br><b>Имя видно автору<\/b><br>{name} увидит ваше имя, но не сможет указать его при публикации мнения.<br><br><b>Анонимно<\/b><br>{name} не увидит ваше имя и не сможет указать его при публикации мнения.","stories_question_about_group_tooltip":"<b>Публично<\/b><br>Руководитель сообщества сможет указать ваше имя при публикации мнения.<br><br><b>Имя видно автору<\/b><br>Руководитель сообщества увидит ваше имя, но не сможет указать его при публикации мнения.<br><br><b>Анонимно<\/b><br>Руководитель сообщества не увидит ваше имя и не сможет указать его при публикации мнения.","stories_question_about_user_tooltip_without_anon":"<b>Публично<\/b><br>{name} сможет указать ваше имя при публикации мнения.<br><br><b>Имя видно автору<\/b><br>{name} увидит ваше имя, но не сможет указать его при публикации мнения.","stories_question_about_group_tooltip_without_anon":"<b>Публично<\/b><br>Руководитель сообщества сможет указать ваше имя при публикации мнения.<br><br><b>Имя видно автору<\/b><br>Руководитель сообщества увидит ваше имя, но не сможет указать его при публикации мнения.","stories_voting_show_result":"Посмотреть результаты","stories_new_avatar_story_title_header":"Новая фотография{br}профиля","stories_new_avatar_story_poll_sticker_title":"Какое фото лучше?","stories_poll_sticker_vote_button_text":"Проголосовать","stories_new_avatar_story_success_box_text":"Фотография профиля обновлена и загружена в историю","stories_new_avatar_story_success_box_open_story":"Открыть историю"}, true);
+addLangKeys({"box_cancel":"Отмена","box_close":"Закрыть","box_no":"Нет","box_yes":"Да","calls_actions":"Действия","calls_add":"Добавить","calls_add_participants":"Добавить участников","calls_add_participants_to_call":"Пригласить в звонок","calls_admin_pin_dialog_action":"Включить микрофон","calls_admin_pin_dialog_cancel":"Позже","calls_admin_pin_dialog_description":"Администратор закрепил Ваше видео для всех. Включить микрофон, чтобы начать говорить?","calls_admin_pin_dialog_title":"Включить микрофон","calls_already_in_call_error":"Завершите текущий звонок, чтобы присоединиться к новому. ","calls_and":"{before} и {after}","calls_app_title":"Звонки ВКонтакте","calls_apps_for_all_platform":"Приложения на все операционные системы","calls_back":"Назад","calls_busy":"Занято","calls_busy_error":"Пользователь уже разговаривает. Перезвоните позже.","calls_call_all":"Позвонить всем","calls_call_by_name_audio_button":"Аудиозвонок","calls_call_by_name_join_by":"Войти от вашего имени","calls_call_by_name_list_header":"Ваши профили и сообщества","calls_call_by_name_not_found":"Профили и сообщества не найдены","calls_call_by_name_search_placeholder":"Поиск","calls_call_by_name_select":"Выбрать","calls_call_by_name_selected":"Выбрано","calls_call_by_name_title":"Звонок от имени","calls_call_by_name_video_button":"Видеозвонок","calls_call_menu_debug":"Скачать логи для отладки","calls_call_menu_enable_media_request":"Попросить всех участников включить микрофон и видео","calls_call_menu_mute_audio_video_all":"Отключить микрофоны и видео участников ","calls_call_menu_settings":"Настройки видео и аудио","calls_call_menu_translation":"Трансляция звонка","calls_call_participants":"Участники звонка","calls_call_via_native_app_join":"Присоединиться через приложение","calls_callee_is_offline":"Не в сети","calls_calls_start_lesson_in_browser":"Начать звонок через браузер","calls_calls_troubles_with_app":"Возникли проблемы с приложением?","calls_cancel":"Отмена","calls_chat":"Открыть чат","calls_chat_busy_error":"Вы не можете начать звонок в этой беседе, потому что в ней уже идёт звонок.","calls_chat_group_members":"Участники сообщества","calls_chat_members":"Участники беседы","calls_close":"Закрыть","calls_collapse":"Свернуть","calls_dialog_assign_admin_role_action_later":"Позже","calls_dialog_assign_admin_role_action_primary":"Назначить администратора","calls_dialog_assign_admin_role_description":"Вы уверены, что хотите дать права управления звонком {name}?","calls_dialog_assign_admin_role_title":"Назначить администратора","calls_dialog_creator_exit_action":"Назначить и выйти из звонка","calls_dialog_creator_exit_select":"Выбрать","calls_dialog_creator_exit_selected":"Выбран","calls_dialog_creator_exit_title":"Назначить администратора звонка","calls_dialog_unmute_request_action":"Включить микрофон и видео","calls_dialog_unmute_request_description":"Администратор просит вас включить микрофон и видео","calls_dialog_unmute_request_mic_only_action":"Включить только микрофон","calls_dialog_unmute_request_title":"Включить микрофон и видео","calls_download_and_install_app_for_pc":"Пожалуйста, скачайте и установите версию для компьютера","calls_download_app":"Скачать приложение","calls_download_started":"Загрузка началась","calls_downloading_file":"Скачивается {file}","calls_error":"Ошибка","calls_error_cameralock":"Не удалось получить доступ к камере. Возможно, камера уже используется в другом приложении.","calls_error_force_call_finish":"Не удалось завершить звонок для всех.","calls_error_miclock":"Не удалось получить доступ к микрофону. Возможно, микрофон уже используется в другом приложении.","calls_error_no_cam":"Необходим доступ к камере.","calls_error_no_cam_and_mic":"Необходим доступ к камере и микрофону.","calls_error_no_mic":"Необходим доступ к микрофону.","calls_error_nomic":"Микрофон не найден","calls_error_screenlock":"Не удалось получить доступ к экрану для демонстрации. Возможно, экран уже транслируется в другом приложении.","calls_error_screenpermission":"Необходим доступ к экрану для демонстрации","calls_exit_menu":"Завершить звонок","calls_feedback_advance_title":"Что пошло не так?","calls_feedback_custom_reason_placeholder":"Другая проблема","calls_feedback_default_title":"Пожалуйста, оцените качество звонка","calls_feedback_reason_bad_sound_quality":"Плохое качество звука","calls_feedback_reason_bad_video_quality":"Плохое качество видео","calls_feedback_reason_did_not_hear_interlocutor":"Я не слышал собеседника","calls_feedback_reason_did_not_see_interlocutor":"Я не видел собеседника","calls_feedback_reason_failed_to_turn_on_camera_or_microphone":"Не удалось включить камеру или микрофон","calls_feedback_reason_sound_did_not_match_the_video":"Звук не совпадал с видео","calls_feedback_reason_very_quiet_sound":"Очень тихий звук","calls_feedback_reason_video_freezes":"Замирание видео","calls_feedback_send":"Отправить","calls_feedback_skip":"Закрыть","calls_feedback_success":"Отправлено&#33; Благодарим за Ваш отзыв.","calls_flood_error":"Вы слишком часто звоните. Повторите попытку позже.","calls_force_call_finish":"Завершить звонок для всех","calls_friends":"Пригласить в звонок друзей","calls_get_url_link_error_text":"Не удалось получить ссылку на звонок.","calls_go_to_chat_with_community":"Написать сообществу","calls_go_to_chat_with_participant":"Написать лично","calls_go_to_community":"Перейти в сообщество","calls_go_to_profile":"Перейти в профиль","calls_hangup_description":"Вы уверены, что хотите завершить звонок?","calls_hint_admin_pin_for_admin":"Открепить видео для всех","calls_hint_admin_pin_for_user":"Видео закреплено администратором","calls_hint_user_pin":"Открепить видео","calls_incoming_audiocall":"Входящий аудиозвонок","calls_incoming_collapsed":"Входящий","calls_incoming_process_error":"Вам позвонили, но принять звонок в версии для компьютера не получится из-за ошибки.<br>Попробуйте принять вызов в мобильном приложении. Если это не поможет, обновите страницу и попросите собеседника перезвонить.","calls_incoming_videocall":"Входящий видеозвонок","calls_info_translation_share_menu_item":"Поделиться трансляцией","calls_invite":"Приглашение в звонок","calls_join_call_after_install_app":"После установки приложения нажмите на «Присоединиться к звонку»","calls_join_call_in_app":"Присоединиться к звонку","calls_join_call_in_browser":"Присоединиться к звонку через браузер","calls_join_error_banned":"Вы были исключены из этого звонка.","calls_join_error_require_access":"Вы не можете присоединиться к звонку в закрытой беседе. Попросите администратора добавить вас в чат.","calls_join_error_require_auth":"Войдите в аккаунт, чтобы подключиться к этому звонку","calls_join_error_text":"Организатор завершил звонок.","calls_join_with_audio":"Присоединиться с аудио","calls_join_with_video":"Присоединиться с видео","calls_kick_participant_kick_button_text":"Исключить","calls_kick_participant_text":["","{user} будет исключён из звонка","{user} будет исключена из звонка"],"calls_kick_participant_title":"Исключить из звонка","calls_kick_participant_with_ban_setting":"Разрешить повторное подключение к звонку","calls_leave_call":"Выйти из звонка","calls_link_copied":"Скопирована","calls_link_copy":"Скопировать","calls_link_invalidate":"Обновить ссылку","calls_management_add_warning":"Новые участники будут добавлены в беседу","calls_management_link":"Ссылка на звонок","calls_management_link_allow_anonymous":"Разрешить подключаться к звонку анонимно","calls_management_link_anonymous_disallowed_hint":"Анонимный вход запрещён","calls_management_link_info_desc":"&#8203;&#8203;Скопируйте ссылку и отправьте тому, кого хотите пригласить. ","calls_management_participants":"Участники","calls_members_list_label":["","{name} и ещё %s человек","{name} и ещё %s человека","{name} и ещё %s человек"],"calls_menu_link":"Ссылка на звонок","calls_menu_link_copied":"Скопирована","calls_menu_link_copy":"Скопировать","calls_mute":"Выключить микрофон","calls_mute_all_participants_dialog_description":"У всех текущих и новых участников звонка будут отключены микрофон и видео","calls_mute_all_participants_dialog_permanent_toggle":"Разрешить участникам включать микрофоны и видео после того, как вы их отключили","calls_mute_all_participants_dialog_title":"Отключить микрофоны и видео участников ","calls_mute_participant_dialog_action":"Отключить","calls_mute_participant_dialog_description":"У {name} будут отключены микрофон и видео","calls_mute_participant_dialog_permanent_toggle":"Разрешить включать микрофон и видео после того, как вы их отключили","calls_mute_participant_dialog_title":"Отключить микрофоны и видео {name}","calls_name_placeholder":"Введите имя","calls_new_call_title":"Звонок","calls_no":"Нет","calls_no_camera":"Камера не обнаружена","calls_noise_neural":"Авто","calls_noise_none":"Выключено","calls_noise_simple":"Слабое","calls_notification_admin_mute":"Администратор отключил ваши микрофон и видео","calls_notification_admin_permanent_mute":"Администратор запретил включать микрофон и видео. Поднимите руку, чтобы привлечь к себе внимание.","calls_notification_admin_pinned_self":"Администратор закрепил ваше видео для всех","calls_notification_admin_pinned_user":"Администратор закрепил видео {name}","calls_notification_admin_role_granted":"Вы назначены администратором","calls_notification_bad_network_connection":"Плохое качество связи","calls_notification_bad_network_connection_disable_camera":"Ваша камера выключена из-за плохого качества связи","calls_notification_mic_is_mute":"Ваш микрофон отключён","calls_notification_raised_hand":["","{user} поднял руку","{user} подняла руку"],"calls_notification_screen_sharing_started":"Демонстрация экрана","calls_notification_user_granted_with_admin_role":"{name} назначен администратором","calls_notification_user_started_screen_sharing":["","{user} запустил демонстрацию экрана","{user} запустила демонстрацию экрана"],"calls_oops":"Ошибка","calls_open_app_list":"Открыть список приложений","calls_own_label":"Вы","calls_participant_list_header":"Участники звонка","calls_participant_menu_assign_admin_role":"Назначить администратором","calls_participant_menu_enable_media_request":"Попросить включить микрофон и видео","calls_participant_menu_kick":"Исключить из звонка","calls_participant_menu_mute":"Отключить микрофон","calls_participant_menu_mute_audio_video":"Отключить микрофон и видео","calls_participant_menu_pin":"Закрепить видео для всех","calls_participant_menu_pin_cancel":"Открепить видео для всех","calls_participant_menu_revoke_admin_role":"Разжаловать администратора","calls_participants_not_found":"Участники не найдены","calls_participants_plural":["","%s участник","%s участника","%s участников"],"calls_participants_speak":["","Говорит {names}","Говорят {names}","Говорят {names}"],"calls_privacy_error":"Звонок не удался, так как у вас или собеседника звонки запрещены в настройках приватности.","calls_reject":"Отклонить","calls_reject_call":"Отклонить звонок","calls_reject_description":"Вы уверены, что хотите отклонить звонок?","calls_reject_title":"Отклонить звонок","calls_rejected_status":"Вызов отклонён","calls_remove_token":"Удалить","calls_reply":"Ответить","calls_reply_with_audio":"Ответить с аудио","calls_reply_with_video":"Ответить с видео","calls_restore":"Развернуть","calls_save":"Сохранить","calls_screen_share_stop":"Остановить демонстрацию","calls_search_participants_placeholder":"Введите имя или фамилию","calls_selected":"Выбрано {selected} из {limit}","calls_settings":"Настройки","calls_settings_camera":"Камера","calls_settings_mic":"Микрофон","calls_settings_no_camera":"Камера не обнаружена","calls_settings_no_mic":"Микрофон не обнаружен","calls_settings_noise":"Подавление<br>фонового шума","calls_settings_noise_description":"Выберите уровень подавления «Авто», чтобы фоновый шум не мешал участникам звонка слышать вас","calls_settings_video_resolution":"Видео","calls_show_all_friends":"Показать всех друзей","calls_show_all_group_members":"Показать всех участников сообщества","calls_show_all_members":"Показать всех участников беседы","calls_show_grid":"Отображать участников сеткой ","calls_show_orator":"Отображать спикера","calls_sorry_error":"Произошла неизвестная ошибка.","calls_start_call_after_install_app":"После установки приложения нажмите на «Начать звонок»","calls_start_error":"Во время звонка произошла ошибка. Повторите попытку позже.","calls_start_in_app":"Начать звонок","calls_start_screen_share":"Демонстрация экрана","calls_status_connecting":"Подключение","calls_status_hangup":"Отключение","calls_status_no_permissions":"Нет разрешений","calls_status_waiting":"Ожидание","calls_stop_screen_share":"Остановить демонстрацию экрана","calls_sure_leave_call":"Вы уверены, что хотите завершить звонок?","calls_tooltip_fullscreen_off":"Обычный","calls_tooltip_fullscreen_on":"Развернуть","calls_tooltip_lower_hand":"Опустить руку","calls_tooltip_raise_hand":"Поднять руку","calls_translation_box_title":"Создать трансляцию звонка","calls_translation_cancel_button":"Отменить трансляцию звонка","calls_translation_date_label_soon":"Скоро","calls_translation_description":"Описание","calls_translation_description_placeholder":"О чем ваша трансляция?","calls_translation_host_info":"{name} ведёт трансляцию звонка","calls_translation_host_info_unknown":"Ведётся трансляция звонка","calls_translation_link":"Ссылка на трансляцию звонка","calls_translation_link_copied":"Скопирована","calls_translation_link_copy":"Скопировать","calls_translation_link_info":"Вы можете поделиться ссылкой на трансляцию звонка, указанной ниже.","calls_translation_menu_link":"Страница трансляции","calls_translation_menu_stop":"Завершить трансляцию","calls_translation_menu_title":"Трансляция звонка","calls_translation_name_placeholder":"Введите название трансляции","calls_translation_notification_warning":"Предупредите участников о начале трансляции звонка во избежание разногласий","calls_translation_owner_title":"Автор трансляции","calls_translation_postponed_reset":"Сбросить","calls_translation_postponed_title":"Запланированная трансляция","calls_translation_privacy_all_users":"Все пользователи","calls_translation_privacy_friends_and_chat":"Друзья и участники чата","calls_translation_privacy_only_me_and_chat":"Только я и участники чата","calls_translation_select_upcoming_box_title":"Выбрать трансляцию","calls_translation_select_video_link":"Выбрать","calls_translation_start":"Начать трансляцию звонка","calls_translation_stop":"Завершить","calls_translation_stop_confirmation":"Завершить трансляцию","calls_translation_stop_menu_item":"Завершить трансляцию","calls_translation_stop_sure":"Вы уверены, что хотите завершить трансляцию звонка?","calls_translation_title":"Название","calls_translation_title_default_value":"Групповой звонок %s","calls_translation_upcoming_time_more_day":["","Трансляция начнётся через день","Трансляция начнётся через %s дня","Трансляция начнётся через %s дней"],"calls_translation_who_can_see_video_privacy":"Кто сможет видеть эту запись","calls_translation_who_can_see_video_privacy_hint":"После начала трансляция появится в чате и будет доступна участникам звонка и тем, с кем вы поделитесь трансляцией","calls_try_manual_join_lesson":"Если окно не отображается, нажмите «Присоединиться к звонку» ниже","calls_try_manual_start_lesson":"Если окно не отображается, нажмите «Начать звонок» ниже","calls_unban_participant_cancel_button_text":"Не добавлять","calls_unban_participant_description_text_more_persons":["","{users} и ещё {users_count} пользователь были заблокированы администратором","{users} и ещё {users_count} пользователя были заблокированы администратором","{users} и ещё {users_count} пользователей были заблокированы администратором"],"calls_unban_participant_description_text_one_person":["","{user} был заблокирован администратором","{user} была заблокирована администратором"],"calls_unban_participant_description_text_two_persons":"{users} были заблокированы администратором","calls_unban_participant_disallowed_button_text":"Понятно","calls_unban_participant_ok_button_text":"Разблокировать и добавить","calls_unban_participant_text":["","Вы пытаетесь добавить в звонок заблокированного пользователя","Вы пытаетесь добавить в звонок заблокированных пользователей","Вы пытаетесь добавить в звонок заблокированных пользователей"],"calls_unban_participant_title":"Добавить в звонок","calls_unknown_error":"Неизвестная ошибка","calls_unmute":"Включить микрофон","calls_video_resolution_fhd":"Высокое качество","calls_video_resolution_hd":"Хорошее качество","calls_video_resolution_sd":"Высокая производительность","calls_wait_until_app_downloaded":"Подождите, пока приложение звонков скачается","calls_yes":"Да","calls_you_are_screen_sharer":"Вы демонстрируете экран","captcha_cancel":"Отмена","captcha_enter_code":"Введите код с картинки","captcha_send":"Отправить","global_age_days":["","%s день","%s дня","%s дней"],"global_age_months":["","%s месяц","%s месяца","%s месяцев"],"global_age_seconds":["","%s секунда","%s секунды","%s секунд"],"global_age_weeks":["","%s неделя","%s недели","%s недель"],"global_age_years":["","%s год","%s года","%s лет"],"global_and":"{before} и {after}","global_apps":"Приложения","global_back":"Назад","global_box_title_back":"Вернуться назад","global_cancel":"Отмена","global_captcha_input_here":"Введите код","global_chats":"Диалоги","global_close":"Закрыть","global_communities":"Сообщества","global_date":["","{day} {month} {year}","вчера","сегодня","завтра"],"global_date_l":["","{day} {month} {year}","вчера","сегодня","завтра"],"global_days_accusative":["","%s день","%s дня","%s дней"],"global_delete":"Удалить","global_error":"Ошибка","global_friends":"Друзья","global_hours":["","%s час","%s часа","%s часов"],"global_hours_accusative":["","%s час","%s часа","%s часов"],"global_hours_ago":["","%s час назад","%s часа назад","%s часов назад"],"global_just_now":"только что","global_mins_ago":["","%s минуту назад","%s минуты назад","%s минут назад"],"global_minutes":["","%s минута","%s минуты","%s минут"],"global_minutes_accusative":["","%s минуту","%s минуты","%s минут"],"global_money_amount_rub":["","%s рубль","%s рубля","%s рублей"],"global_months_accusative":["","%s месяц","%s месяца","%s месяцев"],"global_news_search_results":"Результаты поиска в новостях","global_online_long_ago":["","заходил давно","заходила давно"],"global_online_this_month":["","заходил в этом месяце","заходила в этом месяце"],"global_online_was_recently":["","заходил недавно","заходила недавно"],"global_online_was_week":["","заходил на этой неделе","заходила на этой неделе"],"global_open":"Открыть","global_recaptcha_title":"Подтверждение действия","global_save":"Сохранить","global_seconds_accusative":["","%s секунду","%s секунды","%s секунд"],"global_secs_ago":["","%s секунду назад","%s секунды назад","%s секунд назад"],"global_short_date":["","{day} {month}","вчера","сегодня","завтра"],"global_short_date_time":["","{day} {month} в {hour}:{minute}","вчера в {hour}:{minute}","сегодня в {hour}:{minute}","завтра в {hour}:{minute}"],"global_short_date_time_l":["","{day} {month} в {hour}:{minute}","вчера в {hour}:{minute}","сегодня в {hour}:{minute}","завтра в {hour}:{minute}"],"global_show_all_results":"Показать все результаты","global_to_top":"Наверх","global_user_is_online":"онлайн","global_user_is_online_mobile":"онлайн с телефона","global_warning":"Предупреждениe","global_weeks_accusative":["","%s неделю","%s недели","%s недель"],"global_word_hours_ago":["","час назад","два часа назад","три часа назад","четыре часа назад","пять часов назад"],"global_word_mins_ago":["","минуту назад","две минуты назад","три минуты назад","4 минуты назад","5 минут назад"],"global_word_secs_ago":["","только что","две секунды назад","три секунды назад","четыре секунды назад","пять секунд назад"],"global_years_accusative":["","%s год","%s года","%s лет"],"head_search_results":"Результаты поиска","index_sel_bday":"День","login_blocked_delete_page_header":"Удаление страницы","login_blocked_sure_delete_page_question":"Вы уверены, что хотите удалить свою страницу?","login_fast_unblocked_wait_description":"Страница разблокирована. Через несколько секунд Вы вновь сможете пользоваться ВКонтакте.","mail_ad_tag_easy_promoted_market":"Из рекламы товаров","mail_ad_tag_no_access_box_text":"Недостаточно прав в рекламном кабинете, чтобы просматривать объявление.","mail_ad_tag_no_access_box_title":"Ошибка","mail_ad_tag_no_access_text":"Из рекламы","mail_ad_tag_text_prefix":"AD","mail_added_article":"Статья","mail_added_artist":"Музыкант","mail_added_audio":"Аудиозапись","mail_added_audio_album":"Альбом","mail_added_audio_playlist":"Плейлист","mail_added_audiomsg":"Голосовое сообщение","mail_added_audios":["","Аудиозапись","%s аудиозаписи","%s аудиозаписей"],"mail_added_call":"Звонок","mail_added_clips":"Клипы","mail_added_curator":"Куратор","mail_added_doc":"Файл","mail_added_docs":"Файл","mail_added_geo":"Карта","mail_added_gift":"Подарок","mail_added_graffiti":"Граффити","mail_added_group":"Группа","mail_added_link":"Ссылка","mail_added_market_item":"Товар","mail_added_mask":"Маска","mail_added_money_request":"Запрос на денежный перевод","mail_added_money_transfer":"Денежный перевод","mail_added_msg":"Cообщение","mail_added_msgs":"Cообщения","mail_added_photo":"Фотография","mail_added_photos":["","Фотография","%s фотографии","%s фотографий"],"mail_added_podcast":"Подкаст","mail_added_poll":"Опрос","mail_added_sticker":"Стикер","mail_added_story":"История","mail_added_video":"Видеозапись","mail_added_videos":["","Видео","%s видео","%s видео"],"mail_added_vkpay":"Запрос VK Pay","mail_added_wall":"Запись на стене","mail_added_wall_reply":"Комментарий на стене","mail_added_widget":"Виджет","mail_allow_comm_messages":"Разрешить сообщения","mail_and_peer":"и ещё {count} {typing}","mail_and_peer_one":"и","mail_block_comm_messages":"Запретить сообщения","mail_block_notify_messages":"Запретить оповещения","mail_block_user":"Заблокировать пользователя","mail_by_you":"Вы","mail_call_declined":"Звонок отклонён","mail_call_snippet_canceled":"Отменён","mail_call_snippet_declined":"Отклонён","mail_call_snippet_finished":"Завершён","mail_call_snippet_group":"Групповой звонок","mail_call_snippet_incoming":"Входящий звонок","mail_call_snippet_incoming_video":"Входящий видеозвонок","mail_call_snippet_missed":"Пропущен","mail_call_snippet_outgoing":"Исходящий звонок","mail_call_snippet_outgoing_video":"Исходящий видеозвонок","mail_callback_popup_text":" {name} предлагает вам открыть ссылку {domain}","mail_callback_popup_title":"Открыть ссылку?","mail_chat_leave_confirm":"Покинув беседу, вы не будете получать новые сообщения от участников. Вы сможете вернуться при наличии свободных мест.<br>","mail_chat_sure_to_delete_all":"Вы действительно хотите <b>удалить всю переписку<\/b> в этой беседе?<br><br>Отменить это действие будет <b>невозможно<\/b>.","mail_clear_recent":"Очистить","mail_creation_count_mr_service_msg":["","Отправлено %s приглашение (видите только вы)","Отправлено %s приглашения (видите только вы)","Отправлено %s приглашений (видите только вы)"],"mail_delete":"Удалить","mail_delete_for_all":"Удалить для всех","mail_deleteall1":"Удалить все сообщения","mail_deleted_stop":"Сообщение удалено.","mail_dialog_msg_delete_N":["","Вы действительно хотите <b>удалить<\/b> сообщение?","Вы действительно хотите <b>удалить<\/b> %s сообщения?","Вы действительно хотите <b>удалить<\/b> %s сообщений?"],"mail_dialog_msg_delete_title":"Удалить сообщение","mail_error":"Ошибка","mail_expired_message":"Сообщение исчезло","mail_fwd_msgs":["","%s сообщение","%s сообщения","%s сообщений"],"mail_gift_message_sent":["","отправил подарок","отправила подарок"],"mail_group_calls_im_search_new_year_tt":"Поздравьте близких!<br\/> Со звонками ВКонтакте расстояние не помеха ","mail_group_calls_im_search_tt":"Начните групповой звонок здесь","mail_group_sure_to_delete_all":"Вы действительно хотите <b>удалить всю переписку<\/b> с этим сообществом?<br><br>Отменить это действие будет <b>невозможно<\/b>.","mail_header_online_status":"online","mail_hide_unpin_hover":"Скрыть","mail_im_accepted_message_request":"Это {contact} из вашего списка контактов","mail_im_accepted_message_request_no_name":"безымянный контакт","mail_im_add_to_chat":"Добавить в беседу","mail_im_call_app":"Звонок через приложение","mail_im_call_audio":"Аудиозвонок","mail_im_call_by_name":"Позвонить от имени","mail_im_call_video":"Видеозвонок","mail_im_chat_created":["","{from} создал беседу {title}","{from} создала беседу {title}"],"mail_im_chat_kick_don":"Вы исключены из беседы, так как у вас закончилась платная подписка на сообщество","mail_im_chat_own_screenshot":"Вы сделали скриншот беседы","mail_im_chat_screenshot":["","{from} сделал скриншот беседы","{from} сделала скриншот беседы"],"mail_im_create_chat_with":"Добавить собеседников","mail_im_delete_all_history":"Очистить историю сообщений","mail_im_delete_email_contact":"Удалить переписку","mail_im_goto_conversation":"Перейти к диалогу","mail_im_invite_by_call_link":["","{from} присоединился к звонку по ссылке","{from} присоединилась к звонку по ссылке"],"mail_im_invite_by_link":["","{from} присоединился к беседе по ссылке","{from} присоединилась к беседе по ссылке"],"mail_im_invite_by_message_request":["","{user} пригласил {from} в беседу","{user} пригласила {from} в беседу"],"mail_im_invite_to_chat":"Пригласить в беседу ","mail_im_invited":["","{from} пригласил {user}","{from} пригласила {user}"],"mail_im_invited_to_call":["","{from} пригласил {user} в звонок","{from} пригласила {user} в звонок"],"mail_im_kick_user_call_block":["","{from} исключил из звонка {user}","{from} исключила из звонка {user}"],"mail_im_kicked_from_chat":["","{from} исключил {user}","{from} исключила {user}"],"mail_im_left":["","{from} вышел из беседы","{from} вышла из беседы"],"mail_im_mention_all":"Все участники беседы","mail_im_mention_online":"Все, кто сейчас онлайн","mail_im_mute":"Отключить уведомления","mail_im_n_chat_members":["","%s участник","%s участника","%s участников"],"mail_im_new_messages":["","%s новое сообщение","%s новых сообщения","%s новых сообщений"],"mail_im_peer_profile_delete_note_success":"Комментарий удалён","mail_im_peer_profile_extra_tags":["","%s метка","%s метки","%s меток"],"mail_im_peer_profile_info_empty":"Нет данных","mail_im_peer_profile_info_label_text":"Информация:","mail_im_peer_profile_join_date_empty_text":["","Не подписан","Не подписана"],"mail_im_peer_profile_join_date_label_text":"Дата подписки:","mail_im_peer_profile_manage_tags":"Управление метками","mail_im_peer_profile_manage_tags_add_link":"Добавить метку","mail_im_peer_profile_manage_tags_box_title":"Управление","mail_im_peer_profile_manage_tags_placeholder":"Новая метка","mail_im_peer_profile_manage_tags_remove":"Удалить метку","mail_im_peer_profile_manage_tags_success":"Метки сохранены","mail_im_peer_profile_note_add_link":"Добавить комментарий","mail_im_peer_profile_note_box_placeholder":"Введите текст...","mail_im_peer_profile_note_box_title":"Комментарий администратора","mail_im_peer_profile_note_delete_confirmation_text":"Вы уверены, что хотите удалить комментарий?","mail_im_peer_profile_note_delete_link":"Удалить комментарий","mail_im_peer_profile_note_edit_link":"Редактировать","mail_im_peer_profile_note_label_text":"Комментарий:","mail_im_peer_profile_save_note_success":"Комментарий сохранён","mail_im_peer_profile_tag_delete_confirmation_text":["","Метка «{tag_name}» используется в %s диалоге. Если удалить метку, она удалится из всех диалогов. Вы уверены, что хотите удалить её?","Метка «{tag_name}» используется в %s диалогах. Если удалить метку, она удалится из всех диалогов. Вы уверены, что хотите удалить её?","Метка «{tag_name}» используется в %s диалогах. Если удалить метку, она удалится из всех диалогов. Вы уверены, что хотите удалить её?"],"mail_im_peer_profile_tag_delete_confirmation_text_single":"Метка «{tag_name}» используется в одном диалоге. Если удалить метку, она удалится из диалога. Вы уверены, что хотите удалить её?","mail_im_peer_profile_tags_empty":"Без меток","mail_im_peer_profile_tags_label_text":"Метки:","mail_im_peer_profile_toggle_tags_off":"Скрыть доступные метки","mail_im_peer_profile_toggle_tags_on":"Показать доступные метки","mail_im_peer_search":"Поиск по истории сообщений","mail_im_photo_removed":["","{from} удалил фотографию беседы","{from} удалила фотографию беседы"],"mail_im_photo_removed_channel":["","{from} удалил фотографию канала","{from} удалила фотографию канала"],"mail_im_photo_set":["","{from} обновил фотографию беседы","{from} обновила фотографию беседы"],"mail_im_pin_message":["","{from} закрепил сообщение «{msg}»","{from} закрепила сообщение «{msg}»"],"mail_im_pin_message_empty2":["","{from} закрепил {link}сообщение{\/link}","{from} закрепила {link}сообщение{\/link}"],"mail_im_returned_to_chat":["","{from} вернулся в беседу","{from} вернулась в беседу"],"mail_im_search_empty":"Не найдено сообщений по такому запросу.","mail_im_show_media_history":"Показать вложения","mail_im_show_media_history_group":"Показать вложения","mail_im_start_group_call":["","{from} начал групповой звонок","{from} начала групповой звонок"],"mail_im_title_updated_channel":["","{from} изменил название канала: {title}","{from} изменила название канала: {title}"],"mail_im_title_updated_dot":["","{from} изменил название беседы: {title}","{from} изменила название беседы: {title}"],"mail_im_unmute":"Включить уведомления","mail_im_unpin_message":["","{from} открепил сообщение «{msg}»","{from} открепила сообщение «{msg}»"],"mail_im_unpin_message_empty2":["","{from} открепил {link}сообщение{\/link}","{from} открепила {link}сообщение{\/link}"],"mail_invitation_sended_ago":"Приглашение отправлено {when}","mail_join_invite_error_title":"Ошибка вступления в чат","mail_keyboard_label_location":"Отправить своё местоположение","mail_keyboard_label_vkpay":"Оплатить через VK Pay","mail_last_activity_tip":["","{user} был в сети {time}","{user} была в сети {time}"],"mail_leave_channel":"Отписаться от канала","mail_leave_chat":"Выйти из беседы","mail_marked_as_spam":"Сообщение помечено как спам и удалено.","mail_menu_mark_unread":"Отметить непрочитанным","mail_menu_pin_hide":"Скрыть закрепл. сообщение","mail_menu_pin_show":"Показать закрепл. сообщение","mail_menu_unpin":"Открепить сообщение","mail_message_edited":"изменено","mail_message_request_reject":"Отклонить","mail_message_wait_until_uploaded":"Пожалуйста, дождитесь окончания загрузки файлов.","mail_messages_expired":["","{count} сообщение исчезло","{count} сообщения исчезло","{count} сообщений исчезло"],"mail_money_amount_rub":["","%s руб.","%s руб.","%s руб."],"mail_money_request_collected_amount":"Собрано {amount}","mail_money_request_collected_amount_from":"Собрано {amount} из {total_amount}","mail_money_request_held_amount":"({amount} ожидает получения)","mail_money_request_message_sent":["","отправил запрос на перевод","отправила запрос на перевод"],"mail_money_tranfer_message_sent":["","перевёл деньги","перевела деньги"],"mail_no_support":"Сообщение не поддерживается вашим приложением.","mail_peer_profile_likes_replies_tooltip":"Данные о лайках и комментариях показаны за 100 дней","mail_pin_chat":"Закрепить в списке чатов","mail_recent_searches":"Недавно вы искали","mail_recommend_block_action_find_friends":"Найти по имени","mail_recommend_block_action_import_google":"Импорт из Gmail","mail_recommend_block_action_import_ok":"Импорт из ОК","mail_recommend_block_action_invite":"Пригласить по номеру","mail_recording_audio_several":["","записывает аудио","записывают аудио","записывают аудио"],"mail_reject_mr_confirmation_text":"Вы действительно хотите отклонить приглашение в беседу?","mail_reject_mr_confirmation_title":"Отклонить приглашение","mail_restore":"Восстановить","mail_restored":"Сообщение восстановлено","mail_return_to_chat":"Вернуться в беседу","mail_return_to_vkcomgroup":"Подписаться на канал","mail_search_conversations_sep":"Беседы","mail_search_dialogs_sep":"Люди и сообщества","mail_search_messages":"Сообщения","mail_search_only_messages":"Искать в личных сообщениях","mail_search_only_messages_comm":"Искать в сообщениях сообщества","mail_send_message_error":"Ошибка при отправке сообщения","mail_settings":"Информация о беседе","mail_source_info":"Со страницы: {link}<br>{info}","mail_sure_to_delete_all":"Вы действительно хотите <b>удалить всю переписку<\/b> с данным пользователем?<br><br>Отменить это действие будет <b>невозможно<\/b>.","mail_typing_several":["","печатает","печатают","печатают"],"mail_unfollow_channel":"Отписаться","mail_unfollow_channel_confirmation":"Вы действительно хотите <b>отписаться и удалить все сообщения<\/b> от этого канала?","mail_unpin":"Открепить сообщение","mail_unpin_chat":"Не закреплять в списке чатов","mail_unpin_text":"Вы действительно хотите открепить сообщение? Это изменение увидят все участники беседы.","mail_unpin_title":"Открепить сообщение","mail_unread_message":"Сообщение не прочитано","mail_vkcomgroup_leave_confirm":"Отписавшись от канала, вы не будете получать новые сообщения. Вы сможете вернуться впоследствии.<br>","mail_vkcomgroup_settings":"Информация о канале","months_of":{"1":"января","2":"февраля","3":"марта","4":"апреля","5":"мая","6":"июня","7":"июля","8":"августа","9":"сентября","10":"октября","11":"ноября","12":"декабря"},"months_sm_of":{"1":"янв","2":"фев","3":"мар","4":"апр","5":"мая","6":"июн","7":"июл","8":"авг","9":"сен","10":"окт","11":"ноя","12":"дек"},"reg0_change_mail":"Изменить","reg0_error_bad_email":"Некорректный email.","text_N_symbols_remain":["","Остался %s знак","Осталось %s знака","Осталось %s знаков"],"text_exceeds_symbol_limit":["","Допустимый объём превышен на %s знак.","Допустимый объём превышен на %s знака.","Допустимый объём превышен на %s знаков."],"votes_flex":["","голос","голоса","голосов"],"global_language_beta_version":"Бета-версия","join_code_failed":"<b>Превышено максимальное количество попыток ввода кода<\/b>.<br>Попробуйте указать другой номер телефона.","join_need_contacts":"Выберите страну","join_need_email":"Введите email","join_need_school":"Выберите школу","join_need_uni":"Выберите университет","join_new_page_sure":"К номеру может быть привязана только <b>одна<\/b> страница.<br>Создавать новую страницу стоит, только если старая вам<br><b>не принадлежит<\/b>.","join_new_page_sure_submit":"Да, <b>отвязать<\/b> номер от старой страницы","join_new_page_sure_title":"Внимание","join_no_sms":"Отправить SMS повторно","join_pass_tip":"Пожалуйста, <b>придумайте<\/b> свой пароль для входа на сайт.<br><br>Пример пароля: <b>{password}<\/b>","join_pwd_level0":"Слишком короткий пароль","join_pwd_level1":"Очень слабый пароль","join_pwd_level2":"Слабый пароль","join_pwd_level3":"Хороший пароль","join_pwd_level4":"Сильный пароль","join_pwd_level5":"Пароль не может содержать пробелы","join_resend_sms_time":"Отправить SMS повторно через %s","join_send_code_sms":"Отправить SMS","join_send_code_sms_time":"Отправить SMS через %s","join_sorry_code":"Введите код, который <b>придёт в сообщении<\/b>. Код, который вы ввели, мы написали для примера.","join_sure_detach":"К номеру уже привязана страница","join_tries_left":"Осталось попыток: {count}","join_wrong_code":"<b>Неверный код<\/b>.<br>Пожалуйста, введите код, который вы только что получили."});
+addTemplates({"_":"_","stickers_sticker_url":"https:\/\/vk.com\/sticker\/1-%id%-%size%"});
+window.cur = window.cur || {};
+cur['emojiHintsSendLogHash']="e1194c3a729031b903";
+Index.initNew();Join.initIndexJoinForm({"from":"","bdateMonths":[[0,"Месяц"],[1,"Января"],[2,"Февраля"],[3,"Марта"],[4,"Апреля"],[5,"Мая"],[6,"Июня"],[7,"Июля"],[8,"Августа"],[9,"Сентября"],[10,"Октября"],[11,"Ноября"],[12,"Декабря"]],"bdateYears":[[0,"Год"],[2007,"2007"],[2006,"2006"],[2005,"2005"],[2004,"2004"],[2003,"2003"],[2002,"2002"],[2001,"2001"],[2000,"2000"],[1999,"1999"],[1998,"1998"],[1997,"1997"],[1996,"1996"],[1995,"1995"],[1994,"1994"],[1993,"1993"],[1992,"1992"],[1991,"1991"],[1990,"1990"],[1989,"1989"],[1988,"1988"],[1987,"1987"],[1986,"1986"],[1985,"1985"],[1984,"1984"],[1983,"1983"],[1982,"1982"],[1981,"1981"],[1980,"1980"],[1979,"1979"],[1978,"1978"],[1977,"1977"],[1976,"1976"],[1975,"1975"],[1974,"1974"],[1973,"1973"],[1972,"1972"],[1971,"1971"],[1970,"1970"],[1969,"1969"],[1968,"1968"],[1967,"1967"],[1966,"1966"],[1965,"1965"],[1964,"1964"],[1963,"1963"],[1962,"1962"],[1961,"1961"],[1960,"1960"],[1959,"1959"],[1958,"1958"],[1957,"1957"],[1956,"1956"],[1955,"1955"],[1954,"1954"],[1953,"1953"],[1952,"1952"],[1951,"1951"],[1950,"1950"],[1949,"1949"],[1948,"1948"],[1947,"1947"],[1946,"1946"],[1945,"1945"],[1944,"1944"],[1943,"1943"],[1942,"1942"],[1941,"1941"],[1940,"1940"],[1939,"1939"],[1938,"1938"],[1937,"1937"],[1936,"1936"],[1935,"1935"],[1934,"1934"],[1933,"1933"],[1932,"1932"],[1931,"1931"],[1930,"1930"],[1929,"1929"],[1928,"1928"],[1927,"1927"],[1926,"1926"],[1925,"1925"],[1924,"1924"],[1923,"1923"],[1922,"1922"],[1921,"1921"],[1920,"1920"],[1919,"1919"],[1918,"1918"],[1917,"1917"],[1916,"1916"],[1915,"1915"],[1914,"1914"],[1913,"1913"],[1912,"1912"],[1911,"1911"],[1910,"1910"],[1909,"1909"],[1908,"1908"],[1907,"1907"],[1906,"1906"],[1905,"1905"],[1904,"1904"],[1903,"1903"],[1902,"1902"]],"proceedAs":false,"fbApp":"128749580520227","fbState":"119820ed7dc34c1969","fbLocale":"ru_RU"});
+;(function (d, w) {
+if (w.__dev) {
+  return
+}
+var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true;
+ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";
+var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window);;(function (d, w) {
+if (w.__dev) {
+  return;
+}
+if(!w._tns){w._tns = {}};
+w._tns.tnsPixelSocdem = "13"
+w._tns.tnsPixelType = "unauth"
+})(document, window);
+      window.curReady && window.curReady();
+    }
+  </script>
+
+
+
+<div class="tr-popup" data-disabled="true" data-hidden="true" data-invalid="true" id="tr-popup" translate="no">
+<div class="tr-popup__row tr-popup__top">
+<div class="tr-popup__header">
+<span class="tr-popup__text">Оригинал</span>
+</div>
+<div class="tr-popup__content"></div>
+<div class="tr-popup__button tr-popup__button_active" data-action="expand">Предложить перевод</div>
+<div class="tr-popup__translator_buttons">
+<div class="tr-popup__button tr-popup__button_active tr-popup__button_dislike" data-action="dislike"></div>
+<div class="tr-popup__button tr-popup__button_active tr-popup__button_original" data-action="original">Подставить оригинал</div>
+<div class="tr-popup__button tr-popup__button_active tr-popup__button_comment" data-action="comment">Оставить комментарий</div>
+</div>
+</div>
+<div class="tr-popup__row tr-popup__row_bottom">
+<textarea autocapitalize="off" autocomplete="off" autocorrect="off" class="tr-popup__input" maxlength="1000" spellcheck="false"></textarea>
+<div class="tr-popup__message">
+<span class="tr-popup__text">Предложите свой вариант перевода</span>
+<span class="tr-popup__button tr-popup__button_yellow" data-action="send" role="button">Отправить</span>
+</div>
+</div>
+<span class="tr-popup__button tr-popup__button_close" data-action="close" role="button"></span>
+</div>
+<div class="tr-stripe" data-hidden="true" id="tr-stripe" lang="ru" translate="no">
+<div class="tr-stripe__logo">
+<a class="tr-stripe__company" data-dontrewriteme="true" href="https://yandex.ru" target="_blank"> </a><a class="tr-stripe__service" data-dontrewriteme="true" href="https://translate.yandex.ru" target="_blank"> </a>
+</div>
+<span class="tr-stripe__text">Вы находитесь на сайте Яндекс.Переводчика. Перейти на <a class="tr-stripe__link" data-dontrewriteme="true" href="#" id="tr-stripe__link" target="_blank"></a></span>
+<span class="tr-stripe__close" onclick="this.parentNode.setAttribute('data-hidden', true)"></span>
+</div>
+<script type="text/javascript">
+(function (win, doc, namespace) {
+var trDir = namespace.trDir.split('-'),
+trSourceLink = doc.getElementById('tr-stripe__link');
+if (doc.querySelector('meta[content^="yandex-pdf2html"]')) {
+namespace.config.filters = [
+function removeHyphenation(chunks) {
+var i, j, n, m, k, span, next, value, spans;
+for (i = 0, n = chunks.length; i < n; i++) {
+spans = chunks[i].getSpans();
+for (j = 0, m = spans.length; j < m; j++) {
+span = spans[j];
+next = spans[j + 1];
+value = span.getParam('value');
+k = value.search(/\S+\-$/);
+if (k >= 0 && next) {
+span.setParam('value', value.slice(0, k));
+next.setParam('value', value.slice(k, -1) + next.getParam('value'));
+}
+}
+}
+return chunks;
+}
+];
+}
+if (win.top === win) {
+win.setTimeout(function () {
+var translator = new namespace.PageTranslator(namespace.config);
+namespace.createPopup(translator);
+translator.translate(trDir[0], trDir[1]);
+}, 1000);
+trSourceLink.href = win.decodeURIComponent('https://vk.com/');
+trSourceLink.textContent = trSourceLink.hostname;
+doc.getElementById('tr-stripe').removeAttribute('data-hidden');
+}
+// Hack for Quill: disable his mutation observer
+if (win.quill && win.quill.container) {
+win.quill.container.innerHTML = win.quill.container.innerHTML;
+}
+})(this, this.document, this.yt = this.yt || {});
+</script>
+</body></html>
