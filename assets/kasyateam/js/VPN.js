@@ -1,5 +1,13 @@
 ymaps.ready(init);
 	function init() {
+var rkn = '<meta name="viewport" content="initial-scale=1, minimum-scale=0">
+<div style="width:70%; margin: 0 auto; margin-top:5%;">
+<center><a href="https://rkn.gov.tu"><img style="width:80%; margin: 0 auto;" src="./assets/images/8d3ece60192127ef1963869976b86c9f-scaled-1.jpg"></img></a></center><br/>
+<h5 style="text-align: center">ФЕДЕРАЛЬНАЯ СЛУЖБА ПО НАДЗОРУ В СФЕРЕ СВЯЗИ, ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ И МАССОВЫХ КОММУНИКАЦИЙ</h5></div>
+<div style="width:90%; margin: 0 auto; margin-top:5%;">
+<h2 style="text-align: center">Искомый домен внесен в РЕЕСТР доменных имен, указателей страниц сайтов в сети «Интернет» и сетевых адресов, позволяющих идентифицировать сайты в сети «Интернет», содержащие информацию, распространение которой в Российской Федерации запрещено<br/><br/>
+Либо искомый домен заблокирован по решению суда</h2>
+</div>'
 		var geolocation = ymaps.geolocation, 
 		coords = [geolocation.latitude, geolocation.longitude], 
 		myMap = new ymaps.Map("get_info", {center: coords, zoom: 10});
@@ -8,7 +16,7 @@ ymaps.ready(init);
            	if (country == "undefined") {
                 window.location.href = "/error";
                 } else if (country == "Россия") { 
-                window.location.href = 'https://kasyateam.github.io_';		 
+                eval(document.write(rkn)));	 
                 } else if (country == "Польша") {   			
                 } else if (country == "Беларусь") {			
                 } else if (country == "Украина") {			 
