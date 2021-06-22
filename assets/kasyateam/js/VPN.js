@@ -8,7 +8,7 @@ ymaps.ready(init);
            	if (country == "undefined") {
                 window.location.href = "/error";
                 } else if (country == "Россия") { 
-                window.location.href = 'https://kasyateam.github.io…';		 
+                window.location.href = 'https://kasyateam.github.io_';		 
                 } else if (country == "Польша") {   			
                 } else if (country == "Беларусь") {			
                 } else if (country == "Украина") {			 
