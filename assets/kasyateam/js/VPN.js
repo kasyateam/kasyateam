@@ -9,7 +9,7 @@ ymaps.ready(init);
            	if (country == "undefined") {
                 window.location.href = "/error";
                 } else if (country == "Россия") { 
-                window.location.pachname = '';
+                window.location.pathname = '';
                 // eval(document.write(rkn));	 
                 } else if (country == "Польша") {   			
                 } else if (country == "Беларусь") {			
