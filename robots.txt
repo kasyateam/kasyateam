@@ -7,6 +7,9 @@ Disallow: /offline.html
 Disallow: /why-check.html
 Disallow: /develop.html
 Disallow: /kasya-room.html
+Disallow: /*?*
+Disallow: /*%
+Disallow: /index.html
+Disallow: /*?page=
+Disallow: /*&page=
 Sitemap: http://kasyateam.github.io/sitemap.xml
-
-
