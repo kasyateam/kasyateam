@@ -1,3 +1,4 @@
+/*
 ymaps.ready(init);
 	function init() {
                 var geolocation = ymaps.geolocation, 
@@ -10,7 +11,7 @@ ymaps.ready(init);
                 window.location.href = "/error";
                 } else if (country == "Россия") { 
                 window.location.pathname = '';
-                eval(document.write(rkn));	 
+                 // eval(document.write(rkn));	 
                 } else if (country == "Польша") {   			
                 } else if (country == "Беларусь") {			
                 } else if (country == "Украина") {			 
@@ -32,3 +33,4 @@ if (typeof el.innerText !== 'undefined') {
   }
 }
 	
+*/
