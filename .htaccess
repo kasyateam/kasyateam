@@ -1,11 +1,6 @@
 RewriteEngine On
-
 RewriteBase /
-
-RewriteCond %{HTTP:X-HTTPS} !1
-
-RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
-
+Redirect301/ http://example.com/index.html
 #test
 ErrorDocument 403 /server.html
 ErrorDocument 404 /404.html
