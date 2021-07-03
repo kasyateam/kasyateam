@@ -1,16 +1,11 @@
 RewriteEngine On
+
 RewriteBase /
+
 RewriteCond %{HTTP:X-HTTPS} !1
-RewriteCond %{HTTP_HOST} ^domain\.ru$
-RewriteRule ^(.*)$ https://domain.ru/$1 [R=301,L]
+
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
 #test
 ErrorDocument 403 /server.html
 ErrorDocument 404 /404.html
-#Черный список пользователей
-order allow,deny
-deny from 89.113.139.177
-allow from all
-<FilesMatch ".(htaccess|htpasswd|log)$">
-Order Allow,Deny
-Deny from all
-</FilesMatch>
